@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "name": "Nick",
+      "createdAt": "1/12/2022",
+      "admin": "1"
+    }
+  ],
+  "notes": []
+}
