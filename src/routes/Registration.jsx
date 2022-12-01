@@ -1,5 +1,5 @@
 function Registration() {
-    return <div>Registration placeholder</div>;
+    return <div>PlaceHolder</div>;
 }
 
 export default Registration;
