@@ -1,19 +1,43 @@
 {
-  "users": [
-    {
-      "id": "0",
-      "email": "admin@gmail.com",
-      "password": "admin",
-      "name": "Nick",
-      "createdAt": "1/12/2022"
-    },
-    {
-      "email": "123",
-      "password": "123",
-      "name": "123",
-      "createdAt": "12/4/2022",
-      "id": "wg_k38O"
-    }
-  ],
-  "notes": []
+    "users": [
+        {
+            "id": "0",
+            "email": "admin@gmail.com",
+            "password": "admin",
+            "name": "Nick",
+            "createdAt": "1/12/2022"
+        }
+    ],
+    "news": [
+        {
+            "id": "1",
+            "content": "Some content number 1",
+            "createdAt": "12/4/2022"
+        },
+        {
+            "id": "2",
+            "content": "Some content number 2",
+            "createdAt": "12/4/2022"
+        },
+        {
+            "id": "3",
+            "content": "Some content number 3",
+            "createdAt": "12/4/2022"
+        },
+        {
+            "id": "4",
+            "content": "Some content number 4",
+            "createdAt": "12/4/2022"
+        },
+        {
+            "id": "5",
+            "content": "Some content number 5",
+            "createdAt": "12/4/2022"
+        },
+        {
+            "id": "6",
+            "content": "Some content number 6",
+            "createdAt": "12/4/2022"
+        }
+    ]
 }

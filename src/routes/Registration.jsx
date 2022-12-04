@@ -2,8 +2,11 @@ import {useCallback, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link, useNavigate} from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
-import {addUser, fetchUsers} from '../redux/userActions';
-import {selectUserViaEmail, selectUserViaName} from '../redux/userSelectors';
+import {addUser, fetchUsers} from '../redux/users/userActions';
+import {
+    selectUserViaEmail,
+    selectUserViaName,
+} from '../redux/users/userSelectors';
 function Registration() {
     useFetch(fetchUsers());
     const navigate = useNavigate();

@@ -1,9 +1,8 @@
 import {useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
-import {fetchUsers} from '../redux/userActions';
-import {selectActiveUser} from '../redux/userSelectors';
-
+import {fetchUsers} from '../redux/users/userActions';
+import {selectActiveUser} from '../redux/users/userSelectors';
 function Header() {
     useFetch(fetchUsers());
     const user = useSelector(selectActiveUser);
@@ -41,7 +40,7 @@ function Header() {
                     [WIP]
                 </NavLink>
                 <NavLink
-                    to="/"
+                    to="/news"
                     end={true}
                     className={({isActive}) =>
                         isActive

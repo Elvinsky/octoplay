@@ -2,6 +2,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './routes/Layout';
 import Login from './routes/Login';
+import News from './routes/News';
 import Registration from './routes/Registration';
 import UserPage from './routes/UserPage';
 
@@ -18,6 +19,10 @@ function App() {
                 {
                     path: '/userpage',
                     element: <UserPage />,
+                },
+                {
+                    path: '/news',
+                    element: <News />,
                 },
             ],
         },

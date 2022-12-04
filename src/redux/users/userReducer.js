@@ -32,16 +32,17 @@ export const userReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 error: payload,
             };
         }
-        case 'USERS/FETCH/START': {
-            return {
-                ...state,
-                loading: true,
-            };
-        }
+
         case 'USER/ACTIVE/SET': {
             return {
                 ...state,
                 activeUser: payload,
+            };
+        }
+        case 'USERS/FETCH/START': {
+            return {
+                ...state,
+                loading: true,
             };
         }
         case 'USERS/FETCH/ERROR':

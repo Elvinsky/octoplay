@@ -1,4 +1,4 @@
-import {getUsers} from '../api';
+import {getUsers} from '../../api';
 
 export const fetchUsers = () => async (dispatch) => {
     dispatch({type: 'USERS/FETCH/START'});

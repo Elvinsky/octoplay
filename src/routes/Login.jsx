@@ -2,8 +2,8 @@ import {useCallback, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link, useNavigate} from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
-import {fetchUsers, loginUser} from '../redux/userActions';
-import {selectUserViaEmail} from '../redux/userSelectors';
+import {fetchUsers, loginUser} from '../redux/users/userActions';
+import {selectUserViaEmail} from '../redux/users/userSelectors';
 
 function Login() {
     useFetch(fetchUsers());
@@ -29,7 +29,6 @@ function Login() {
             setPassword('');
             return;
         }
-        console.log('activeUser: ', activeUser);
         setValid(true);
         dispatch(loginUser(activeUser));
         navigate('/');
