@@ -1,9 +1,5 @@
-const getUsers = async () => {
-    const users = await fetch('http://localhost:5000/users').then((r) =>
-        r.json()
-    );
-    return {users};
-};
+import {getUsers} from '../api';
+
 export const fetchUsers = () => async (dispatch) => {
     dispatch({type: 'USERS/FETCH/START'});
     try {
@@ -18,8 +14,18 @@ export const loginUser = (user) => async (dispatch) => {
     dispatch({type: 'USER/LOGIN/START'});
     try {
         dispatch({type: 'USER/LOGIN/SUCCESS', payload: user});
+        localStorage.setItem('user', JSON.stringify(user));
     } catch (e) {
         console.error(e);
         dispatch({type: 'USER/LOGIN/ERROR', payload: e});
+    }
+};
+export const addUser = (user) => async (dispatch) => {
+    dispatch({type: 'USER/ADD/START'});
+    try {
+        dispatch({type: 'USER/ADD/SUCCESS', payload: user});
+    } catch (e) {
+        console.error(e);
+        dispatch({type: 'USER/ADD/ERROR', payload: e});
     }
 };

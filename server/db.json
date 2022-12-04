@@ -1,12 +1,19 @@
 {
-    "users": [
-        {
-            "id": "0",
-            "email": "admin@gmail.com",
-            "password": "admin",
-            "name": "Nick",
-            "createdAt": "1/12/2022"
-        }
-    ],
-    "notes": []
+  "users": [
+    {
+      "id": "0",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "name": "Nick",
+      "createdAt": "1/12/2022"
+    },
+    {
+      "email": "123",
+      "password": "123",
+      "name": "123",
+      "createdAt": "12/4/2022",
+      "id": "wg_k38O"
+    }
+  ],
+  "notes": []
 }

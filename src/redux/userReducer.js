@@ -1,6 +1,6 @@
 const DEFAULT_STATE = {
     users: [],
-    activeUser: undefined,
+    activeUser: JSON.parse(localStorage.getItem('user')),
     loading: false,
     error: null,
 };
@@ -12,18 +12,36 @@ export const userReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 users: payload,
             };
         }
-        case 'USERS/ADD': {
+        case 'USERS/ADD/SUCCESS': {
             const user = payload;
             return {
                 ...state,
-                users: state.users.concat(user),
+                users: [...state.users, user],
             };
         }
-
+        case 'USERS/ADD/START': {
+            return {
+                ...state,
+                loading: true,
+            };
+        }
+        case 'USERS/ADD/ERROR': {
+            return {
+                ...state,
+                loading: false,
+                error: payload,
+            };
+        }
         case 'USERS/FETCH/START': {
             return {
                 ...state,
                 loading: true,
+            };
+        }
+        case 'USER/ACTIVE/SET': {
+            return {
+                ...state,
+                activeUser: payload,
             };
         }
         case 'USERS/FETCH/ERROR':

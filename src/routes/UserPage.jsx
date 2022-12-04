@@ -8,10 +8,10 @@ function UserPage() {
     const user = useSelector(selectActiveUser);
     return (
         <div className="flex flex-col p-5 m-2 gap-2">
-            <div>{user.name}</div>
-            <div>{user.email}</div>
-            <div>{user.id}</div>
-            <div>{user.createdAt}</div>
+            <div>{user[0].name}</div>
+            <div>{user[0].email}</div>
+            <div>{user[0].id}</div>
+            <div>{user[0].createdAt}</div>
             <div></div>
         </div>
     );

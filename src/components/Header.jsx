@@ -1,4 +1,12 @@
+import {useSelector} from 'react-redux';
+import {NavLink} from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
+import {fetchUsers} from '../redux/userActions';
+import {selectActiveUser} from '../redux/userSelectors';
+
 function Header() {
+    useFetch(fetchUsers());
+    const user = useSelector(selectActiveUser);
     return (
         <header className="flex w-10/12 m-auto items-center justify-between mt-5">
             <div className="font-black text-2xl flex items-center gap-2">
@@ -10,41 +18,70 @@ function Header() {
                 ></img>
             </div>
             <div className="flex gap-7">
-                <div
-                    className="font-medium text-xl flex items-center transition-all
-                     duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer"
+                <NavLink
+                    to="/"
+                    end={true}
+                    className={({isActive}) =>
+                        isActive
+                            ? 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer text-emerald-600'
+                            : 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer'
+                    }
                 >
                     Home
-                </div>
-                <div
-                    className="font-medium text-xl flex items-center transition-all
-                     duration-300 hover:text-red-600 hover:scale-110 hover:cursor-pointer"
+                </NavLink>
+                <NavLink
+                    to="/"
+                    end={true}
+                    className={({isActive}) =>
+                        isActive
+                            ? 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer text-emerald-600'
+                            : 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer'
+                    }
                 >
                     [WIP]
-                </div>
-                <div
-                    className="font-medium text-xl flex items-center transition-all
-                     duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer"
+                </NavLink>
+                <NavLink
+                    to="/"
+                    end={true}
+                    className={({isActive}) =>
+                        isActive
+                            ? 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer text-emerald-600'
+                            : 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer'
+                    }
                 >
                     News
-                </div>
-                <div
-                    className="font-medium text-xl flex items-center transition-all
-                     duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer"
+                </NavLink>
+                <NavLink
+                    to="/"
+                    end={true}
+                    // className="font-medium text-xl flex items-center transition-all
+                    //  duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer"
+                    className={({isActive}) =>
+                        isActive
+                            ? 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer text-emerald-600'
+                            : 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer'
+                    }
                 >
                     Top
-                </div>
-                <div
-                    className="font-medium text-xl flex items-center transition-all
-                     duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer"
+                </NavLink>
+                <NavLink
+                    to="/"
+                    end={true}
+                    className={({isActive}) =>
+                        isActive
+                            ? 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer text-emerald-600'
+                            : 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer'
+                    }
                 >
                     Streams
-                </div>
+                </NavLink>
                 <div
+                    to="/"
+                    end={true}
                     className="font-medium text-xl flex items-center transition-all
                      duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer"
                 >
-                    User
+                    {user[0].name}
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
