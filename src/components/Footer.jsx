@@ -1,7 +1,7 @@
 function Footer() {
     return (
-        <footer className="flex w-full m-auto items-center justify-between mt-5 absolute bottom-5">
-            <div className="flex w-10/12 m-auto items-center justify-between mt-5 ">
+        <footer className="flex w-full m-auto items-center justify-between absolute bottom-5">
+            <div className="flex w-10/12 m-auto items-center justify-between">
                 <div className="font-black text-2xl flex items-center gap-2">
                     OCTO PLAY
                     <img

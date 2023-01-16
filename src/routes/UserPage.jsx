@@ -7,13 +7,17 @@ function UserPage() {
     useFetch(fetchUsers());
     const user = useSelector(selectActiveUser);
     return (
-        <div className="flex flex-row gap-12 shadow w-fit m-auto">
+        <div className="flex flex-row gap-8 shadow w-fit m-auto overflow-auto mt-5 p-5">
             <div className=" bg-gray-200 w-52 h-96 m-2"></div>
-            <div className="flex flex-col gap-2 justify-center items-start m-2">
-                <div className="text-2xl">{user[0].name}</div>
-                <div>E-mail: {user[0].email}</div>
-                <div>ID: {user[0].id}</div>
-                <div>Date of registration: {user[0].createdAt}</div>
+            <div className="flex flex-col gap-4 items-start m-2">
+                <div className="text-3xl font-semibold">{user[0].name}</div>
+                <div className="text-xl font-normal">
+                    E-mail: {user[0].email}
+                </div>
+                <div className="text-xl font-normal">ID: {user[0].id}</div>
+                <div className="text-xl font-normal">
+                    Date of registration: {user[0].createdAt}
+                </div>
             </div>
         </div>
     );

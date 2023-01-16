@@ -29,7 +29,7 @@ function Registration() {
 
     const handleReg = useCallback(() => {
         const user = {
-            id: Date.now().toString,
+            id: new Date.now().toString,
             email: email,
             password: password,
             name: name,
