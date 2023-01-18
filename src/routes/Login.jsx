@@ -31,7 +31,7 @@ function Login() {
         }
         setValid(true);
         dispatch(loginUser(activeUser));
-        navigate('/');
+        navigate('/userpage');
     }, [activeUser, dispatch, navigate, password]);
 
     return (

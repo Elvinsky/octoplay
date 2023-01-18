@@ -1,6 +1,5 @@
 import {useCallback} from 'react';
 import {useSelector} from 'react-redux';
-import {useNavigate} from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import {fetchUsers} from '../redux/users/userActions';
 import {selectActiveUser} from '../redux/users/userSelectors';
@@ -8,7 +7,6 @@ import {selectActiveUser} from '../redux/users/userSelectors';
 function UserPage() {
     useFetch(fetchUsers());
     const user = useSelector(selectActiveUser);
-    const navigate = useNavigate();
     const handleLogOut = useCallback(() => {
         localStorage.removeItem('user');
         window.location.reload();
