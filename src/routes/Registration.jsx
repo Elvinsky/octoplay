@@ -29,7 +29,7 @@ function Registration() {
 
     const handleReg = useCallback(() => {
         const user = {
-            id: new Date.now().toString,
+            id: new Date().toString,
             email: email,
             password: password,
             name: name,
@@ -120,7 +120,7 @@ function Registration() {
                         onClick={handleReg}
                         className="bg-neutral-200 p-1 text-lg transition-all duration-300 hover:bg-green-300"
                     >
-                        Log in
+                        Sign in
                     </button>
                     <div
                         className={

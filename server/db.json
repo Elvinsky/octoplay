@@ -1,55 +1,62 @@
 {
-    "users": [
-        {
-            "id": "0",
-            "email": "admin@gmail.com",
-            "password": "admin",
-            "name": "Nick",
-            "createdAt": "1/12/2022"
-        }
-    ],
-    "news": [
-        {
-            "id": "1",
-            "content": "Some content number 1",
-            "thumbnailPic": "https://via.placeholder.com/150",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "2",
-            "content": "Some content number 2",
-            "thumbnailPic": "https://via.placeholder.com/150",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "3",
-            "content": "Some content number 3",
-            "thumbnailPic": "https://via.placeholder.com/150",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "4",
-            "content": "Some content number 4",
-            "thumbnailPic": "https://via.placeholder.com/150",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "5",
-            "content": "Some content number 5",
-            "thumbnailPic": "https://via.placeholder.com/150",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "6",
-            "content": "Some content number 6",
-            "thumbnailPic": "https://via.placeholder.com/150",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        }
-    ]
+  "users": [
+    {
+      "id": "0",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "name": "Nick",
+      "createdAt": "1/12/2022"
+    },
+    {
+      "email": "1234",
+      "password": "123",
+      "name": "123",
+      "createdAt": "1/18/2023",
+      "id": "go_A275"
+    }
+  ],
+  "news": [
+    {
+      "id": "1",
+      "content": "Some content number 1",
+      "thumbnailPic": "https://via.placeholder.com/150",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    },
+    {
+      "id": "2",
+      "content": "Some content number 2",
+      "thumbnailPic": "https://via.placeholder.com/150",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    },
+    {
+      "id": "3",
+      "content": "Some content number 3",
+      "thumbnailPic": "https://via.placeholder.com/150",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    },
+    {
+      "id": "4",
+      "content": "Some content number 4",
+      "thumbnailPic": "https://via.placeholder.com/150",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    },
+    {
+      "id": "5",
+      "content": "Some content number 5",
+      "thumbnailPic": "https://via.placeholder.com/150",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    },
+    {
+      "id": "6",
+      "content": "Some content number 6",
+      "thumbnailPic": "https://via.placeholder.com/150",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    }
+  ]
 }
