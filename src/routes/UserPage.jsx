@@ -7,7 +7,7 @@ function UserPage() {
     useFetch(fetchUsers());
     const user = useSelector(selectActiveUser);
     return (
-        <div className="flex flex-row gap-8 shadow w-fit m-auto overflow-auto mt-5 p-5">
+        <div className="flex flex-row gap-8 custom-shadow w-fit m-auto overflow-auto mt-5 p-5">
             <div className=" bg-gray-200 w-52 h-96 m-2"></div>
             <div className="flex flex-col gap-4 items-start m-2">
                 <div className="text-3xl font-semibold">{user[0].name}</div>

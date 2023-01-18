@@ -7,7 +7,7 @@ function Header() {
     useFetch(fetchUsers());
     const user = useSelector(selectActiveUser);
     return (
-        <header className="flex w-10/12 m-auto items-center justify-between mt-5">
+        <header className="flex w-10/12 m-auto items-center justify-between mt-5 p-3 custom-shadow">
             <div className="font-black text-2xl flex items-center gap-2">
                 OCTO PLAY
                 <img

@@ -12,31 +12,43 @@
         {
             "id": "1",
             "content": "Some content number 1",
+            "thumbnailPic": "https://via.placeholder.com/150",
+            "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
         {
             "id": "2",
             "content": "Some content number 2",
+            "thumbnailPic": "https://via.placeholder.com/150",
+            "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
         {
             "id": "3",
             "content": "Some content number 3",
+            "thumbnailPic": "https://via.placeholder.com/150",
+            "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
         {
             "id": "4",
             "content": "Some content number 4",
+            "thumbnailPic": "https://via.placeholder.com/150",
+            "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
         {
             "id": "5",
             "content": "Some content number 5",
+            "thumbnailPic": "https://via.placeholder.com/150",
+            "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
         {
             "id": "6",
             "content": "Some content number 6",
+            "thumbnailPic": "https://via.placeholder.com/150",
+            "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         }
     ]
