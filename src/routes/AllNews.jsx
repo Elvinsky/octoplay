@@ -17,17 +17,19 @@ function AllNews() {
     const active = useSelector(selectActiveUser);
     const id = +active[0].id;
     const newsAddHandler = () => {
-        const news = {
-            id: '12',
-            content: 'Some content number 12',
-            liked: '1234',
-            watched: '3200',
-            thumbnailPic: 'https://via.placeholder.com/300',
-            fullsizePic: 'https://via.placeholder.com/500',
-            createdAt: '12/4/2022',
-        };
-        postNews(news);
-        dispatch(addNews(news));
+        // const news = {
+        //     id: '12',
+        //     content: 'Some content number 12',
+        //     liked: '1234',
+        //     watched: '3200',
+        //     thumbnailPic: 'https://via.placeholder.com/300',
+        //     fullsizePic: 'https://via.placeholder.com/500',
+        //     createdAt: '12/4/2022',
+        // };
+        // postNews(news);
+        // dispatch(addNews(news));
+
+        //CHECK
         navigate('/newspage/allnews');
     };
     return (
