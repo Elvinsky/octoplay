@@ -1,5 +1,6 @@
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
+import AllNews from './routes/AllNews';
 import Home from './routes/Home';
 import Layout from './routes/Layout';
 import Login from './routes/Login';
@@ -23,8 +24,12 @@ function App() {
                     element: <UserPage />,
                 },
                 {
-                    path: '/news',
+                    path: '/newspage',
                     element: <News />,
+                },
+                {
+                    path: '/newspage/allnews',
+                    element: <AllNews />,
                 },
                 {
                     path: '/streams',

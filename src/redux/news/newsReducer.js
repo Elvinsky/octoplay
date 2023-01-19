@@ -30,6 +30,27 @@ export const newsReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 error: null,
                 news: payload,
             };
+        case 'NEWS/ADD/START': {
+            return {
+                ...state,
+                loading: true,
+            };
+        }
+        case 'NEWS/ADD/SUCCESS': {
+            const news = payload;
+            return {
+                ...state,
+                loading: false,
+                news: [...state.news, news],
+            };
+        }
+        case 'NEWS/ADD/ERROR': {
+            return {
+                ...state,
+                loading: false,
+                error: payload,
+            };
+        }
         default: {
             return state;
         }

@@ -40,7 +40,7 @@ function Header() {
                     [WIP]
                 </NavLink>
                 <NavLink
-                    to="/news"
+                    to="/newspage"
                     end="true"
                     className={({isActive}) =>
                         isActive
