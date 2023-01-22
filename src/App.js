@@ -5,10 +5,9 @@ import Home from './routes/Home';
 import Layout from './routes/Layout';
 import Login from './routes/Login';
 import News from './routes/News';
-import Registration from './routes/Registration';
 import Streams from './routes/Streams';
 import UserPage from './routes/UserPage';
-
+import Registration from './routes/Registration';
 function App() {
     const router = createBrowserRouter([
         {

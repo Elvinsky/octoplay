@@ -12,6 +12,7 @@ export const fetchNews = () => async (dispatch) => {
 };
 export const addNews = (news) => async (dispatch) => {
     dispatch({type: 'NEWS/ADD/START'});
+    postNews(news);
     try {
         dispatch({type: 'NEWS/ADD/SUCCESS', payload: news});
     } catch (e) {

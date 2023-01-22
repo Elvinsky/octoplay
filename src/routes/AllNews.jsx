@@ -18,7 +18,7 @@ function AllNews() {
     const id = +active[0].id;
     const newsAddHandler = () => {
         // const news = {
-        //     id: '12',
+        //     id: Math.random(),
         //     content: 'Some content number 12',
         //     liked: '1234',
         //     watched: '3200',
@@ -26,8 +26,7 @@ function AllNews() {
         //     fullsizePic: 'https://via.placeholder.com/500',
         //     createdAt: '12/4/2022',
         // };
-        // postNews(news);
-        // dispatch(addNews(news));
+        dispatch(addNews(news));
 
         //CHECK
         navigate('/newspage/allnews');

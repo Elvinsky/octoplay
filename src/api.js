@@ -7,14 +7,14 @@ export const getNews = async () => {
     const news = await fetch(BASE_URL + 'news').then((r) => r.json());
     return {news};
 };
-export const postUser = (user) => async () => {
+export const postUser = (user) => {
     fetch(BASE_URL + 'users', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(user),
     }).then((r) => r.json());
 };
-export const postNews = (news) => async () => {
+export const postNews = (news) => {
     fetch(BASE_URL + 'news', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},

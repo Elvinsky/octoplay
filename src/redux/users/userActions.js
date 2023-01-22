@@ -1,4 +1,4 @@
-import {getUsers} from '../../api';
+import {getUsers, postUser} from '../../api';
 
 export const fetchUsers = () => async (dispatch) => {
     dispatch({type: 'USERS/FETCH/START'});
@@ -22,6 +22,7 @@ export const loginUser = (user) => async (dispatch) => {
 };
 export const addUser = (user) => async (dispatch) => {
     dispatch({type: 'USER/ADD/START'});
+    postUser(user);
     try {
         dispatch({type: 'USER/ADD/SUCCESS', payload: user});
     } catch (e) {

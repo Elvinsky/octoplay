@@ -4,7 +4,7 @@ import Header from '../components/Header';
 
 function Layout() {
     return (
-        <div>
+        <div className="w-[90%] m-auto p-2 ">
             <Header />
             <main>
                 <Outlet />

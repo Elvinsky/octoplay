@@ -13,7 +13,6 @@ function News() {
     const navigate = useNavigate();
     useFetch(fetchNews());
     const news = useSelector(selectNews);
-
     const handleShowNews = useCallback(() => {
         navigate('/newspage/allnews');
     }, [navigate]);
@@ -24,7 +23,17 @@ function News() {
             </div>
             <div className="custom-shadow flex flex-col p-3 m-auto gap-2">
                 <div className="flex flex-row gap-4 flex-wrap items-center justify-center ">
-                    <NewsTile
+                    {news.slice(-5).map((item) => (
+                        <div className="flex flex-col gap-2 items-center justify-center">
+                            <NewsTile
+                                watched={item.watched}
+                                liked={item.liked}
+                                createdAt={item.createdAt}
+                                url={item.thumbnailPic}
+                            />
+                        </div>
+                    ))}
+                    {/* <NewsTile
                         watched={620}
                         liked={290}
                         createdAt="01/19/2023"
@@ -53,7 +62,7 @@ function News() {
                         liked={220}
                         createdAt="01/19/2023"
                         url="https://via.placeholder.com/282x220?text=News+Placeholder"
-                    />
+                    /> */}
                 </div>
                 <div
                     onClick={handleShowNews}
