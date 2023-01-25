@@ -6,6 +6,22 @@
             "password": "admin",
             "name": "Nick",
             "createdAt": "1/12/2022"
+        },
+        {
+            "id": "1674410473188",
+            "email": "123",
+            "password": "123",
+            "name": "123",
+            "nickname": "123",
+            "createdAt": "1/22/2023"
+        },
+        {
+            "id": "1674410902749",
+            "email": "12345",
+            "password": "12345",
+            "name": "1234",
+            "nickname": "123",
+            "createdAt": "1/22/2023"
         }
     ],
     "news": [

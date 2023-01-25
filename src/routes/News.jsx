@@ -4,18 +4,27 @@ import {useNavigate} from 'react-router-dom';
 import DiscussionTile from '../components/DiscussionTile';
 import NewsTile from '../components/NewsTile';
 import useFetch from '../hooks/useFetch';
-import {fetchNews} from '../redux/news/newsAction';
-import {selectNews} from '../redux/news/newsSelectors';
+import {fetchRecentNews} from '../redux/news/newsAction';
+import {
+    selectNews,
+    selectNewsError,
+    selectNewsLoading,
+} from '../redux/news/newsSelectors';
 import {fetchUsers} from '../redux/users/userActions';
 import {selectActiveUser} from '../redux/users/userSelectors';
 
 function News() {
     const navigate = useNavigate();
-    useFetch(fetchNews());
+    useFetch(fetchRecentNews());
     const news = useSelector(selectNews);
+    console.log('news: ', news);
+    const newsLoading = useSelector(selectNewsLoading);
+    const newsError = useSelector(selectNewsError);
+
     const handleShowNews = useCallback(() => {
         navigate('/newspage/allnews');
     }, [navigate]);
+    if (!newsError && newsLoading) return <div>Loading</div>;
     return (
         <div className="flex flex-col gap-7 w-3/4 m-auto mt-8">
             <div className="flex flex-row gap-5">
@@ -30,39 +39,10 @@ function News() {
                                 liked={item.liked}
                                 createdAt={item.createdAt}
                                 url={item.thumbnailPic}
+                                key={item.id}
                             />
                         </div>
                     ))}
-                    {/* <NewsTile
-                        watched={620}
-                        liked={290}
-                        createdAt="01/19/2023"
-                        url="https://via.placeholder.com/620x290?text=News+Placeholder"
-                    />
-                    <NewsTile
-                        watched={620}
-                        liked={290}
-                        createdAt="01/19/2023"
-                        url="https://via.placeholder.com/330x290?text=News+Placeholder"
-                    />
-                    <NewsTile
-                        watched={298}
-                        liked={220}
-                        createdAt="01/19/2023"
-                        url="https://via.placeholder.com/298x220?text=News+Placeholder"
-                    />
-                    <NewsTile
-                        watched={350}
-                        liked={220}
-                        createdAt="01/19/2023"
-                        url="https://via.placeholder.com/350x220?text=News+Placeholder"
-                    />
-                    <NewsTile
-                        watched={282}
-                        liked={220}
-                        createdAt="01/19/2023"
-                        url="https://via.placeholder.com/282x220?text=News+Placeholder"
-                    /> */}
                 </div>
                 <div
                     onClick={handleShowNews}

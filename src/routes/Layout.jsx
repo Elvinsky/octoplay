@@ -1,15 +1,23 @@
-import {Outlet} from 'react-router-dom';
+import {Outlet, useLocation, useNavigate} from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import useConditionalNav from '../hooks/useConditionalNav';
 
 function Layout() {
+    const location = useLocation();
+    useConditionalNav(location.pathname);
+    // const navigate = useNavigate();
+    // if (location.pathname === '/') {
+    //     navigate('/userpage');
+    // }
+    // console.log(location.pathname === '/');
     return (
-        <div className="w-[90%] m-auto p-2 ">
+        <div className="m-auto p-2 ">
             <Header />
             <main>
                 <Outlet />
             </main>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 }
