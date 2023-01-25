@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import {postNews} from '../api';
+import AddNewsModal from '../components/AddNewsModal';
 import NewsTile from '../components/NewsTile';
 import useFetch from '../hooks/useFetch';
 import {addNews, fetchNews} from '../redux/news/newsAction';
@@ -26,7 +27,8 @@ function AllNews() {
         <div className="flex flex-col gap-7 w-3/4 m-auto mt-8">
             <div className="flex flex-row gap-5">
                 <h1 className="text-3xl font-semibold"> All news\</h1>
-                <button
+                <AddNewsModal />
+                {/* <button
                     className={
                         id === 0
                             ? 'border border-black p-1 rounded custom-shadow text-xl w-[40px] h-[40px] transition-all duration-300 hover:bg-green-200 hover:scale-105'
@@ -35,7 +37,7 @@ function AllNews() {
                     onClick={newsAddHandler}
                 >
                     +
-                </button>
+                </button> */}
             </div>
             <div
                 className="flex flex-row flex-wrap w-[100%] m-auto gap-5 items-center
