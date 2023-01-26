@@ -7,6 +7,12 @@ export const getNews = async () => {
     const news = await fetch(BASE_URL + 'news').then((r) => r.json());
     return {news};
 };
+export const getNewsById = async (newsId) => {
+    const news = await fetch(BASE_URL + `news?id=${newsId}`).then((r) =>
+        r.json()
+    );
+    return {news};
+};
 export const postUser = (user) => {
     fetch(BASE_URL + 'users', {
         method: 'POST',

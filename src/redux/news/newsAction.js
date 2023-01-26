@@ -1,4 +1,4 @@
-import {getNews, postNews} from '../../api';
+import {getNews, getNewsById, postNews} from '../../api';
 
 export const fetchNews = () => async (dispatch) => {
     dispatch({type: 'NEWS/FETCH/START'});
@@ -10,6 +10,18 @@ export const fetchNews = () => async (dispatch) => {
         dispatch({type: 'NEWS/FETCH/ERROR', payload: e});
     }
 };
+
+export const fetchNewsById = (id) => async (dispatch) => {
+    dispatch({type: 'NEWS/FETCH/START'});
+    try {
+        const {news} = await getNewsById(id);
+        dispatch({type: 'NEWS/FETCH/SUCCESS', payload: news});
+    } catch (e) {
+        console.error(e);
+        dispatch({type: 'NEWS/FETCH/ERROR', payload: e});
+    }
+};
+
 export const fetchRecentNews = () => async (dispatch) => {
     dispatch({type: 'NEWS/FETCH/START'});
     try {

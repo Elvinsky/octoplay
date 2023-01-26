@@ -1,11 +1,19 @@
-function NewsTile({url, createdAt, liked, watched}) {
+import {useCallback} from 'react';
+import {useNavigate} from 'react-router-dom';
+
+function NewsTile({url, createdAt, liked, watched, id}) {
+    const navigate = useNavigate();
+    const handleOpenDetails = useCallback(
+        (id) => {
+            return () => navigate(`/newspage/id-${id}`);
+        },
+        [navigate]
+    );
     return (
-        // <img
-        //     src={`https://via.placeholder.com/${width}x${height}?text=News+Placeholder`}
-        //     alt="news"
-        //     className=" transition-all duration-300 hover:scale-105 hover:shadow"
-        // />
-        <div className="flex flex-col gap-1 transition-all duration-300 hover:scale-105 hover:shadow p-3">
+        <div
+            className="flex flex-col gap-1 transition-all duration-300 hover:scale-105 hover:shadow p-3"
+            onClick={handleOpenDetails(id)}
+        >
             <img src={url} alt="item" />
             <div className="flex flex-row justify-between items-center gap-3">
                 <div className="flex flex-row gap-1 items-center">

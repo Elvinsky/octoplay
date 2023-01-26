@@ -8,6 +8,7 @@ import News from './routes/News';
 import Streams from './routes/Streams';
 import UserPage from './routes/UserPage';
 import Registration from './routes/Registration';
+import NewsDetails from './routes/NewsDetails';
 function App() {
     const router = createBrowserRouter([
         {
@@ -25,6 +26,10 @@ function App() {
                 {
                     path: '/newspage',
                     element: <News />,
+                },
+                {
+                    path: '/newspage/id-:id',
+                    element: <NewsDetails />,
                 },
                 {
                     path: '/newspage/allnews',

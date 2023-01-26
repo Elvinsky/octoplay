@@ -17,7 +17,6 @@ function News() {
     const navigate = useNavigate();
     useFetch(fetchRecentNews());
     const news = useSelector(selectNews);
-    console.log('news: ', news);
     const newsLoading = useSelector(selectNewsLoading);
     const newsError = useSelector(selectNewsError);
 
@@ -40,6 +39,7 @@ function News() {
                                 createdAt={item.createdAt}
                                 url={item.thumbnailPic}
                                 key={item.id}
+                                id={item.id}
                             />
                         </div>
                     ))}
