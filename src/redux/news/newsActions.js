@@ -3,7 +3,7 @@ import {getNews, getNewsById, postNews} from '../../api';
 export const fetchNews = () => async (dispatch) => {
     dispatch({type: 'NEWS/FETCH/START'});
     try {
-        const {news} = await getNews();
+        const news = await getNews();
         dispatch({type: 'NEWS/FETCH/SUCCESS', payload: news});
     } catch (e) {
         console.error(e);
@@ -14,7 +14,7 @@ export const fetchNews = () => async (dispatch) => {
 export const fetchNewsById = (id) => async (dispatch) => {
     dispatch({type: 'NEWS/FETCH/START'});
     try {
-        const {news} = await getNewsById(id);
+        const news = await getNewsById(id);
         dispatch({type: 'NEWS/FETCH/SUCCESS', payload: news});
     } catch (e) {
         console.error(e);
@@ -25,8 +25,8 @@ export const fetchNewsById = (id) => async (dispatch) => {
 export const fetchRecentNews = () => async (dispatch) => {
     dispatch({type: 'NEWS/FETCH/START'});
     try {
-        const {news} = await getNews();
-        dispatch({type: 'NEWS/FETCH/SUCCESS', payload: news.slice(-5)});
+        const news = await getNews();
+        dispatch({type: 'NEWS/FETCH/SUCCESS', payload: news.slice(-6)});
 
         //КОСТЫЛЬ ОГРОМНЫЙ!!
     } catch (e) {

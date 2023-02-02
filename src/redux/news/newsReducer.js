@@ -51,6 +51,7 @@ export const newsReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 error: payload,
             };
         }
+
         default: {
             return state;
         }

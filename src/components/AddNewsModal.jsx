@@ -10,9 +10,10 @@ import {useState} from 'react';
 import {Grid} from '@mui/material';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
-import {addNews} from '../redux/news/newsAction';
+import {useCallback} from 'react';
+import {addNews} from '../redux/news/newsActions';
 
-export default function AddNewsModal() {
+export default function AddNewsModal(hidden) {
     const [open, setOpen] = useState(false);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -21,14 +22,16 @@ export default function AddNewsModal() {
     const [valid, setValid] = useState(true);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
 
-    const handleClose = (status) => {
+    const handleClickOpen = useCallback(() => {
+        setOpen(true);
+    }, []);
+
+    const handleClose = useCallback((status) => {
         setOpen(false);
-    };
-    const handleSubmit = () => {
+    }, []);
+
+    const handleSubmit = useCallback(() => {
         if (
             title.length === 0 ||
             content.length === 0 ||
@@ -52,19 +55,20 @@ export default function AddNewsModal() {
             navigate('/newspage/allnews');
             setOpen(false);
         }
-    };
-    const handleSetTitle = (e) => {
+    }, [title, content, url, thUrl, dispatch, navigate]);
+
+    const handleSetTitle = useCallback((e) => {
         setTitle(e.target.value);
-    };
-    const handleSetContent = (e) => {
+    }, []);
+    const handleSetContent = useCallback((e) => {
         setContent(e.target.value);
-    };
-    const handleSetUrl = (e) => {
+    }, []);
+    const handleSetUrl = useCallback((e) => {
         setUrl(e.target.value);
-    };
-    const handleSetThumbUrl = (e) => {
+    }, []);
+    const handleSetThumbUrl = useCallback((e) => {
         setThUrl(e.target.value);
-    };
+    }, []);
     return (
         <div>
             <Button variant="contained" onClick={handleClickOpen}>

@@ -2,7 +2,7 @@ import {useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import CustomBackdrop from '../components/Backdrop';
 import useFetch from '../hooks/useFetch';
-import {fetchNewsById} from '../redux/news/newsAction';
+import {fetchNewsById} from '../redux/news/newsActions';
 import {selectNews} from '../redux/news/newsSelectors';
 
 function NewsDetails() {

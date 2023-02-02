@@ -75,7 +75,6 @@ export const userReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 ...state,
                 loading: true,
             };
-
         default: {
             return state;
         }

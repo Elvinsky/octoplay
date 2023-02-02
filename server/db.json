@@ -6,66 +6,74 @@
             "password": "admin",
             "name": "Nick",
             "createdAt": "1/12/2022"
+        },
+        {
+            "id": "1675265629668",
+            "email": "123",
+            "password": "123",
+            "name": "123",
+            "nickname": "123",
+            "createdAt": "2/1/2023"
         }
     ],
     "news": [
         {
             "id": "1",
-            "title": "",
+            "title": "title1",
             "content": "Some content number 1",
             "liked": "1234",
             "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/420x250",
+            "thumbnailPic": "https://via.placeholder.com/390x200",
             "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
         {
             "id": "2",
-            "title": "",
+            "title": "title2",
             "content": "Some content number 2",
             "liked": "1234",
             "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/250x250",
+            "thumbnailPic": "https://via.placeholder.com/390x200",
             "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
         {
             "id": "3",
-            "title": "",
+            "title": "title3",
             "content": "Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3v",
             "liked": "1234",
             "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/190",
+            "thumbnailPic": "https://via.placeholder.com/390x200",
             "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
         {
             "id": "4",
-            "title": "",
+            "title": "title4",
             "content": "Some content number 4",
             "liked": "1234",
             "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/250",
+            "thumbnailPic": "https://via.placeholder.com/390x200",
             "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
         {
             "id": "5",
-            "title": "",
+            "title": "title5",
             "content": "Some content number 5",
             "liked": "1234",
             "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/250",
+            "thumbnailPic": "https://via.placeholder.com/390x200",
             "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
         {
             "id": "6",
-            "title": "",
+            "title": "title6",
             "content": "Some content number 6",
             "liked": "1234",
             "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/390x250",
+            "thumbnailPic": "https://via.placeholder.com/390x200",
             "fullsizePic": "https://via.placeholder.com/500",
             "createdAt": "12/4/2022"
         },
@@ -75,7 +83,7 @@
             "content": "awdawdadawdawwd",
             "liked": 0,
             "watched": 0,
-            "thumbnailPic": "https://via.placeholder.com/390x250",
+            "thumbnailPic": "https://via.placeholder.com/390x200",
             "fullsizePic": "https://via.placeholder.com/390x250",
             "createdAt": "1/25/2023"
         }

@@ -1,29 +1,44 @@
 const BASE_URL = 'http://localhost:5000/';
-export const getUsers = async () => {
-    const users = await fetch(BASE_URL + 'users').then((r) => r.json());
-    return {users};
+
+const handleFetchResponse = async (response) => {
+    if (!response.ok) {
+        const error = await response.text();
+        throw new Error(error);
+    }
+    return response.json();
 };
-export const getNews = async () => {
-    const news = await fetch(BASE_URL + 'news').then((r) => r.json());
-    return {news};
+
+const fetchData = async (url, options = {}) => {
+    try {
+        const response = await fetch(url, options);
+        return await handleFetchResponse(response);
+    } catch (error) {
+        console.error(error);
+    }
 };
-export const getNewsById = async (newsId) => {
-    const news = await fetch(BASE_URL + `news?id=${newsId}`).then((r) =>
-        r.json()
-    );
-    return {news};
-};
-export const postUser = (user) => {
-    fetch(BASE_URL + 'users', {
+
+export const getUsers = () => fetchData(`${BASE_URL}users`);
+
+export const getNews = () => fetchData(`${BASE_URL}news`);
+
+export const getNewsById = (newsId) =>
+    fetchData(`${BASE_URL}news?id=${newsId}`);
+
+export const postUser = (user) =>
+    fetchData(`${BASE_URL}users`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(user),
-    }).then((r) => r.json());
-};
-export const postNews = (news) => {
-    fetch(BASE_URL + 'news', {
+    });
+
+export const removeNews = (id) =>
+    fetchData(`${BASE_URL}news/${id}`, {
+        method: 'DELETE',
+    });
+
+export const postNews = (news) =>
+    fetchData(`${BASE_URL}news`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(news),
-    }).then((r) => r.json());
-};
+    });

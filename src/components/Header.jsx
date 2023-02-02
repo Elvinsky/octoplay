@@ -16,7 +16,7 @@ function Header() {
                     className="h-16"
                 ></img>
             </div>
-            <div className="flex gap-7">
+            <div className="flex gap-7 flex-row">
                 <NavLink
                     to="/home"
                     end="true"
@@ -79,8 +79,8 @@ function Header() {
                     end="true"
                     className={({isActive}) =>
                         isActive
-                            ? 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer text-emerald-600'
-                            : 'font-medium text-xl flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer'
+                            ? 'font-medium text-xl ml-5 flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer text-emerald-600'
+                            : 'font-medium text-xl ml-5 flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer'
                     }
                 >
                     {user[0].name}

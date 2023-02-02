@@ -1,6 +1,6 @@
 function DiscussionTile({date, watched, likes, title, img}) {
     return (
-        <div className="flex flex-row gap-3 custom-shadow w-[65%] ml-[5%] p-3 items-center justify-between last:mb-5 transition-all duration-300 hover:scale-105">
+        <div className="flex flex-row gap-3 custom-shadow w-[65%] p-3 items-center justify-between last:mb-5 transition-all duration-300 hover:scale-105">
             <div className=" flex flex-col gap-5">
                 <div className="flex flex-col p-1 gap-4">
                     <h2 className="text-xl font-semibold">{title}</h2>
