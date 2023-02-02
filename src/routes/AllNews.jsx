@@ -29,7 +29,7 @@ function AllNews() {
                     <h1 className="text-3xl font-semibold">All News</h1>
                     {admin && <AddNewsModal />}
                 </div>
-                <div className="flex flex-row flex-wrap w-90% m-auto gap-5 items-center justify-start custom-shadow p-4">
+                <div className="flex flex-row flex-wrap w-90% m-auto gap-5 items-center justify-center custom-shadow p-4">
                     {news.map((item) => (
                         <CustomCard
                             thumbnail={item.thumbnailPic}

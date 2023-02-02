@@ -3,7 +3,7 @@ import {getUsers, postUser} from '../../api';
 export const fetchUsers = () => async (dispatch) => {
     dispatch({type: 'USERS/FETCH/START'});
     try {
-        const response = await getUsers();
+        const {response} = await getUsers();
         dispatch({type: 'USERS/FETCH/SUCCESS', payload: response.users});
     } catch (error) {
         console.error(error);

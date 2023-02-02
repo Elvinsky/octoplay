@@ -16,7 +16,10 @@ const fetchData = async (url, options = {}) => {
         console.error(error);
     }
 };
-
+export const deleteNews = (newsId) =>
+    fetchData(`${BASE_URL}news/${newsId}`, {
+        method: 'DELETE',
+    });
 export const getUsers = () => fetchData(`${BASE_URL}users`);
 
 export const getNews = () => fetchData(`${BASE_URL}news`);
@@ -30,12 +33,6 @@ export const postUser = (user) =>
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(user),
     });
-
-export const removeNews = (id) =>
-    fetchData(`${BASE_URL}news/${id}`, {
-        method: 'DELETE',
-    });
-
 export const postNews = (news) =>
     fetchData(`${BASE_URL}news`, {
         method: 'POST',

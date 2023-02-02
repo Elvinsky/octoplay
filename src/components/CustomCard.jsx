@@ -4,17 +4,24 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {Button, CardActionArea, CardActions} from '@mui/material';
-// import {useDispatch} from 'react-redux';
-// import {useLocation, useNavigate} from 'react-router-dom';
-// import {useCallback} from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {deleteNewsItem} from '../redux/news/newsActions';
+import {useCallback} from 'react';
 
-export default function CustomCard({title, content, thumbnail, admin}) {
-    // const dispatch = useDispatch();
-    // const navigate = useNavigate();
-    // const location = useLocation();
+export default function CustomCard({title, content, thumbnail, admin, id}) {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const handleShowNews = () => {
+        navigate(`/newspage/id-${id}`);
+    };
+    const handleDeleteItem = useCallback(() => {
+        dispatch(deleteNewsItem(id));
+        window.location.reload();
+    }, [dispatch, id]);
     return (
         <Card sx={{maxWidth: 345}}>
-            <CardActionArea>
+            <CardActionArea onClick={handleShowNews}>
                 <CardMedia
                     component="img"
                     height="100"
@@ -45,6 +52,7 @@ export default function CustomCard({title, content, thumbnail, admin}) {
                     size="small"
                     color="primary"
                     hidden={admin ? false : true}
+                    onClick={handleDeleteItem}
                 >
                     Delete
                 </Button>

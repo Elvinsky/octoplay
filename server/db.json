@@ -1,91 +1,71 @@
 {
-    "users": [
-        {
-            "id": "0",
-            "email": "admin@gmail.com",
-            "password": "admin",
-            "name": "Nick",
-            "createdAt": "1/12/2022"
-        },
-        {
-            "id": "1675265629668",
-            "email": "123",
-            "password": "123",
-            "name": "123",
-            "nickname": "123",
-            "createdAt": "2/1/2023"
-        }
-    ],
-    "news": [
-        {
-            "id": "1",
-            "title": "title1",
-            "content": "Some content number 1",
-            "liked": "1234",
-            "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "2",
-            "title": "title2",
-            "content": "Some content number 2",
-            "liked": "1234",
-            "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "3",
-            "title": "title3",
-            "content": "Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3Some content number 3v",
-            "liked": "1234",
-            "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "4",
-            "title": "title4",
-            "content": "Some content number 4",
-            "liked": "1234",
-            "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "5",
-            "title": "title5",
-            "content": "Some content number 5",
-            "liked": "1234",
-            "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "6",
-            "title": "title6",
-            "content": "Some content number 6",
-            "liked": "1234",
-            "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "12/4/2022"
-        },
-        {
-            "id": "1674670674368",
-            "title": "Title1",
-            "content": "awdawdadawdawwd",
-            "liked": 0,
-            "watched": 0,
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/390x250",
-            "createdAt": "1/25/2023"
-        }
-    ]
+  "users": [
+    {
+      "id": "0",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "name": "Nick",
+      "createdAt": "1/12/2022"
+    },
+    {
+      "id": "1675265629668",
+      "email": "123",
+      "password": "123",
+      "name": "123",
+      "nickname": "123",
+      "createdAt": "2/1/2023"
+    }
+  ],
+  "news": [
+    {
+      "id": "1234123",
+      "title": "title4",
+      "content": "Some content number 4",
+      "liked": "1234",
+      "watched": "3200",
+      "thumbnailPic": "https://via.placeholder.com/390x200",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    },
+    {
+      "id": "4562346",
+      "title": "title4",
+      "content": "Some content number 4",
+      "liked": "1234",
+      "watched": "3200",
+      "thumbnailPic": "https://via.placeholder.com/390x200",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    },
+    {
+      "id": "3457347",
+      "title": "title4",
+      "content": "Some content number 4",
+      "liked": "1234",
+      "watched": "3200",
+      "thumbnailPic": "https://via.placeholder.com/390x200",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    },
+    {
+      "id": "23452345",
+      "title": "title4",
+      "content": "Some content number 4",
+      "liked": "1234",
+      "watched": "3200",
+      "thumbnailPic": "https://via.placeholder.com/390x200",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    },
+    {
+      "id": "123123",
+      "title": "title4",
+      "content": "Some content number 4",
+      "liked": "1234",
+      "watched": "3200",
+      "thumbnailPic": "https://via.placeholder.com/390x200",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "12/4/2022"
+    }
+  ]
 }

@@ -7,8 +7,8 @@ function Header() {
     useFetch(fetchUsers());
     const user = useSelector(selectActiveUser);
     return (
-        <header className="flex w-10/12 m-auto items-center justify-between mt-5 p-3 custom-shadow">
-            <div className="font-black text-2xl flex items-center gap-2">
+        <header className="flex w-10/12 m-auto items-center justify-center mt-5 p-3 custom-shadow">
+            <div className="font-black text-2xl flex items-center gap-2 mr-auto">
                 OCTO PLAY
                 <img
                     src="https://cdn-icons-png.flaticon.com/512/3823/3823207.png"
@@ -16,7 +16,7 @@ function Header() {
                     className="h-16"
                 ></img>
             </div>
-            <div className="flex gap-7 flex-row">
+            <div className="flex gap-7 flex-row m-auto">
                 <NavLink
                     to="/home"
                     end="true"
@@ -74,13 +74,15 @@ function Header() {
                 >
                     Streams
                 </NavLink>
+            </div>
+            <div className="ml-auto flex flex-row">
                 <NavLink
                     to="/userpage"
                     end="true"
                     className={({isActive}) =>
                         isActive
-                            ? 'font-medium text-xl ml-5 flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer text-emerald-600'
-                            : 'font-medium text-xl ml-5 flex items-center transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer'
+                            ? 'font-medium text-xl flex items-center gap-2 transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer text-emerald-600'
+                            : 'font-medium text-xl flex items-center gap-2 transition-all duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer'
                     }
                 >
                     {user[0].name}
@@ -90,7 +92,7 @@ function Header() {
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="w-8 h-8 ml-2"
+                        className="w-8 h-8"
                     >
                         <path
                             strokeLinecap="round"
