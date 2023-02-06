@@ -39,3 +39,9 @@ export const postNews = (news) =>
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(news),
     });
+export const patchNews = (news, newsId) =>
+    fetchData(`${BASE_URL}news/${newsId}`, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(news),
+    });

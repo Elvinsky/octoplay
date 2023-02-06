@@ -72,7 +72,27 @@ export const newsReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 error: payload,
             };
         }
-
+        case 'NEWS/PATCH/START': {
+            return {
+                ...state,
+                loading: true,
+            };
+        }
+        case 'NEWS/PATCH/SUCCESS': {
+            const news = payload;
+            return {
+                ...state,
+                loading: false,
+                news: state.news.map((n) => (n.id === news.id ? news.news : n)),
+            };
+        }
+        case 'NEWS/PATCH/ERROR': {
+            return {
+                ...state,
+                loading: false,
+                error: payload,
+            };
+        }
         default: {
             return state;
         }

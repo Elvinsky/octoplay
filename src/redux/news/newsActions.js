@@ -1,4 +1,4 @@
-import {getNews, getNewsById, postNews, deleteNews} from '../../api';
+import {getNews, getNewsById, postNews, deleteNews, patchNews} from '../../api';
 
 export const fetchNews = () => async (dispatch) => {
     dispatch({type: 'NEWS/FETCH/START'});
@@ -52,5 +52,15 @@ export const deleteNewsItem = (id) => async (dispatch) => {
     } catch (e) {
         console.error(e);
         dispatch({type: 'NEWS/DELETE/ERROR', payload: e});
+    }
+};
+export const patchNewsItem = (id, news) => async (dispatch) => {
+    dispatch({type: 'NEWS/PATCH/START'});
+    try {
+        await patchNews(id, news);
+        dispatch({type: 'NEWS/PATCH/SUCCESS', payload: {id, news}});
+    } catch (e) {
+        console.error(e);
+        dispatch({type: 'NEWS/PATCH/ERROR', payload: e});
     }
 };
