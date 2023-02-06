@@ -9,6 +9,7 @@ function NewsDetails() {
     const {id} = useParams();
     useFetch(fetchNewsById(id));
     const news = useSelector(selectNews);
+    console.log(news);
     if (news.length === 1) {
         return (
             <div className=" flex flex-col gap-3 w-3/4 custom-shadow p-4 my-5 m-auto">

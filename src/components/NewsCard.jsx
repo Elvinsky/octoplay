@@ -5,11 +5,20 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {Button, CardActionArea, CardActions} from '@mui/material';
 import {useLocation, useNavigate} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
-import {deleteNewsItem} from '../redux/news/newsActions';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+    deleteNewsItem,
+    fetchNews,
+    fetchNewsById,
+} from '../redux/news/newsActions';
 import {useCallback} from 'react';
+import useFetch from '../hooks/useFetch';
+import {selectNews, selectNewsViaID} from '../redux/news/newsSelectors';
 
-export default function CustomCard({title, content, thumbnail, admin, id}) {
+export default function NewsCard({title, content, thumbnail, admin, id}) {
+    useFetch(fetchNews);
+    const news = useSelector((store) => selectNewsViaID(store, id));
+    console.log('news: ', news[0]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleShowNews = () => {

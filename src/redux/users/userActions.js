@@ -4,7 +4,7 @@ export const fetchUsers = () => async (dispatch) => {
     dispatch({type: 'USERS/FETCH/START'});
     try {
         const {response} = await getUsers();
-        dispatch({type: 'USERS/FETCH/SUCCESS', payload: response.users});
+        dispatch({type: 'USERS/FETCH/SUCCESS', payload: response});
     } catch (error) {
         console.error(error);
         dispatch({type: 'USERS/FETCH/ERROR', payload: error});

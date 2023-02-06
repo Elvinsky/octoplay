@@ -2,8 +2,8 @@ import {Button, Grid} from '@mui/material';
 import {useCallback} from 'react';
 import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
-import CustomCard from '../components/CustomCard';
 import DiscussionTile from '../components/DiscussionTile';
+import NewsCard from '../components/NewsCard';
 import useFetch from '../hooks/useFetch';
 import {fetchRecentNews} from '../redux/news/newsActions';
 import {
@@ -31,7 +31,7 @@ function News() {
                 <div className="flex flex-row gap-4 flex-wrap items-center mb-4 justify-center">
                     {news.map((item) => (
                         <div className="flex flex-col gap-2 items-center justify-center">
-                            <CustomCard
+                            <NewsCard
                                 title={item.title}
                                 content={item.content}
                                 thumbnail={item.thumbnailPic}
