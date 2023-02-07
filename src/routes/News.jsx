@@ -1,6 +1,6 @@
 import {Button, Grid} from '@mui/material';
 import {useCallback} from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import DiscussionTile from '../components/DiscussionTile';
 import NewsCard from '../components/NewsCard';
@@ -11,6 +11,8 @@ import {
     selectNewsError,
     selectNewsLoading,
 } from '../redux/news/newsSelectors';
+import {fetchUsers} from '../redux/users/userActions';
+import {selectActiveUser} from '../redux/users/userSelectors';
 
 function News() {
     const navigate = useNavigate();
@@ -18,6 +20,10 @@ function News() {
     const news = useSelector(selectNews);
     const newsLoading = useSelector(selectNewsLoading);
     const newsError = useSelector(selectNewsError);
+    const dispatch = useDispatch();
+    useFetch(() => dispatch(fetchUsers()));
+    const user = useSelector(selectActiveUser);
+    const admin = user[0].id === '0';
     const handleShowNews = useCallback(() => {
         navigate('/newspage/allnews');
     }, [navigate]);
@@ -35,6 +41,7 @@ function News() {
                                 title={item.title}
                                 content={item.content}
                                 thumbnail={item.thumbnailPic}
+                                admin={admin}
                                 key={item.id}
                                 id={item.id}
                             />

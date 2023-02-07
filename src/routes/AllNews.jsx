@@ -13,12 +13,12 @@ import {selectActiveUser} from '../redux/users/userSelectors';
 
 function AllNews() {
     useFetch(() => dispatch(fetchNews()));
-    useFetch(() => dispatch(fetchUsers()));
-    const dispatch = useDispatch();
-    const user = useSelector(selectActiveUser);
     const news = useSelector(selectNews);
     const newsLoading = useSelector(selectNewsLoading);
     const newsError = useSelector(selectNewsError);
+    const dispatch = useDispatch();
+    useFetch(() => dispatch(fetchUsers()));
+    const user = useSelector(selectActiveUser);
     const admin = user[0].id === '0';
 
     if (!newsError && newsLoading) return <div>Loading</div>;
@@ -37,6 +37,7 @@ function AllNews() {
                             content={item.content}
                             liked={item.liked}
                             watched={item.watched}
+                            admin={admin}
                             id={item.id}
                             key={item.id}
                         />

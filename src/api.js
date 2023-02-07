@@ -39,9 +39,23 @@ export const postNews = (news) =>
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(news),
     });
-export const patchNews = (news, newsId) =>
-    fetchData(`${BASE_URL}news/${newsId}`, {
+export const patchNews = (news, newsID) => {
+    fetch(`${BASE_URL}news/${newsID}`, {
         method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+            'Content-Type': 'application/json',
+        },
         body: JSON.stringify(news),
-    });
+    })
+        .then((response) => response.json())
+        .then((news) => console.log('Success:', news))
+        .catch((error) => console.error('Error:', error));
+};
+//WHY SUKA DOESNT WORK?????
+
+// export const patchNews = (news, newsId) =>
+//     fetchData(`${BASE_URL}news?id=${newsId}`, {
+//         method: 'PATCH',
+//         headers: {'Content-Type': 'application/json'},
+//         body: JSON.stringify(news),
+//     });

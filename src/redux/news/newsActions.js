@@ -57,7 +57,7 @@ export const deleteNewsItem = (id) => async (dispatch) => {
 export const patchNewsItem = (id, news) => async (dispatch) => {
     dispatch({type: 'NEWS/PATCH/START'});
     try {
-        await patchNews(id, news);
+        await patchNews(news, id);
         dispatch({type: 'NEWS/PATCH/SUCCESS', payload: {id, news}});
     } catch (e) {
         console.error(e);

@@ -4,21 +4,21 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {Button, CardActionArea, CardActions} from '@mui/material';
-import {useLocation, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {
-    deleteNewsItem,
-    fetchNews,
-    fetchNewsById,
-} from '../redux/news/newsActions';
+import {deleteNewsItem, fetchNews} from '../redux/news/newsActions';
 import {useCallback} from 'react';
 import useFetch from '../hooks/useFetch';
-import {selectNews, selectNewsViaID} from '../redux/news/newsSelectors';
+import {selectNewsViaID} from '../redux/news/newsSelectors';
+import CustomBackdrop from './Backdrop';
+import EditNewsModal from './EditNewsModal';
 
 export default function NewsCard({title, content, thumbnail, admin, id}) {
     useFetch(fetchNews);
     const news = useSelector((store) => selectNewsViaID(store, id));
-    console.log('news: ', news[0]);
+    React.useEffect(() => {
+        console.log(news[0].content);
+    }, []);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleShowNews = () => {
@@ -28,44 +28,38 @@ export default function NewsCard({title, content, thumbnail, admin, id}) {
         dispatch(deleteNewsItem(id));
         window.location.reload();
     }, [dispatch, id]);
-    return (
-        <Card sx={{maxWidth: 345}}>
-            <CardActionArea onClick={handleShowNews}>
-                <CardMedia
-                    component="img"
-                    height="100"
-                    image={thumbnail}
-                    alt="news img"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {content.substring(0, 40) + '...'}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            <CardActions>
-                <Button size="small" color="primary">
-                    Inspect
-                </Button>
-                <Button
-                    size="small"
-                    color="primary"
-                    hidden={admin ? false : true}
-                >
-                    Edit
-                </Button>
-                <Button
-                    size="small"
-                    color="primary"
-                    hidden={admin ? false : true}
-                    onClick={handleDeleteItem}
-                >
-                    Delete
-                </Button>
-            </CardActions>
-        </Card>
-    );
+    if (news.length !== 1) return <CustomBackdrop />;
+    else {
+        return (
+            <Card sx={{maxWidth: 345}}>
+                <CardActionArea onClick={handleShowNews}>
+                    <CardMedia
+                        component="img"
+                        height="100"
+                        image={news[0].thumbnailPic}
+                        alt="news img"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {news[0].title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {news[0].content.substring(0, 40) + '...'}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+                <CardActions>
+                    <EditNewsModal id={id} />
+                    <Button
+                        size="small"
+                        color="primary"
+                        hidden={admin ? false : true}
+                        onClick={handleDeleteItem}
+                    >
+                        Delete
+                    </Button>
+                </CardActions>
+            </Card>
+        );
+    }
 }

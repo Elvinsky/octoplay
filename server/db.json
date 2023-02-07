@@ -18,54 +18,24 @@
   ],
   "news": [
     {
-      "id": "1234123",
-      "title": "title4",
-      "content": "Some content number 4",
-      "liked": "1234",
-      "watched": "3200",
-      "thumbnailPic": "https://via.placeholder.com/390x200",
-      "fullsizePic": "https://via.placeholder.com/500",
-      "createdAt": "12/4/2022"
-    },
-    {
-      "id": "4562346",
-      "title": "title4",
-      "content": "Some content number 4",
-      "liked": "1234",
-      "watched": "3200",
-      "thumbnailPic": "https://via.placeholder.com/390x200",
-      "fullsizePic": "https://via.placeholder.com/500",
-      "createdAt": "12/4/2022"
-    },
-    {
-      "id": "3457347",
-      "title": "title4",
-      "content": "Some content number 4",
-      "liked": "1234",
-      "watched": "3200",
-      "thumbnailPic": "https://via.placeholder.com/390x200",
-      "fullsizePic": "https://via.placeholder.com/500",
-      "createdAt": "12/4/2022"
-    },
-    {
       "id": "23452345",
-      "title": "title4",
+      "title": "title4awdawd",
       "content": "Some content number 4",
       "liked": "1234",
       "watched": "3200",
       "thumbnailPic": "https://via.placeholder.com/390x200",
       "fullsizePic": "https://via.placeholder.com/500",
-      "createdAt": "12/4/2022"
+      "createdAt": "2/8/2023"
     },
     {
-      "id": "123123",
-      "title": "title4",
-      "content": "Some content number 4",
-      "liked": "1234",
-      "watched": "3200",
+      "id": "1675806119495",
+      "title": "Title5",
+      "content": "123123123",
+      "liked": 0,
+      "watched": 0,
       "thumbnailPic": "https://via.placeholder.com/390x200",
       "fullsizePic": "https://via.placeholder.com/500",
-      "createdAt": "12/4/2022"
+      "createdAt": "2/8/2023"
     }
   ]
 }
