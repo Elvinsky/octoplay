@@ -5,21 +5,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {Button, CardActionArea, CardActions} from '@mui/material';
 import {useNavigate} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
-import {deleteNewsItem, fetchNews} from '../redux/news/newsActions';
+import {useDispatch} from 'react-redux';
+import {deleteNewsItem} from '../redux/news/newsActions';
 import {useCallback} from 'react';
-import useFetch from '../hooks/useFetch';
-import {selectNewsViaID} from '../redux/news/newsSelectors';
-import CustomBackdrop from './Backdrop';
 import EditNewsModal from './EditNewsModal';
 
 export default function NewsCard({news, admin}) {
     console.log(news);
-    // useFetch(fetchNews);
-    // const news = useSelector((store) => selectNewsViaID(store, id));
-    // React.useEffect(() => {
-    //     console.log(news[0].content);
-    // }, []);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleShowNews = () => {
@@ -29,14 +21,14 @@ export default function NewsCard({news, admin}) {
         dispatch(deleteNewsItem(news.id));
         window.location.reload();
     }, [dispatch, news.id]);
-    // if (news.length !== 1) return <CustomBackdrop />;
-    // else {
+
     return (
         <Card sx={{maxWidth: 345}}>
             <CardActionArea onClick={handleShowNews}>
                 <CardMedia
                     component="img"
-                    height="100"
+                    height={390}
+                    width={200}
                     image={news.thumbnailPic}
                     alt="news img"
                 />
@@ -62,5 +54,4 @@ export default function NewsCard({news, admin}) {
             </CardActions>
         </Card>
     );
-    // }
 }

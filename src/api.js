@@ -16,23 +16,17 @@ const fetchData = async (url, options = {}) => {
         console.error(error);
     }
 };
+
+//-----------------------NEWS API-----------------------------
 export const deleteNews = (newsId) =>
     fetchData(`${BASE_URL}news/${newsId}`, {
         method: 'DELETE',
     });
-export const getUsers = () => fetchData(`${BASE_URL}users`);
 
 export const getNews = () => fetchData(`${BASE_URL}news`);
 
 export const getNewsById = (newsId) =>
     fetchData(`${BASE_URL}news?id=${newsId}`);
-
-export const postUser = (user) =>
-    fetchData(`${BASE_URL}users`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(user),
-    });
 export const postNews = (news) =>
     fetchData(`${BASE_URL}news`, {
         method: 'POST',
@@ -51,11 +45,30 @@ export const patchNews = (news, newsID) => {
         .then((news) => console.log('Success:', news))
         .catch((error) => console.error('Error:', error));
 };
-//WHY SUKA DOESNT WORK?????
+//-----------------------USERS API-----------------------------
+export const getUsers = () => fetchData(`${BASE_URL}users`);
 
-// export const patchNews = (news, newsId) =>
-//     fetchData(`${BASE_URL}news?id=${newsId}`, {
-//         method: 'PATCH',
-//         headers: {'Content-Type': 'application/json'},
-//         body: JSON.stringify(news),
-//     });
+export const postUser = (user) =>
+    fetchData(`${BASE_URL}users`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(user),
+    });
+
+//-----------------------DISCUSSION API-----------------------------
+export const getDisc = () => fetchData(fetchData(`${BASE_URL}discussions`));
+export const getComments = (id) =>
+    fetchData(fetchData(`${BASE_URL}discussions/${id}/comments`));
+
+export const postDisc = (disc) =>
+    fetchData(`${BASE_URL}discussions`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(disc),
+    });
+export const postComment = (discId, comment) =>
+    fetchData(`${BASE_URL}discussions/${discId}/comments`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(comment),
+    });

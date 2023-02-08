@@ -1,5 +1,4 @@
 import {Button} from '@mui/material';
-import {maxWidth} from '@mui/system';
 import {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate, useParams} from 'react-router-dom';

@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import DiscussionTile from '../components/DiscussionTile';
 import NewsCard from '../components/NewsCard';
 import useFetch from '../hooks/useFetch';
+import {addComment, addDisc} from '../redux/discussions/discActions';
 import {fetchRecentNews} from '../redux/news/newsActions';
 import {
     selectNews,
@@ -37,15 +38,7 @@ function News() {
                 <div className="flex flex-row gap-4 flex-wrap items-center mb-4 justify-center">
                     {news.map((item) => (
                         <div className="flex flex-col gap-2 items-center justify-center">
-                            <NewsCard
-                                // title={item.title}
-                                // content={item.content}
-                                // thumbnail={item.thumbnailPic}
-                                news={item}
-                                admin={admin}
-                                key={item.id}
-                                // id={item.id}
-                            />
+                            <NewsCard news={item} admin={admin} key={item.id} />
                         </div>
                     ))}
                 </div>
@@ -59,18 +52,26 @@ function News() {
                         Show News
                     </Button>
                 </Grid>
-                {/* <div
-                    onClick={handleShowNews}
-                    className="text-xl font-medium rounded border border-black p-[6px] duration-300 transition-all hover:bg-green-200 hover:cursor-pointer w-fit shadow-lg"
-                >
-                    Watch all News
-                </div> */}
             </div>
 
             <div className="flex flex-row gap-5">
+                {/* <Button
+                    variant="contained"
+                    onClick={() => {
+                        dispatch(
+                            addComment('1', {
+                                id: '7',
+                                discID: '1',
+                                content: 'Comment content 1',
+                                liked: '1200',
+                                createdAt: '1400',
+                                author: 'Ncik Mikhnevich',
+                            })
+                        );
+                    }}
+                /> */}
                 <h1 className="text-3xl font-semibold"> Latest discussions\</h1>
             </div>
-
             <DiscussionTile
                 title={'Disc1'}
                 date={new Date().toLocaleDateString()}
