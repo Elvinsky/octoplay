@@ -32,13 +32,14 @@ function AllNews() {
                 <div className="flex flex-row flex-wrap w-90% m-auto gap-5 items-center justify-center custom-shadow p-4">
                     {news.map((item) => (
                         <NewsCard
-                            thumbnail={item.thumbnailPic}
-                            createdAt={item.createdAt}
-                            content={item.content}
-                            liked={item.liked}
-                            watched={item.watched}
+                            news={item}
+                            // thumbnail={item.thumbnailPic}
+                            // createdAt={item.createdAt}
+                            // content={item.content}
+                            // liked={item.liked}
+                            // watched={item.watched}
                             admin={admin}
-                            id={item.id}
+                            // id={item.id}
                             key={item.id}
                         />
                     ))}
