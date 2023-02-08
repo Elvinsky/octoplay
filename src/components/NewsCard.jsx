@@ -11,7 +11,6 @@ import {useCallback} from 'react';
 import EditNewsModal from './EditNewsModal';
 
 export default function NewsCard({news, admin}) {
-    console.log(news);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleShowNews = () => {

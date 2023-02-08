@@ -56,9 +56,9 @@ export const postUser = (user) =>
     });
 
 //-----------------------DISCUSSION API-----------------------------
-export const getDisc = () => fetchData(fetchData(`${BASE_URL}discussions`));
+export const getDisc = () => fetchData(`${BASE_URL}discussions`);
 export const getComments = (id) =>
-    fetchData(fetchData(`${BASE_URL}discussions/${id}/comments`));
+    fetchData(`${BASE_URL}discussions/${id}/comments`);
 
 export const postDisc = (disc) =>
     fetchData(`${BASE_URL}discussions`, {

@@ -2,10 +2,16 @@ import {Button, Grid} from '@mui/material';
 import {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
+import CustomBackdrop from '../components/Backdrop';
 import DiscussionTile from '../components/DiscussionTile';
 import NewsCard from '../components/NewsCard';
 import useFetch from '../hooks/useFetch';
-import {addComment, addDisc} from '../redux/discussions/discActions';
+import {fetchDisc} from '../redux/discussions/discActions';
+import {
+    selectDisc,
+    selectDiscError,
+    selectDiscLoading,
+} from '../redux/discussions/discSelector';
 import {fetchRecentNews} from '../redux/news/newsActions';
 import {
     selectNews,
@@ -18,9 +24,14 @@ import {selectActiveUser} from '../redux/users/userSelectors';
 function News() {
     const navigate = useNavigate();
     useFetch(fetchRecentNews());
+    useFetch(fetchDisc());
     const news = useSelector(selectNews);
+    const disc = useSelector(selectDisc);
     const newsLoading = useSelector(selectNewsLoading);
     const newsError = useSelector(selectNewsError);
+    const discLoading = useSelector(selectDiscLoading);
+    const discError = useSelector(selectDiscError);
+
     const dispatch = useDispatch();
     useFetch(() => dispatch(fetchUsers()));
     const user = useSelector(selectActiveUser);
@@ -28,7 +39,8 @@ function News() {
     const handleShowNews = useCallback(() => {
         navigate('/newspage/allnews');
     }, [navigate]);
-    if (!newsError && newsLoading) return <div>Loading</div>;
+    if (!newsError && newsLoading) return <CustomBackdrop />;
+    else if (!discError && discLoading) return <CustomBackdrop />;
     return (
         <div className="flex flex-col gap-7 w-3/4 m-auto mt-8">
             <div className="flex flex-row gap-5">
@@ -55,24 +67,12 @@ function News() {
             </div>
 
             <div className="flex flex-row gap-5">
-                {/* <Button
-                    variant="contained"
-                    onClick={() => {
-                        dispatch(
-                            addComment('1', {
-                                id: '7',
-                                discID: '1',
-                                content: 'Comment content 1',
-                                liked: '1200',
-                                createdAt: '1400',
-                                author: 'Ncik Mikhnevich',
-                            })
-                        );
-                    }}
-                /> */}
                 <h1 className="text-3xl font-semibold"> Latest discussions\</h1>
             </div>
-            <DiscussionTile
+            {disc.map((item) => (
+                <DiscussionTile disc={item} admin={admin} key={item.id} />
+            ))}
+            {/* <DiscussionTile
                 title={'Disc1'}
                 date={new Date().toLocaleDateString()}
                 watched={1200}
@@ -101,7 +101,7 @@ function News() {
                 date={new Date().toLocaleDateString()}
                 watched={1200}
                 likes={430}
-            />
+            /> */}
         </div>
     );
 }

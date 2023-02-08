@@ -1,9 +1,9 @@
-function DiscussionTile({date, watched, likes, title, img}) {
+function DiscussionTile({admin, disc}) {
     return (
         <div className="flex flex-row gap-3 custom-shadow w-[65%] p-3 items-center justify-between last:mb-5 transition-all duration-300 hover:scale-105">
             <div className=" flex flex-col gap-5">
                 <div className="flex flex-col p-1 gap-4">
-                    <h2 className="text-xl font-semibold">{title}</h2>
+                    <h2 className="text-xl font-semibold">{disc.title}</h2>
                     <div className="flex flex-row justify-between items-center gap-3">
                         <div className="flex flex-row gap-1 items-center">
                             <svg
@@ -20,7 +20,7 @@ function DiscussionTile({date, watched, likes, title, img}) {
                                     d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
                                 />
                             </svg>
-                            <span>{date}</span>
+                            <span>{disc.createdAt}</span>
                         </div>
                         <div className="flex flex-row gap-1 items-center">
                             <svg
@@ -42,7 +42,7 @@ function DiscussionTile({date, watched, likes, title, img}) {
                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                                 />
                             </svg>
-                            <span>{watched}</span>
+                            <span>{disc.watched}</span>
                         </div>
 
                         <div className="flex flex-row gap-1 items-center">
@@ -60,12 +60,12 @@ function DiscussionTile({date, watched, likes, title, img}) {
                                     d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
                                 />
                             </svg>
-                            <span>{likes}</span>
+                            <span>{disc.liked}</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <img src="https://via.placeholder.com/130x130?text=Discussion+Placeholder" />
+            <img src={disc.thumbnailPic} alt="discuss" />
         </div>
     );
 }

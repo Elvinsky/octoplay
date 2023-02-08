@@ -75,7 +75,7 @@
             "content": "Some example discussion content N1",
             "liked": "1300",
             "watched": "3000",
-            "thumbnailPic": "",
+            "thumbnailPic": "https://via.placeholder.com/130x130?text=Discussion+Placeholder",
             "fullsizePic": "",
             "createdAt": "2/8/2023",
             "author": "Ncik Mikhnevich"
@@ -86,7 +86,7 @@
             "content": "Some example discussion content N2",
             "liked": "1300",
             "watched": "3000",
-            "thumbnailPic": "",
+            "thumbnailPic": "https://via.placeholder.com/130x130?text=Discussion+Placeholder",
             "fullsizePic": "",
             "createdAt": "2/8/2023",
             "author": "Ncik Mikhnevich"
