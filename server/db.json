@@ -72,7 +72,7 @@
         {
             "id": "0",
             "title": "example1",
-            "content": "Some example discussion content N1",
+            "content": "Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2",
             "liked": "1300",
             "watched": "3000",
             "thumbnailPic": "https://via.placeholder.com/130x130?text=Discussion+Placeholder",
@@ -83,7 +83,7 @@
         {
             "id": "1",
             "title": "example2",
-            "content": "Some example discussion content N2",
+            "content": "Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2",
             "liked": "1300",
             "watched": "3000",
             "thumbnailPic": "https://via.placeholder.com/130x130?text=Discussion+Placeholder",
@@ -98,7 +98,15 @@
             "id": "1",
             "content": "Comment content 1",
             "liked": "1200",
-            "createdAt": "1400",
+            "createdAt": "02/12/2023",
+            "author": "Ncik Mikhnevich"
+        },
+        {
+            "discID": "0",
+            "id": "2",
+            "content": "Comment content 1",
+            "liked": "1200",
+            "createdAt": "02/12/2023",
             "author": "Ncik Mikhnevich"
         }
     ]

@@ -116,6 +116,25 @@ export const discReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 error: payload,
             };
         }
+        case 'COMMENTS/FETCH/START': {
+            return {
+                ...state,
+                loading: true,
+            };
+        }
+        case 'COMMENTS/FETCH/ERROR': {
+            return {
+                ...state,
+                loading: false,
+                error: payload,
+            };
+        }
+        case 'COMMENTS/FETCH/SUCCESS': {
+            return {
+                ...state,
+                comments: payload,
+            };
+        }
         default: {
             return state;
         }

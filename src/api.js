@@ -47,7 +47,6 @@ export const patchNews = (news, newsID) => {
 };
 //-----------------------USERS API-----------------------------
 export const getUsers = () => fetchData(`${BASE_URL}users`);
-
 export const postUser = (user) =>
     fetchData(`${BASE_URL}users`, {
         method: 'POST',
@@ -57,6 +56,7 @@ export const postUser = (user) =>
 
 //-----------------------DISCUSSION API-----------------------------
 export const getDisc = () => fetchData(`${BASE_URL}discussions`);
+export const getDiscById = (id) => fetchData(`${BASE_URL}discussions/${id}`);
 export const getComments = (id) =>
     fetchData(`${BASE_URL}discussions/${id}/comments`);
 

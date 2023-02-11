@@ -14,7 +14,7 @@ export default function NewsCard({news, admin}) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleShowNews = () => {
-        navigate(`/newspage/id-${news.id}`);
+        navigate(`/newspage/${news.id}`);
     };
     const handleDeleteItem = useCallback(() => {
         dispatch(deleteNewsItem(news.id));

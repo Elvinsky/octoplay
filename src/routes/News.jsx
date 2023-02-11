@@ -70,38 +70,8 @@ function News() {
                 <h1 className="text-3xl font-semibold"> Latest discussions\</h1>
             </div>
             {disc.map((item) => (
-                <DiscussionTile disc={item} admin={admin} key={item.id} />
+                <DiscussionTile admin={admin} key={item.id} disc={item} />
             ))}
-            {/* <DiscussionTile
-                title={'Disc1'}
-                date={new Date().toLocaleDateString()}
-                watched={1200}
-                likes={430}
-            />
-            <DiscussionTile
-                title={'Disc2'}
-                date={new Date().toLocaleDateString()}
-                watched={1200}
-                likes={430}
-            />
-            <DiscussionTile
-                title={'Disc3'}
-                date={new Date().toLocaleDateString()}
-                watched={1200}
-                likes={430}
-            />
-            <DiscussionTile
-                title={'Disc4'}
-                date={new Date().toLocaleDateString()}
-                watched={1200}
-                likes={430}
-            />
-            <DiscussionTile
-                title={'Disc5'}
-                date={new Date().toLocaleDateString()}
-                watched={1200}
-                likes={430}
-            /> */}
         </div>
     );
 }

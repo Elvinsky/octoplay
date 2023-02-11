@@ -11,8 +11,7 @@ import {Grid} from '@mui/material';
 import {useDispatch, useSelector} from 'react-redux';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {useCallback} from 'react';
-import {addNews, fetchNews, patchNewsItem} from '../redux/news/newsActions';
-import {patchNews} from '../api';
+import {fetchNews, patchNewsItem} from '../redux/news/newsActions';
 import useFetch from '../hooks/useFetch';
 import {selectNewsViaID} from '../redux/news/newsSelectors';
 
@@ -39,31 +38,6 @@ export default function EditNewsModal({id}) {
         setOpen(false);
     }, []);
 
-    // const handleSubmit = useCallback(() => {
-    //     if (
-    //         title.length === 0 ||
-    //         content.length === 0 ||
-    //         url.length === 0 ||
-    //         thUrl === 0
-    //     ) {
-    //         setValid(false);
-    //         return;
-    //     } else {
-    //         const news = {
-    //             id: Date.now().toString(),
-    //             title: '',
-    //             content: '',
-    //             liked: 0,
-    //             watched: 0,
-    //             thumbnailPic: '',
-    //             fullsizePic: '',
-    //             createdAt: new Date().toLocaleDateString(),
-    //         };
-    //         dispatch(patchNews(news));
-    //         navigate(location.pathname);
-    //         setOpen(false);
-    //     }
-    // }, [title, content, url, thUrl, dispatch, navigate, location.pathname]);
     const handleSubmit = useCallback(() => {
         if (
             title.length === 0 ||
@@ -85,16 +59,6 @@ export default function EditNewsModal({id}) {
                 createdAt: new Date().toLocaleDateString(),
             };
             dispatch(patchNewsItem(id, UPDnews));
-            // fetch(`http://localhost:5000/news/${id}`, {
-            //     method: 'PATCH',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(UPDnews),
-            // })
-            //     .then((response) => response.json())
-            //     .then((data) => console.log('Success:', UPDnews))
-            //     .catch((error) => console.error('Error:', error));
             navigate(location.pathname);
             setOpen(false);
         }

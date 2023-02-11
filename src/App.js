@@ -9,6 +9,7 @@ import Streams from './routes/Streams';
 import UserPage from './routes/UserPage';
 import Registration from './routes/Registration';
 import NewsDetails from './routes/NewsDetails';
+import Discussion from './routes/DIscussion';
 function App() {
     const router = createBrowserRouter([
         {
@@ -28,12 +29,16 @@ function App() {
                     element: <News />,
                 },
                 {
-                    path: '/newspage/id-:id',
+                    path: '/newspage/:id',
                     element: <NewsDetails />,
                 },
                 {
                     path: '/newspage/allnews',
                     element: <AllNews />,
+                },
+                {
+                    path: '/discussion/:id',
+                    element: <Discussion />,
                 },
                 {
                     path: '/streams',
