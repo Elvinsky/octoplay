@@ -1,10 +1,12 @@
 import {
+    deleteDisc,
     getComments,
     getDisc,
     getDiscById,
+    patchDisc,
     postComment,
     postDisc,
-} from '../../api';
+} from '../../utils/api';
 
 export const fetchDisc = () => async (dispatch) => {
     dispatch({type: 'DISC/FETCH/START'});
@@ -57,5 +59,25 @@ export const fetchComments = (id) => async (dispatch) => {
     } catch (e) {
         console.error(e);
         dispatch({type: 'COMMENTS/FETCH/ERROR', payload: e});
+    }
+};
+export const deleteDiscItem = (id) => async (dispatch) => {
+    dispatch({type: 'DISC/DELETE/START'});
+    try {
+        await deleteDisc(id);
+        dispatch({type: 'DISC/DELETE/SUCCESS', payload: id});
+    } catch (e) {
+        console.error(e);
+        dispatch({type: 'DISC/DELETE/ERROR', payload: e});
+    }
+};
+export const patchDiscItem = (disc, id) => async (dispatch) => {
+    dispatch({type: 'NEWS/PATCH/START'});
+    try {
+        await patchDisc(disc, id);
+        dispatch({type: 'NEWS/PATCH/SUCCESS', payload: {id, disc}});
+    } catch (e) {
+        console.error(e);
+        dispatch({type: 'NEWS/PATCH/ERROR', payload: e});
     }
 };

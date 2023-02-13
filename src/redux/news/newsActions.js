@@ -1,4 +1,10 @@
-import {getNews, getNewsById, postNews, deleteNews, patchNews} from '../../api';
+import {
+    getNews,
+    getNewsById,
+    postNews,
+    deleteNews,
+    patchNews,
+} from '../../utils/api';
 
 export const fetchNews = () => async (dispatch) => {
     dispatch({type: 'NEWS/FETCH/START'});

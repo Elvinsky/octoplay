@@ -72,3 +72,20 @@ export const postComment = (discId, comment) =>
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(comment),
     });
+export const deleteDisc = (id) => {
+    fetchData(`${BASE_URL}discussions/${id}`, {
+        method: 'DELETE',
+    });
+};
+export const patchDisc = (disc, id) => {
+    fetch(`${BASE_URL}discussions/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(disc),
+    })
+        .then((response) => response.json())
+        .then((news) => console.log('Success:', news))
+        .catch((error) => console.error('Error:', error));
+};

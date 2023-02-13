@@ -1,11 +1,14 @@
 import {Button, TextField} from '@mui/material';
 import {useCallback, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useParams} from 'react-router-dom';
+import {useLocation, useNavigate, useParams} from 'react-router-dom';
 import CustomBackdrop from '../components/Backdrop';
+import DeleteModal from '../components/DeleteModal';
+import EditDiscModal from '../components/EditDIscModal';
 import useFetch from '../hooks/useFetch';
 import {
     addComment,
+    deleteDiscItem,
     fetchComments,
     fetchDiscById,
 } from '../redux/discussions/discActions';
@@ -30,11 +33,13 @@ function Discussion() {
     useFetch(fetchUsers());
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const user = useSelector(selectActiveUser);
     const disc = useSelector(selectDisc);
     const comments = useSelector(selectComments);
-
+    const admin = user[0].id === '0';
     comments.sort(dateCompare);
 
     const handleShowComments = useCallback(() => {
@@ -43,11 +48,17 @@ function Discussion() {
     const handleopenReduct = useCallback(() => {
         setOpenReduct(!openReduct);
     }, [openReduct]);
-
+    const handleGoBack = useCallback(() => {
+        navigate('/newspage');
+    }, [navigate]);
     const handleSelection = (event) => {
         setSelectedStart(event.target.selectionStart);
         setSelectedEnd(event.target.selectionEnd);
     };
+    const handleDelete = useCallback(() => {
+        dispatch(deleteDiscItem(disc.id));
+        navigate('/newspage');
+    }, [disc.id, dispatch, navigate]);
     const formatText = (format) => {
         const selectedText = text.substring(selectedStart, selectedEnd);
         const beforeSelection = text.substring(0, selectedStart);
@@ -70,16 +81,19 @@ function Discussion() {
     const handlePublish = useCallback(() => {
         const comment = {
             discId: id,
-            id: Date.now().toString,
+            id: Date.now().toString(),
             content: text,
             liked: 0,
             createdAt: new Date().toLocaleDateString(),
-            author: user.name,
+            author: user[0].name,
         };
         dispatch(addComment(id, comment));
-    }, [dispatch, id, text, user.name]);
+        navigate(location.pathname);
+        setText('');
+        window.location.reload();
+    }, [dispatch, id, location.pathname, navigate, text, user]);
     useEffect(() => {
-        if (symbolCount >= 500) {
+        if (symbolCount >= 500 || symbolCount <= 0) {
             setAvailable(false);
         } else {
             setAvailable(true);
@@ -98,6 +112,14 @@ function Discussion() {
             <div className="flex flex-col gap-3 items-center justify-center">
                 <div className=" flex flex-col gap-3 w-3/4 custom-shadow p-4 my-5 m-auto">
                     <div className="flex flex-row gap-4 w-[68%] items-center">
+                        <Button
+                            variant="contained"
+                            size="small"
+                            sx={{maxWidth: 100}}
+                            onClick={handleGoBack}
+                        >
+                            Back
+                        </Button>
                         <h1 className=" font-semibold text-2xl">
                             {disc.title}
                         </h1>
@@ -174,6 +196,12 @@ function Discussion() {
                                 Show Comments
                             </Button>
                         )}
+                        {admin ? (
+                            <div className="flex flex-row gap-2 self-end">
+                                <EditDiscModal id={id} />
+                                <DeleteModal onDelete={handleDelete} />
+                            </div>
+                        ) : null}
                     </div>
                 </div>
 

@@ -3,12 +3,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {Button, CardActionArea, CardActions} from '@mui/material';
+import {CardActionArea, CardActions} from '@mui/material';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {deleteNewsItem} from '../redux/news/newsActions';
 import {useCallback} from 'react';
 import EditNewsModal from './EditNewsModal';
+import DeleteModal from './DeleteModal';
 
 export default function NewsCard({news, admin}) {
     const dispatch = useDispatch();
@@ -42,14 +43,10 @@ export default function NewsCard({news, admin}) {
             </CardActionArea>
             <CardActions>
                 <EditNewsModal id={news.id} />
-                <Button
-                    size="small"
-                    color="primary"
+                <DeleteModal
                     hidden={admin ? false : true}
-                    onClick={handleDeleteItem}
-                >
-                    Delete
-                </Button>
+                    onDelete={handleDeleteItem}
+                />
             </CardActions>
         </Card>
     );

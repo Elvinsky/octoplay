@@ -12,6 +12,7 @@ export const discReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 discs: payload,
             };
         }
+
         case 'DISC/FETCH/START': {
             return {
                 ...state,

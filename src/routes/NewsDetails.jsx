@@ -3,6 +3,7 @@ import {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate, useParams} from 'react-router-dom';
 import CustomBackdrop from '../components/Backdrop';
+import DeleteModal from '../components/DeleteModal';
 import EditNewsModal from '../components/EditNewsModal';
 import useFetch from '../hooks/useFetch';
 import {deleteNewsItem, fetchNewsById} from '../redux/news/newsActions';
@@ -12,10 +13,13 @@ import {selectActiveUser} from '../redux/users/userSelectors';
 
 function NewsDetails() {
     const {id} = useParams();
+
     useFetch(fetchNewsById(id));
+    const news = useSelector(selectNews);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const news = useSelector(selectNews);
+
     useFetch(() => dispatch(fetchUsers()));
     const user = useSelector(selectActiveUser);
     const admin = user[0].id === '0';
@@ -24,9 +28,11 @@ function NewsDetails() {
         dispatch(deleteNewsItem(id));
         window.location.reload();
     }, [dispatch, id]);
-    const handleGoBack = () => {
+
+    const handleGoBack = useCallback(() => {
         navigate('/newspage');
-    };
+    }, [navigate]);
+
     if (news.length === 1) {
         return (
             <div className=" flex flex-col gap-3 w-3/4 custom-shadow p-4 my-5 m-auto">
@@ -53,14 +59,10 @@ function NewsDetails() {
                 <div className="text-sm font-thin">{news[0].createdAt}</div>
                 <div className="flex flex-row">
                     <EditNewsModal id={id} />
-                    <Button
-                        size="small"
-                        color="primary"
+                    <DeleteModal
                         hidden={admin ? false : true}
-                        onClick={handleDeleteItem}
-                    >
-                        Delete
-                    </Button>
+                        onDelete={handleDeleteItem}
+                    />
                 </div>
             </div>
         );

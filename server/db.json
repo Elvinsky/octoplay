@@ -1,113 +1,72 @@
 {
-    "users": [
-        {
-            "id": "0",
-            "email": "admin@gmail.com",
-            "password": "admin",
-            "name": "Nick",
-            "createdAt": "1/12/2022"
-        },
-        {
-            "id": "1675265629668",
-            "email": "123",
-            "password": "123",
-            "name": "123",
-            "nickname": "123",
-            "createdAt": "2/1/2023"
-        }
-    ],
-    "news": [
-        {
-            "id": "23452345",
-            "title": "title4awdawd",
-            "content": "Some content number 4",
-            "liked": "1234",
-            "watched": "3200",
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "2/8/2023"
-        },
-        {
-            "id": "1675806119495",
-            "title": "Title5",
-            "content": "123123123",
-            "liked": 0,
-            "watched": 0,
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "2/8/2023"
-        },
-        {
-            "id": "1675867133258",
-            "title": "123",
-            "content": "123",
-            "liked": 0,
-            "watched": 0,
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "2/8/2023"
-        },
-        {
-            "id": "1675867139117",
-            "title": "123",
-            "content": "123",
-            "liked": 0,
-            "watched": 0,
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "2/8/2023"
-        },
-        {
-            "id": "1675867143411",
-            "title": "123",
-            "content": "123",
-            "liked": 0,
-            "watched": 0,
-            "thumbnailPic": "https://via.placeholder.com/390x200",
-            "fullsizePic": "https://via.placeholder.com/500",
-            "createdAt": "2/8/2023"
-        }
-    ],
-    "discussions": [
-        {
-            "id": "0",
-            "title": "example1",
-            "content": "Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2",
-            "liked": "1300",
-            "watched": "3000",
-            "thumbnailPic": "https://via.placeholder.com/130x130?text=Discussion+Placeholder",
-            "fullsizePic": "",
-            "createdAt": "2/8/2023",
-            "author": "Ncik Mikhnevich"
-        },
-        {
-            "id": "1",
-            "title": "example2",
-            "content": "Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2",
-            "liked": "1300",
-            "watched": "3000",
-            "thumbnailPic": "https://via.placeholder.com/130x130?text=Discussion+Placeholder",
-            "fullsizePic": "",
-            "createdAt": "2/8/2023",
-            "author": "Ncik Mikhnevich"
-        }
-    ],
-    "comments": [
-        {
-            "discID": "0",
-            "id": "1",
-            "content": "Comment content 1",
-            "liked": "1200",
-            "createdAt": "02/12/2023",
-            "author": "Ncik Mikhnevich"
-        },
-        {
-            "discID": "0",
-            "id": "2",
-            "content": "Comment content 1",
-            "liked": "1200",
-            "createdAt": "02/12/2023",
-            "author": "Ncik Mikhnevich"
-        }
-    ]
+  "users": [
+    {
+      "id": "0",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "name": "Nick",
+      "createdAt": "1/12/2022"
+    },
+    {
+      "id": "1675265629668",
+      "email": "123",
+      "password": "123",
+      "name": "123",
+      "nickname": "123",
+      "createdAt": "2/1/2023"
+    }
+  ],
+  "news": [
+    {
+      "id": "1675806119495",
+      "title": "Title5",
+      "content": "123123123",
+      "liked": 0,
+      "watched": 0,
+      "thumbnailPic": "https://via.placeholder.com/390x200",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "2/8/2023"
+    },
+    {
+      "id": "1675867139117",
+      "title": "123",
+      "content": "123",
+      "liked": 0,
+      "watched": 0,
+      "thumbnailPic": "https://via.placeholder.com/390x200",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "2/8/2023"
+    }
+  ],
+  "discussions": [
+    {
+      "id": "0",
+      "title": "example12",
+      "content": "Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2",
+      "liked": "1300",
+      "watched": "3000",
+      "thumbnailPic": "https://via.placeholder.com/130x130?text=Discussion+Placeholder",
+      "fullsizePic": "",
+      "createdAt": "2/13/2023",
+      "author": "Ncik Mikhnevich"
+    }
+  ],
+  "comments": [
+    {
+      "discID": "0",
+      "id": "1",
+      "content": "Comment content 1",
+      "liked": "1200",
+      "createdAt": "02/12/2023",
+      "author": "Ncik Mikhnevich"
+    },
+    {
+      "discID": "0",
+      "id": "2",
+      "content": "Comment content 1",
+      "liked": "1200",
+      "createdAt": "02/12/2023",
+      "author": "Ncik Mikhnevich"
+    }
+  ]
 }

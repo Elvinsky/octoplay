@@ -7,17 +7,9 @@ import DiscussionTile from '../components/DiscussionTile';
 import NewsCard from '../components/NewsCard';
 import useFetch from '../hooks/useFetch';
 import {fetchDisc} from '../redux/discussions/discActions';
-import {
-    selectDisc,
-    selectDiscError,
-    selectDiscLoading,
-} from '../redux/discussions/discSelector';
+import {selectDisc, selectDiscLoading} from '../redux/discussions/discSelector';
 import {fetchRecentNews} from '../redux/news/newsActions';
-import {
-    selectNews,
-    selectNewsError,
-    selectNewsLoading,
-} from '../redux/news/newsSelectors';
+import {selectNews, selectNewsLoading} from '../redux/news/newsSelectors';
 import {fetchUsers} from '../redux/users/userActions';
 import {selectActiveUser} from '../redux/users/userSelectors';
 
@@ -25,12 +17,11 @@ function News() {
     const navigate = useNavigate();
     useFetch(fetchRecentNews());
     useFetch(fetchDisc());
+
     const news = useSelector(selectNews);
     const disc = useSelector(selectDisc);
     const newsLoading = useSelector(selectNewsLoading);
-    const newsError = useSelector(selectNewsError);
     const discLoading = useSelector(selectDiscLoading);
-    const discError = useSelector(selectDiscError);
 
     const dispatch = useDispatch();
     useFetch(() => dispatch(fetchUsers()));
@@ -39,8 +30,10 @@ function News() {
     const handleShowNews = useCallback(() => {
         navigate('/newspage/allnews');
     }, [navigate]);
-    if (!newsError && newsLoading) return <CustomBackdrop />;
-    else if (!discError && discLoading) return <CustomBackdrop />;
+
+    if (newsLoading || discLoading) return <CustomBackdrop />;
+    else if (news.length === 0 || disc.length === 0) return <CustomBackdrop />;
+    else if (!disc.map) return <CustomBackdrop />;
     return (
         <div className="flex flex-col gap-7 w-3/4 m-auto mt-8">
             <div className="flex flex-row gap-5">
