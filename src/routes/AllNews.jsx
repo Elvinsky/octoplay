@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import AddNewsModal from '../components/AddNewsModal';
 import NewsCard from '../components/NewsCard';
+import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
 import {fetchNews} from '../redux/news/newsActions';
 import {
@@ -11,7 +12,6 @@ import {
     selectNewsLoading,
 } from '../redux/news/newsSelectors';
 import {fetchUsers} from '../redux/users/userActions';
-import {selectActiveUser} from '../redux/users/userSelectors';
 
 function AllNews() {
     useFetch(() => dispatch(fetchNews()));
@@ -21,9 +21,7 @@ function AllNews() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     useFetch(() => dispatch(fetchUsers()));
-    const user = useSelector(selectActiveUser);
-    const admin = user[0].id === '0';
-
+    const [, admin] = useAdminCheck();
     const handleGoBack = useCallback(() => {
         navigate('/newspage');
     }, [navigate]);

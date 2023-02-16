@@ -1,7 +1,7 @@
 import {Button, Grid} from '@mui/material';
 import {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useLocation, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import CustomBackdrop from '../components/Backdrop';
 import DiscussionTile from '../components/DiscussionTile';
 import NewsCard from '../components/NewsCard';
@@ -22,8 +22,7 @@ function News() {
     const disc = useSelector(selectDisc);
     const newsLoading = useSelector(selectNewsLoading);
     const discLoading = useSelector(selectDiscLoading);
-    const [admin] = useAdminCheck();
-
+    const [, admin] = useAdminCheck();
     const dispatch = useDispatch();
     useFetch(() => dispatch(fetchUsers()));
     const handleShowNews = useCallback(() => {

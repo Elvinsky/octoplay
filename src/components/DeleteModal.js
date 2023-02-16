@@ -7,7 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import {useState} from 'react';
 import {useCallback} from 'react';
-export default function DeleteModal({url, onDelete, hidden}) {
+export default function DeleteModal({url, onDelete}) {
     const [open, setOpen] = useState(false);
     const handleOpen = useCallback(() => {
         setOpen(true);
@@ -28,7 +28,6 @@ export default function DeleteModal({url, onDelete, hidden}) {
                 variant="contained"
                 sx={{maxWidth: 'fit-content'}}
                 onClick={handleOpen}
-                hidden={hidden}
             >
                 Delete
             </Button>

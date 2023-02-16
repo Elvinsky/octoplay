@@ -20,7 +20,6 @@ export default function NewsCard({news, admin, curPath}) {
     const handleDeleteItem = useCallback(() => {
         dispatch(deleteNewsItem(news.id));
         navigate(curPath);
-        // window.location.reload();
     }, [curPath, dispatch, navigate, news]);
 
     return (
@@ -42,13 +41,15 @@ export default function NewsCard({news, admin, curPath}) {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions>
-                <EditNewsModal id={news.id} />
-                <DeleteModal
-                    hidden={admin ? false : true}
-                    onDelete={handleDeleteItem}
-                />
-            </CardActions>
+            {admin && (
+                <CardActions>
+                    <EditNewsModal id={news.id} hidden={admin ? false : true} />
+                    <DeleteModal
+                        onDelete={handleDeleteItem}
+                        classname={admin ? 'visible' : 'invisible'}
+                    />
+                </CardActions>
+            )}
         </Card>
     );
 }

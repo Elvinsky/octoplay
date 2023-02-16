@@ -15,7 +15,7 @@ import {fetchNews, patchNewsItem} from '../redux/news/newsActions';
 import useFetch from '../hooks/useFetch';
 import {selectNewsViaID} from '../redux/news/newsSelectors';
 
-export default function EditNewsModal({id}) {
+export default function EditNewsModal({id, hidden}) {
     useFetch(fetchNews);
     const news = useSelector((store) => selectNewsViaID(store, id));
 

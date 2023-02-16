@@ -19,8 +19,7 @@ function NewsDetails() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [admin] = useAdminCheck();
-
+    const [, admin] = useAdminCheck();
     useFetch(() => dispatch(fetchUsers()));
 
     const handleDeleteItem = useCallback(() => {
@@ -56,13 +55,15 @@ function NewsDetails() {
                 />
                 <div className=" text-lg font-normal">{news[0].content}</div>
                 <div className="text-sm font-thin">{news[0].createdAt}</div>
-                <div className="flex flex-row">
-                    <EditNewsModal id={id} />
-                    <DeleteModal
-                        hidden={admin ? false : true}
-                        onDelete={handleDeleteItem}
-                    />
-                </div>
+                {admin && (
+                    <div className="flex flex-row">
+                        <EditNewsModal id={id} />
+                        <DeleteModal
+                            hidden={admin ? false : true}
+                            onDelete={handleDeleteItem}
+                        />
+                    </div>
+                )}
             </div>
         );
     } else {

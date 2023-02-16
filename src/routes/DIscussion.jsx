@@ -33,7 +33,7 @@ function Discussion() {
     const [selectedEnd, setSelectedEnd] = useState(0);
     const [symbolCount, setSymbolCount] = useState(0);
     const [available, setAvailable] = useState(true);
-    const [admin, user] = useAdminCheck();
+    const [user, admin] = useAdminCheck();
 
     useFetch(fetchDiscById(id));
     useFetch(fetchComments(id));
@@ -204,10 +204,7 @@ function Discussion() {
                         )}
                         {admin ? (
                             <div className="flex flex-row gap-2 self-end">
-                                <EditDiscModal
-                                    discussion={disc}
-                                    hidden={admin ? false : true}
-                                />
+                                <EditDiscModal discussion={disc} />
                                 <DeleteModal onDelete={handleDelete} />
                             </div>
                         ) : null}
