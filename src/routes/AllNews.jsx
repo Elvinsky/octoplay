@@ -2,6 +2,7 @@ import {useCallback} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import AddNewsModal from '../components/AddNewsModal';
+import CustomBackdrop from '../components/Backdrop';
 import NewsCard from '../components/NewsCard';
 import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
@@ -14,7 +15,7 @@ import {
 import {fetchUsers} from '../redux/users/userActions';
 
 function AllNews() {
-    useFetch(() => dispatch(fetchNews()));
+    useFetch(fetchNews());
     const news = useSelector(selectNews);
     const newsLoading = useSelector(selectNewsLoading);
     const newsError = useSelector(selectNewsError);
@@ -26,7 +27,7 @@ function AllNews() {
         navigate('/newspage');
     }, [navigate]);
 
-    if (!newsError && newsLoading) return <div>Loading</div>;
+    if (!newsError && newsLoading) return <CustomBackdrop />;
     else {
         return (
             <div className="flex flex-col gap-7 w-3/4 m-auto mt-8">

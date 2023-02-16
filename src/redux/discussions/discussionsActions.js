@@ -19,6 +19,17 @@ export const fetchDisc = () => async (dispatch) => {
         dispatch({type: 'DISC/FETCH/ERROR', payload: e});
     }
 };
+export const fetchRecentDisc = () => async (dispatch) => {
+    dispatch({type: 'DISC/FETCH/START'});
+    try {
+        const disc = await getDisc();
+        // if (disc.length !== 0) console.log('FETCHED SUCCEED');
+        dispatch({type: 'DISC/FETCH/SUCCESS', payload: disc.slice(-5)});
+    } catch (e) {
+        console.error(e);
+        dispatch({type: 'DISC/FETCH/ERROR', payload: e});
+    }
+};
 export const fetchDiscById = (id) => async (dispatch) => {
     dispatch({type: 'DISC/FETCH/START'});
     try {

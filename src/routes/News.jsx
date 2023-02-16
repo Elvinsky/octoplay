@@ -7,7 +7,10 @@ import DiscussionTile from '../components/DiscussionTile';
 import NewsCard from '../components/NewsCard';
 import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
-import {fetchDisc} from '../redux/discussions/discussionsActions';
+import {
+    fetchDisc,
+    fetchRecentDisc,
+} from '../redux/discussions/discussionsActions';
 import {
     selectDisc,
     selectDiscLoading,
@@ -19,7 +22,7 @@ import {fetchUsers} from '../redux/users/userActions';
 function News() {
     const navigate = useNavigate();
     useFetch(fetchRecentNews());
-    useFetch(fetchDisc());
+    useFetch(fetchRecentDisc());
 
     const news = useSelector(selectNews);
     const disc = useSelector(selectDisc);
@@ -30,6 +33,9 @@ function News() {
     useFetch(() => dispatch(fetchUsers()));
     const handleShowNews = useCallback(() => {
         navigate('/newspage/allnews');
+    }, [navigate]);
+    const handleShowDiscussions = useCallback(() => {
+        navigate('/discussions/alldiscussions');
     }, [navigate]);
     const handleDeleteItem = useCallback(
         (id) => {
@@ -85,6 +91,16 @@ function News() {
             {disc.map((item) => (
                 <DiscussionTile admin={admin} key={item.id} disc={item} />
             ))}
+            <Grid container justifyContent="center">
+                <Button
+                    size="large"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleShowDiscussions}
+                >
+                    Show Discussions
+                </Button>
+            </Grid>
         </div>
     );
 }

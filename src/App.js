@@ -10,6 +10,7 @@ import UserPage from './routes/UserPage';
 import Registration from './routes/Registration';
 import NewsDetails from './routes/NewsDetails';
 import Discussion from './routes/DIscussion';
+import AllDiscussions from './routes/AllDiscussions';
 function App() {
     const router = createBrowserRouter([
         {
@@ -39,6 +40,10 @@ function App() {
                 {
                     path: '/discussion/:id',
                     element: <Discussion />,
+                },
+                {
+                    path: '/discussions/alldiscussions',
+                    element: <AllDiscussions />,
                 },
                 {
                     path: '/streams',
