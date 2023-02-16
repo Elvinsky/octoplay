@@ -6,6 +6,7 @@ export const createUser = (mail, pass, name, nick) => {
         name: name,
         nickname: nick,
         createdAt: new Date().toLocaleDateString(),
+        status: 'user',
     };
     return user;
 };

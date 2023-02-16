@@ -11,7 +11,7 @@ import {useCallback} from 'react';
 import EditNewsModal from './EditNewsModal';
 import DeleteModal from './DeleteModal';
 
-export default function NewsCard({news, admin}) {
+export default function NewsCard({news, admin, curPath}) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleShowNews = () => {
@@ -19,8 +19,9 @@ export default function NewsCard({news, admin}) {
     };
     const handleDeleteItem = useCallback(() => {
         dispatch(deleteNewsItem(news.id));
-        window.location.reload();
-    }, [dispatch, news.id]);
+        navigate(curPath);
+        // window.location.reload();
+    }, [curPath, dispatch, navigate, news]);
 
     return (
         <Card sx={{maxWidth: 345}}>

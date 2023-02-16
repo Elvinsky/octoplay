@@ -46,14 +46,9 @@ function AllNews() {
                     {news.map((item) => (
                         <NewsCard
                             news={item}
-                            // thumbnail={item.thumbnailPic}
-                            // createdAt={item.createdAt}
-                            // content={item.content}
-                            // liked={item.liked}
-                            // watched={item.watched}
                             admin={admin}
-                            // id={item.id}
                             key={item.id}
+                            curPath={'/newspage/allnews'}
                         />
                     ))}
                 </div>

@@ -1,10 +1,12 @@
 import {Button, TextField} from '@mui/material';
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useMemo, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useLocation, useNavigate, useParams} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import CustomBackdrop from '../components/Backdrop';
+import CommentTile from '../components/CommentTile';
 import DeleteModal from '../components/DeleteModal';
 import EditDiscModal from '../components/EditDIscModal';
+import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
 import {
     addComment,
@@ -12,9 +14,13 @@ import {
     fetchComments,
     fetchDiscById,
 } from '../redux/discussions/discActions';
-import {selectComments, selectDisc} from '../redux/discussions/discSelector';
+import {
+    selectComments,
+    selectDisc,
+    selectDiscLoading,
+    selectDiscError,
+} from '../redux/discussions/discSelector';
 import {fetchUsers} from '../redux/users/userActions';
-import {selectActiveUser} from '../redux/users/userSelectors';
 import {dateCompare} from '../utils/utilities';
 
 function Discussion() {
@@ -27,6 +33,7 @@ function Discussion() {
     const [selectedEnd, setSelectedEnd] = useState(0);
     const [symbolCount, setSymbolCount] = useState(0);
     const [available, setAvailable] = useState(true);
+    const [admin, user] = useAdminCheck();
 
     useFetch(fetchDiscById(id));
     useFetch(fetchComments(id));
@@ -34,12 +41,11 @@ function Discussion() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const location = useLocation();
 
-    const user = useSelector(selectActiveUser);
     const disc = useSelector(selectDisc);
+    const discLoading = useSelector(selectDiscLoading);
+    const discError = useSelector(selectDiscError);
     const comments = useSelector(selectComments);
-    const admin = user[0].id === '0';
     comments.sort(dateCompare);
 
     const handleShowComments = useCallback(() => {
@@ -80,7 +86,7 @@ function Discussion() {
     };
     const handlePublish = useCallback(() => {
         const comment = {
-            discId: id,
+            discussionID: id.toString(),
             id: Date.now().toString(),
             content: text,
             liked: 0,
@@ -88,25 +94,25 @@ function Discussion() {
             author: user[0].name,
         };
         dispatch(addComment(id, comment));
-        navigate(location.pathname);
+        // navigate(`/discussion/${id}`);
         setText('');
-        window.location.reload();
-    }, [dispatch, id, location.pathname, navigate, text, user]);
-    useEffect(() => {
+    }, [dispatch, id, text, user]);
+
+    useMemo(() => {
         if (symbolCount >= 500 || symbolCount <= 0) {
             setAvailable(false);
         } else {
             setAvailable(true);
         }
     }, [symbolCount]);
-    const handleChangeText = useCallback(
-        (event) => {
-            setText(event.target.value);
-            setSymbolCount(text.length);
-        },
-        [text.length]
-    );
+
+    const handleChangeText = useCallback((event) => {
+        const newText = event.target.value;
+        setText(newText);
+        setSymbolCount(newText.length);
+    }, []);
     if (disc.length === 0) return <CustomBackdrop />;
+    if (discLoading && !discError) return <CustomBackdrop />;
     else {
         return (
             <div className="flex flex-col gap-3 items-center justify-center">
@@ -198,7 +204,10 @@ function Discussion() {
                         )}
                         {admin ? (
                             <div className="flex flex-row gap-2 self-end">
-                                <EditDiscModal id={id} />
+                                <EditDiscModal
+                                    discussion={disc}
+                                    hidden={admin ? false : true}
+                                />
                                 <DeleteModal onDelete={handleDelete} />
                             </div>
                         ) : null}
@@ -259,22 +268,12 @@ function Discussion() {
                             </div>
                         ) : null}
                         {comments.map((item) => (
-                            <div className="custom-shadow flex flex-col w-full p-2">
-                                <div className="flex flex-row gap-2 items-center p-3">
-                                    <img
-                                        src="https://via.placeholder.com/30"
-                                        alt="avatar"
-                                        className="w-fit"
-                                    />
-                                    <h1 className=" text-xl font-semibold gap-3">
-                                        {item.author}
-                                    </h1>
-                                </div>
-                                <div className="ml-7">{item.content}</div>
-                                <small className=" font-light text-base self-end">
-                                    {item.createdAt}
-                                </small>
-                            </div>
+                            <CommentTile
+                                content={item.content}
+                                author={item.author}
+                                createdAt={item.createdAt}
+                                key={Date.now().toString()}
+                            />
                         ))}
                     </div>
                 ) : null}

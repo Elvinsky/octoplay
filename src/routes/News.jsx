@@ -1,17 +1,17 @@
 import {Button, Grid} from '@mui/material';
 import {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import CustomBackdrop from '../components/Backdrop';
 import DiscussionTile from '../components/DiscussionTile';
 import NewsCard from '../components/NewsCard';
+import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
 import {fetchDisc} from '../redux/discussions/discActions';
 import {selectDisc, selectDiscLoading} from '../redux/discussions/discSelector';
 import {fetchRecentNews} from '../redux/news/newsActions';
 import {selectNews, selectNewsLoading} from '../redux/news/newsSelectors';
 import {fetchUsers} from '../redux/users/userActions';
-import {selectActiveUser} from '../redux/users/userSelectors';
 
 function News() {
     const navigate = useNavigate();
@@ -22,11 +22,10 @@ function News() {
     const disc = useSelector(selectDisc);
     const newsLoading = useSelector(selectNewsLoading);
     const discLoading = useSelector(selectDiscLoading);
+    const [admin] = useAdminCheck();
 
     const dispatch = useDispatch();
     useFetch(() => dispatch(fetchUsers()));
-    const user = useSelector(selectActiveUser);
-    const admin = user[0].id === '0';
     const handleShowNews = useCallback(() => {
         navigate('/newspage/allnews');
     }, [navigate]);
@@ -43,7 +42,12 @@ function News() {
                 <div className="flex flex-row gap-4 flex-wrap items-center mb-4 justify-center">
                     {news.map((item) => (
                         <div className="flex flex-col gap-2 items-center justify-center">
-                            <NewsCard news={item} admin={admin} key={item.id} />
+                            <NewsCard
+                                news={item}
+                                admin={admin}
+                                key={item.id}
+                                curPath={'/newspage'}
+                            />
                         </div>
                     ))}
                 </div>

@@ -17,8 +17,8 @@ export default function AddNewsModal() {
     const [open, setOpen] = useState(false);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [url, setUrl] = useState('');
-    const [thUrl, setThUrl] = useState('');
+    const [url, setUrl] = useState('https://via.placeholder.com/500');
+    const [thUrl, setThUrl] = useState('https://via.placeholder.com/390x200');
     const [valid, setValid] = useState(true);
     const dispatch = useDispatch();
     const navigate = useNavigate();

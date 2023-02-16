@@ -5,11 +5,11 @@ import {useNavigate, useParams} from 'react-router-dom';
 import CustomBackdrop from '../components/Backdrop';
 import DeleteModal from '../components/DeleteModal';
 import EditNewsModal from '../components/EditNewsModal';
+import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
 import {deleteNewsItem, fetchNewsById} from '../redux/news/newsActions';
 import {selectNews} from '../redux/news/newsSelectors';
 import {fetchUsers} from '../redux/users/userActions';
-import {selectActiveUser} from '../redux/users/userSelectors';
 
 function NewsDetails() {
     const {id} = useParams();
@@ -19,10 +19,9 @@ function NewsDetails() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [admin] = useAdminCheck();
 
     useFetch(() => dispatch(fetchUsers()));
-    const user = useSelector(selectActiveUser);
-    const admin = user[0].id === '0';
 
     const handleDeleteItem = useCallback(() => {
         dispatch(deleteNewsItem(id));

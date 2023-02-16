@@ -1,4 +1,4 @@
-import {Outlet, useLocation, useNavigate} from 'react-router-dom';
+import {Outlet, useLocation} from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 // import HeaderMUI from '../components/HeaderMUI';

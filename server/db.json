@@ -5,7 +5,8 @@
       "email": "admin@gmail.com",
       "password": "admin",
       "name": "Nick",
-      "createdAt": "1/12/2022"
+      "createdAt": "1/12/2022",
+      "status": "admin"
     },
     {
       "id": "1675265629668",
@@ -13,60 +14,105 @@
       "password": "123",
       "name": "123",
       "nickname": "123",
-      "createdAt": "2/1/2023"
+      "createdAt": "2/1/2023",
+      "status": "user"
+    },
+    {
+      "id": "1676328079553",
+      "email": "d12312312@gmail.com",
+      "password": "123",
+      "name": "David",
+      "nickname": "Soroka",
+      "createdAt": "2/14/2023",
+      "status": "user"
     }
   ],
   "news": [
     {
-      "id": "1675806119495",
-      "title": "Title5",
-      "content": "123123123",
+      "id": "1676285270666",
+      "title": "mawdaw",
+      "content": "awdawdawd",
       "liked": 0,
       "watched": 0,
       "thumbnailPic": "https://via.placeholder.com/390x200",
       "fullsizePic": "https://via.placeholder.com/500",
-      "createdAt": "2/8/2023"
+      "createdAt": "2/13/2023"
     },
     {
-      "id": "1675867139117",
-      "title": "123",
-      "content": "123",
+      "id": "1676360245701",
+      "title": "123123",
+      "content": "123123123123123",
       "liked": 0,
       "watched": 0,
       "thumbnailPic": "https://via.placeholder.com/390x200",
       "fullsizePic": "https://via.placeholder.com/500",
-      "createdAt": "2/8/2023"
+      "createdAt": "14.02.2023"
     }
   ],
   "discussions": [
     {
       "id": "0",
-      "title": "example12",
+      "title": "example12oj",
       "content": "Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2Some example discussion content N2",
       "liked": "1300",
       "watched": "3000",
       "thumbnailPic": "https://via.placeholder.com/130x130?text=Discussion+Placeholder",
       "fullsizePic": "",
-      "createdAt": "2/13/2023",
+      "createdAt": "2/16/2023",
       "author": "Ncik Mikhnevich"
     }
   ],
   "comments": [
     {
-      "discID": "0",
       "id": "1",
+      "discussionID": "0",
       "content": "Comment content 1",
       "liked": "1200",
       "createdAt": "02/12/2023",
       "author": "Ncik Mikhnevich"
     },
     {
-      "discID": "0",
       "id": "2",
+      "discussionID": "0",
       "content": "Comment content 1",
       "liked": "1200",
       "createdAt": "02/12/2023",
       "author": "Ncik Mikhnevich"
+    },
+    {
+      "id": "3",
+      "discussionID": "0",
+      "content": "Comment content 1",
+      "liked": "1200",
+      "createdAt": "02/12/2023",
+      "author": "Ncik Mikhnevich"
+    },
+    {
+      "discussionID": "0",
+      "id": "1676328157469",
+      "content": "adpawodmawoi daw",
+      "liked": 0,
+      "createdAt": "2/14/2023",
+      "author": "David",
+      "discussionId": "0"
+    },
+    {
+      "discussionID": "0",
+      "id": "1676361114633",
+      "content": "ашпшгук",
+      "liked": 0,
+      "createdAt": "14.02.2023",
+      "author": "Nick",
+      "discussionId": "0"
+    },
+    {
+      "discussionID": "0",
+      "id": "1676530876352",
+      "content": "jgjgjgjg",
+      "liked": 0,
+      "createdAt": "2/16/2023",
+      "author": "Nick",
+      "discussionId": "0"
     }
   ]
 }
