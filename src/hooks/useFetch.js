@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 export default function useFetch(arg, deps = []) {

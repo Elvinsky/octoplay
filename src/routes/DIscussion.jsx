@@ -13,13 +13,13 @@ import {
     deleteDiscItem,
     fetchComments,
     fetchDiscById,
-} from '../redux/discussions/discActions';
+} from '../redux/discussions/discussionsActions';
 import {
     selectComments,
     selectDisc,
     selectDiscLoading,
     selectDiscError,
-} from '../redux/discussions/discSelector';
+} from '../redux/discussions/discussionSelector';
 import {fetchUsers} from '../redux/users/userActions';
 import {dateCompare} from '../utils/utilities';
 

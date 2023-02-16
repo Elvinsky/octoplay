@@ -4,23 +4,17 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea, CardActions} from '@mui/material';
-import {useNavigate} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
-import {deleteNewsItem} from '../redux/news/newsActions';
 import {useCallback} from 'react';
 import EditNewsModal from './EditNewsModal';
 import DeleteModal from './DeleteModal';
 
-export default function NewsCard({news, admin, curPath}) {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const handleShowNews = () => {
-        navigate(`/newspage/${news.id}`);
-    };
-    const handleDeleteItem = useCallback(() => {
-        dispatch(deleteNewsItem(news.id));
-        navigate(curPath);
-    }, [curPath, dispatch, navigate, news]);
+export default function NewsCard({news, admin, onDelete, onShowNews}) {
+    const handleShowNews = useCallback(() => {
+        onShowNews(news.id);
+    }, [news.id, onShowNews]);
+    const handleDelete = useCallback(() => {
+        onDelete(news.id);
+    }, [news.id, onDelete]);
 
     return (
         <Card sx={{maxWidth: 345}}>
@@ -45,7 +39,7 @@ export default function NewsCard({news, admin, curPath}) {
                 <CardActions>
                     <EditNewsModal id={news.id} hidden={admin ? false : true} />
                     <DeleteModal
-                        onDelete={handleDeleteItem}
+                        onDelete={handleDelete}
                         classname={admin ? 'visible' : 'invisible'}
                     />
                 </CardActions>

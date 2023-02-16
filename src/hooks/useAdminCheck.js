@@ -5,9 +5,11 @@ export default function useAdminCheck(deps = []) {
     const [admin, setAdmin] = useState(false);
     const [user, setUser] = useState({});
     useMemo(() => {
-        const curUser = user;
         setUser(JSON.parse(localStorage.getItem('user'))[0]);
+    }, []);
+    useMemo(() => {
+        const curUser = user;
         curUser.status === 'admin' ? setAdmin(true) : setAdmin(false);
-    }, deps);
+    }, [user]);
     return [user, admin];
 }

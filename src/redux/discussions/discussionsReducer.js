@@ -1,15 +1,15 @@
 const DEFAULT_STATE = {
-    discs: [],
+    discussions: [],
     comments: [],
     loading: false,
     error: null,
 };
-export const discReducer = (state = DEFAULT_STATE, {type, payload}) => {
+export const discussionsReducer = (state = DEFAULT_STATE, {type, payload}) => {
     switch (type) {
         case 'DISC/SET': {
             return {
                 ...state,
-                discs: payload,
+                discussions: payload,
             };
         }
 
@@ -30,7 +30,7 @@ export const discReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 ...state,
                 loading: false,
                 error: null,
-                discs: payload,
+                discussions: payload,
             };
         case 'DISC/ADD/START': {
             return {
@@ -43,7 +43,7 @@ export const discReducer = (state = DEFAULT_STATE, {type, payload}) => {
             return {
                 ...state,
                 loading: false,
-                discs: [...state.disc, disc],
+                discussions: [...state.disc, disc],
             };
         }
         case 'DISC/ADD/ERROR': {
@@ -64,7 +64,7 @@ export const discReducer = (state = DEFAULT_STATE, {type, payload}) => {
             return {
                 ...state,
                 loading: false,
-                discs: state.disc.filter((n) => n.id !== disc.id),
+                discussions: state.disc.filter((n) => n.id !== disc.id),
             };
         }
         case 'DISC/DELETE/ERROR': {
@@ -85,7 +85,7 @@ export const discReducer = (state = DEFAULT_STATE, {type, payload}) => {
             return {
                 ...state,
                 loading: false,
-                discs: state.disc.map((n) =>
+                discussions: state.disc.map((n) =>
                     n.id === disc.id ? disc.disc : n
                 ),
             };

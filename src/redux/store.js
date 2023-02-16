@@ -3,12 +3,12 @@ import {applyMiddleware, combineReducers, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import {userReducer} from './users/userReducer';
 import {newsReducer} from './news/newsReducer';
-import {discReducer} from './discussions/discReducer';
+import {discussionsReducer} from './discussions/discussionsReducer';
 const store = createStore(
     combineReducers({
         users: userReducer,
         news: newsReducer,
-        discs: discReducer,
+        discussions: discussionsReducer,
     }),
     composeWithDevTools(applyMiddleware(thunk))
 );

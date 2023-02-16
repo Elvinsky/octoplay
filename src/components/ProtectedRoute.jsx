@@ -1,11 +1,7 @@
-import {useSelector} from 'react-redux';
 import {Navigate} from 'react-router-dom';
-import useFetch from '../hooks/useFetch';
-import {fetchUsers} from '../redux/users/userActions';
-import {selectActiveUser} from '../redux/users/userSelectors';
+import useAdminCheck from '../hooks/useAdminCheck';
 function ProtectedRoute({children}) {
-    useFetch(fetchUsers());
-    const user = useSelector(selectActiveUser);
+    const [user] = useAdminCheck();
     if (!user) return <Navigate to="/login" />;
     return children;
 }
