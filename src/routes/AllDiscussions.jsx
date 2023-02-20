@@ -20,11 +20,11 @@ function AllDiscussions() {
     const discussionsLoading = useSelector(selectDiscLoading);
     const [, admin] = useAdminCheck();
     const handleGoBack = useCallback(() => {
-        navigate('/discussions');
+        navigate('/newspage');
     }, [navigate]);
     if (discussionsLoading && !discussionsError) return <CustomBackdrop />;
     return (
-        <div className="flex flex-col gap-7 w-3/4 m-auto mt-8">
+        <div className="flex flex-col gap-7 w-3/4 m-auto mt-8 bg-[#00717172] p-3 rounded-md custom-shadow text-white">
             <div className="flex flex-row gap-5 items-center">
                 <img
                     src="https://cdn-icons-png.flaticon.com/512/507/507257.png"
@@ -35,7 +35,7 @@ function AllDiscussions() {
                 <h1 className="text-3xl font-semibold">All News</h1>
                 {/* {admin && <AddNewsModal />} */}
             </div>
-            <div className="flex flex-row flex-wrap w-90% m-auto gap-5 items-center justify-center custom-shadow p-4">
+            <div className="flex flex-row flex-wrap w-90% m-auto gap-5 items-center justify-center p-4">
                 {discussions.map((item) => (
                     <DiscussionTile disc={item} admin={admin} key={item.id} />
                 ))}

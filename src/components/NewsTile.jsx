@@ -17,7 +17,7 @@ export default function NewsCard({news, admin, onDelete, onShowNews}) {
     }, [news.id, onDelete]);
 
     return (
-        <Card sx={{maxWidth: 345}}>
+        <Card sx={{maxWidth: 345, backgroundColor: '#18c9c972'}}>
             <CardActionArea onClick={handleShowNews}>
                 <CardMedia
                     component="img"

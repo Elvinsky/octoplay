@@ -43,7 +43,7 @@ export const discussionsReducer = (state = DEFAULT_STATE, {type, payload}) => {
             return {
                 ...state,
                 loading: false,
-                discussions: [...state.disc, disc],
+                discussions: [...state.discussions, disc],
             };
         }
         case 'DISC/ADD/ERROR': {
@@ -64,7 +64,7 @@ export const discussionsReducer = (state = DEFAULT_STATE, {type, payload}) => {
             return {
                 ...state,
                 loading: false,
-                discussions: state.disc.filter((n) => n.id !== disc.id),
+                discussions: state.discussions.filter((n) => n.id !== disc.id),
             };
         }
         case 'DISC/DELETE/ERROR': {
@@ -85,7 +85,7 @@ export const discussionsReducer = (state = DEFAULT_STATE, {type, payload}) => {
             return {
                 ...state,
                 loading: false,
-                discussions: state.disc.map((n) =>
+                discussions: state.discussions.map((n) =>
                     n.id === disc.id ? disc.disc : n
                 ),
             };

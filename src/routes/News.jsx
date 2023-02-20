@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import CustomBackdrop from '../components/Backdrop';
 import DiscussionTile from '../components/DiscussionTile';
-import NewsCard from '../components/NewsCard';
+import NewsCard from '../components/NewsTile';
 import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
 import {fetchRecentDisc} from '../redux/discussions/discussionsActions';

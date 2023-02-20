@@ -51,7 +51,7 @@ function Discussion() {
     const handleShowComments = useCallback(() => {
         setOpenComments(!openComments);
     }, [openComments]);
-    const handleopenReduct = useCallback(() => {
+    const handleOpenReduct = useCallback(() => {
         setOpenReduct(!openReduct);
     }, [openReduct]);
     const handleGoBack = useCallback(() => {
@@ -91,7 +91,7 @@ function Discussion() {
             content: text,
             liked: 0,
             createdAt: new Date().toLocaleDateString(),
-            author: user[0].name,
+            author: user.name,
         };
         dispatch(addComment(id, comment));
         // navigate(`/discussion/${id}`);
@@ -115,8 +115,8 @@ function Discussion() {
     if (discLoading && !discError) return <CustomBackdrop />;
     else {
         return (
-            <div className="flex flex-col gap-3 items-center justify-center">
-                <div className=" flex flex-col gap-3 w-3/4 custom-shadow p-4 my-5 m-auto">
+            <div className=" flex flex-col gap-3 w-3/4 custom-shadow p-4 my-5 m-auto bg-[#00717172] rounded-md text-white">
+                <div className="custom-shadow flex flex-col p-5 m-auto gap-2 bg-[#11929272] rounded-[10px] mx-1">
                     <div className="flex flex-row gap-4 w-[68%] items-center">
                         <Button
                             variant="contained"
@@ -172,7 +172,7 @@ function Discussion() {
                             <span>{disc.watched}</span>
                         </div>
                     </div>
-                    <div className="flex self-center">
+                    <div className="flex self-center text-white">
                         {openComments ? (
                             <div className="flex flex-row gap-3">
                                 <Button
@@ -187,7 +187,7 @@ function Discussion() {
                                     size="small"
                                     variant="outlined"
                                     sx={{maxWidth: 'fit-content'}}
-                                    onClick={handleopenReduct}
+                                    onClick={handleOpenReduct}
                                 >
                                     Write
                                 </Button>
@@ -221,7 +221,11 @@ function Discussion() {
                                     value={text}
                                     id="comment"
                                     name="comment"
-                                    className="resize-none w-[100%] border border-black rounded-md p-2"
+                                    sx={{
+                                        backgroundColor: 'white',
+                                        borderRadius: '4px',
+                                    }}
+                                    // className="resize-none w-[100%] border border-black rounded-md p-2 text-white"
                                     onChange={handleChangeText}
                                     onSelect={handleSelection}
                                 />
@@ -264,6 +268,7 @@ function Discussion() {
                                 </div>
                             </div>
                         ) : null}
+
                         {comments.map((item) => (
                             <CommentTile
                                 content={item.content}
