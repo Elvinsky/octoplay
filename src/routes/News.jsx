@@ -7,10 +7,7 @@ import DiscussionTile from '../components/DiscussionTile';
 import NewsCard from '../components/NewsCard';
 import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
-import {
-    fetchDisc,
-    fetchRecentDisc,
-} from '../redux/discussions/discussionsActions';
+import {fetchRecentDisc} from '../redux/discussions/discussionsActions';
 import {
     selectDisc,
     selectDiscLoading,

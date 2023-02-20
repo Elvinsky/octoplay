@@ -75,7 +75,7 @@ export default function Login() {
                         sx={{mt: 1}}
                     >
                         <TextField
-                            error={valid ? 0 : 1}
+                            error={valid ? false : true}
                             margin="normal"
                             required
                             fullWidth
@@ -88,7 +88,7 @@ export default function Login() {
                             onChange={handleSetEmail}
                         />
                         <TextField
-                            error={valid ? 0 : 1}
+                            error={valid ? false : true}
                             margin="normal"
                             required
                             fullWidth

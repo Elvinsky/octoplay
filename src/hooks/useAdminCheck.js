@@ -1,15 +1,19 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import {useMemo, useState} from 'react';
 
 export default function useAdminCheck(deps = []) {
     const [admin, setAdmin] = useState(false);
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState();
     useMemo(() => {
-        setUser(JSON.parse(localStorage.getItem('user'))[0]);
+        const user = JSON.parse(localStorage.getItem('user'));
+        user ? setUser(user[0]) : setUser(undefined);
     }, []);
     useMemo(() => {
         const curUser = user;
-        curUser.status === 'admin' ? setAdmin(true) : setAdmin(false);
+        if (curUser) {
+            curUser.status === 'admin' ? setAdmin(true) : setAdmin(false);
+        } else {
+            setAdmin(false);
+        }
     }, [user]);
     return [user, admin];
 }

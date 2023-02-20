@@ -24,7 +24,7 @@ export const deleteNews = (newsId) =>
     });
 
 export const getNews = () => fetchData(`${BASE_URL}news`);
-
+export const getRecentNews = () => fetchData(`${BASE_URL}news?_limit=6`);
 export const getNewsById = (newsId) =>
     fetchData(`${BASE_URL}news?id=${newsId}`);
 export const postNews = (news) =>
@@ -56,6 +56,7 @@ export const postUser = (user) =>
 
 //-----------------------DISCUSSION API-----------------------------
 export const getDisc = () => fetchData(`${BASE_URL}discussions`);
+export const getRecentDisc = () => fetchData(`${BASE_URL}discussions?_limit=5`);
 export const getDiscById = (id) => fetchData(`${BASE_URL}discussions/${id}`);
 export const getComments = (id) =>
     fetchData(`${BASE_URL}discussions/${id}/comments`);

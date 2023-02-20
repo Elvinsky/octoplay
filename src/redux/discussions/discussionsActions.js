@@ -3,6 +3,7 @@ import {
     getComments,
     getDisc,
     getDiscById,
+    getRecentDisc,
     patchDisc,
     postComment,
     postDisc,
@@ -22,9 +23,8 @@ export const fetchDisc = () => async (dispatch) => {
 export const fetchRecentDisc = () => async (dispatch) => {
     dispatch({type: 'DISC/FETCH/START'});
     try {
-        const disc = await getDisc();
-        // if (disc.length !== 0) console.log('FETCHED SUCCEED');
-        dispatch({type: 'DISC/FETCH/SUCCESS', payload: disc.slice(-5)});
+        const disc = await getRecentDisc();
+        dispatch({type: 'DISC/FETCH/SUCCESS', payload: disc});
     } catch (e) {
         console.error(e);
         dispatch({type: 'DISC/FETCH/ERROR', payload: e});
@@ -34,7 +34,6 @@ export const fetchDiscById = (id) => async (dispatch) => {
     dispatch({type: 'DISC/FETCH/START'});
     try {
         const disc = await getDiscById(id);
-        // if (disc.length !== 0) console.log('FETCHED SUCCEED');
         dispatch({type: 'DISC/FETCH/SUCCESS', payload: disc});
     } catch (e) {
         console.error(e);
@@ -83,12 +82,12 @@ export const deleteDiscItem = (id) => async (dispatch) => {
     }
 };
 export const patchDiscItem = (disc, id) => async (dispatch) => {
-    dispatch({type: 'NEWS/PATCH/START'});
+    dispatch({type: 'DISC/PATCH/START'});
     try {
         await patchDisc(disc, id);
-        dispatch({type: 'NEWS/PATCH/SUCCESS', payload: {id, disc}});
+        dispatch({type: 'DISC/PATCH/SUCCESS', payload: {id, disc}});
     } catch (e) {
         console.error(e);
-        dispatch({type: 'NEWS/PATCH/ERROR', payload: e});
+        dispatch({type: 'DISC/PATCH/ERROR', payload: e});
     }
 };

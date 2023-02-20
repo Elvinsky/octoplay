@@ -6,13 +6,12 @@ import CustomBackdrop from '../components/Backdrop';
 import NewsCard from '../components/NewsCard';
 import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
-import {fetchNews} from '../redux/news/newsActions';
+import {deleteNewsItem, fetchNews} from '../redux/news/newsActions';
 import {
     selectNews,
     selectNewsError,
     selectNewsLoading,
 } from '../redux/news/newsSelectors';
-import {fetchUsers} from '../redux/users/userActions';
 
 function AllNews() {
     useFetch(fetchNews());
@@ -21,12 +20,23 @@ function AllNews() {
     const newsError = useSelector(selectNewsError);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    useFetch(() => dispatch(fetchUsers()));
     const [, admin] = useAdminCheck();
     const handleGoBack = useCallback(() => {
         navigate('/newspage');
     }, [navigate]);
-
+    const handleDeleteItem = useCallback(
+        (id) => {
+            dispatch(deleteNewsItem(id));
+            navigate('/newspage');
+        },
+        [dispatch, navigate]
+    );
+    const handleShowNewsDetails = useCallback(
+        (id) => {
+            navigate(`/newspage/${id}`);
+        },
+        [navigate]
+    );
     if (!newsError && newsLoading) return <CustomBackdrop />;
     else {
         return (
@@ -48,6 +58,8 @@ function AllNews() {
                             admin={admin}
                             key={item.id}
                             curPath={'/newspage/allnews'}
+                            onDelete={handleDeleteItem}
+                            onShowNews={handleShowNewsDetails}
                         />
                     ))}
                 </div>

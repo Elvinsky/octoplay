@@ -799,6 +799,15 @@
       "name": "Vaughan",
       "createdAt": "Tue Jul 13 2004 01:32:45 GMT+0300 (Москва, летнее время)",
       "status": "user"
+    },
+    {
+      "id": "1676875525354",
+      "email": "123",
+      "password": "123",
+      "name": "123123",
+      "nickname": "123",
+      "createdAt": "20.02.2023",
+      "status": "user"
     }
   ],
   "news": [

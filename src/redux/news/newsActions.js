@@ -4,6 +4,7 @@ import {
     postNews,
     deleteNews,
     patchNews,
+    getRecentNews,
 } from '../../utils/api';
 
 export const fetchNews = () => async (dispatch) => {
@@ -31,8 +32,9 @@ export const fetchNewsById = (id) => async (dispatch) => {
 export const fetchRecentNews = () => async (dispatch) => {
     dispatch({type: 'NEWS/FETCH/START'});
     try {
-        const news = await getNews();
-        dispatch({type: 'NEWS/FETCH/SUCCESS', payload: news.slice(-6)});
+        const news = await getRecentNews();
+        console.log(news);
+        dispatch({type: 'NEWS/FETCH/SUCCESS', payload: news});
 
         //КОСТЫЛЬ ОГРОМНЫЙ!!
     } catch (e) {
