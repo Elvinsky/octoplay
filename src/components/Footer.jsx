@@ -3,7 +3,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import Copyright from './Copyright';
 export default function StickyFooter() {
     return (
@@ -21,10 +20,7 @@ export default function StickyFooter() {
                     py: 3,
                     px: 2,
                     mt: 'auto',
-                    backgroundColor: (theme) =>
-                        theme.palette.mode === 'light'
-                            ? theme.palette.grey[200]
-                            : theme.palette.grey[800],
+                    backgroundColor: '#00717172',
                 }}
             >
                 <Container maxWidth="sm">

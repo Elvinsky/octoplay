@@ -9,7 +9,8 @@ function DiscussionTile({admin, disc}) {
     return (
         <div
             onClick={handleShowDisc}
-            className="flex flex-row gap-3 custom-shadow w-[65%] p-3 items-center justify-between last:mb-5 transition-all duration-300 hover:scale-105"
+            className="flex flex-row gap-3 custom-shadow w-[65%] p-3 items-center justify-between last:mb-5
+                       transition-all duration-300 hover:scale-105 rounded-[10px] bg-[#11929272]"
         >
             <div className=" flex flex-col gap-5">
                 <div className="flex flex-col p-1 gap-4">

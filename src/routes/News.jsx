@@ -52,11 +52,11 @@ function News() {
     else if (!disc.map) return <CustomBackdrop />;
 
     return (
-        <div className="flex flex-col gap-7 w-3/4 m-auto mt-8">
+        <div className="flex flex-col gap-7 w-3/4 m-auto mt-8 bg-[#00717172] p-3 rounded-md custom-shadow text-white">
             <div className="flex flex-row gap-5">
                 <h1 className="text-3xl font-semibold"> Recent news\</h1>
             </div>
-            <div className="custom-shadow flex flex-col p-3 m-auto gap-2">
+            <div className="custom-shadow flex flex-col p-5 m-auto gap-2 bg-[#11929272] rounded-[10px] mx-1">
                 <div className="flex flex-row gap-4 flex-wrap items-center mb-4 justify-center">
                     {news.map((item) => (
                         <div className="flex flex-col gap-2 items-center justify-center">

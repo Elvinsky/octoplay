@@ -33,7 +33,7 @@ function NewsDetails() {
 
     if (news.length === 1) {
         return (
-            <div className=" flex flex-col gap-3 w-3/4 custom-shadow p-4 my-5 m-auto">
+            <div className=" flex flex-col gap-3 w-3/4 custom-shadow p-4 my-5 m-auto bg-[#00717172] rounded-md text-white">
                 <div className="flex flex-col gap-2">
                     <Button
                         variant="contained"
