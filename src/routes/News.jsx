@@ -1,5 +1,5 @@
 import {Button, Grid} from '@mui/material';
-import {useCallback} from 'react';
+import {useCallback, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import CustomBackdrop from '../components/Backdrop';
@@ -16,8 +16,9 @@ import {deleteNewsItem, fetchRecentNews} from '../redux/news/newsActions';
 import {selectNews, selectNewsLoading} from '../redux/news/newsSelectors';
 
 function News() {
+    const [wasEdited, setWasEdited] = useState(false);
     const navigate = useNavigate();
-    useFetch(fetchRecentNews());
+    useFetch(fetchRecentNews(), [wasEdited]);
     useFetch(fetchRecentDisc());
 
     const news = useSelector(selectNews);
@@ -45,10 +46,13 @@ function News() {
         },
         [navigate]
     );
+    const handleEditCheck = useCallback(() => {
+        setWasEdited(!wasEdited);
+    }, [wasEdited]);
     if (newsLoading || discLoading) return <CustomBackdrop />;
     else if (news.length === 0 || disc.length === 0) return <CustomBackdrop />;
     else if (!disc.map) return <CustomBackdrop />;
-
+    else if (!news.map) return <CustomBackdrop />;
     return (
         <div className="flex flex-col gap-7 w-3/4 m-auto mt-8 bg-[#00717172] p-3 rounded-md custom-shadow text-white">
             <div className="flex flex-row gap-5">
@@ -62,6 +66,7 @@ function News() {
                                 news={item}
                                 admin={admin}
                                 key={item.id}
+                                onEditCheck={handleEditCheck}
                                 onDelete={handleDeleteItem}
                                 onShowNews={handleShowNewsDetails}
                             />

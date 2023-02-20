@@ -82,9 +82,7 @@ export const newsReducer = (state = DEFAULT_STATE, {type, payload}) => {
             return {
                 ...state,
                 loading: false,
-                news: state.news.map((n) =>
-                    n.id === payload.id ? payload.news : n
-                ),
+                news: payload,
             };
         }
         case 'NEWS/PATCH/ERROR': {

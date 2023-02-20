@@ -25,8 +25,7 @@ export const deleteNews = (newsId) =>
 
 export const getNews = () => fetchData(`${BASE_URL}news`);
 export const getRecentNews = () => fetchData(`${BASE_URL}news?_limit=6`);
-export const getNewsById = (newsId) =>
-    fetchData(`${BASE_URL}news?id=${newsId}`);
+export const getNewsById = (newsId) => fetchData(`${BASE_URL}news/${newsId}`);
 export const postNews = (news) =>
     fetchData(`${BASE_URL}news`, {
         method: 'POST',

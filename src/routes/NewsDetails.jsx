@@ -8,13 +8,18 @@ import EditNewsModal from '../components/EditNewsModal';
 import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
 import {deleteNewsItem, fetchNewsById} from '../redux/news/newsActions';
-import {selectNews} from '../redux/news/newsSelectors';
+import {
+    selectNews,
+    selectNewsError,
+    selectNewsLoading,
+} from '../redux/news/newsSelectors';
 
 function NewsDetails() {
     const {id} = useParams();
     useFetch(fetchNewsById(id));
     const news = useSelector(selectNews);
-    console.log(news);
+    const newsLoading = useSelector(selectNewsLoading);
+    const newsError = useSelector(selectNewsError);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [, admin] = useAdminCheck();
@@ -26,7 +31,9 @@ function NewsDetails() {
         navigate('/newspage');
     }, [navigate]);
 
-    if (news.length === 1) {
+    if (news.length === 0) return <CustomBackdrop />;
+    if (newsLoading && !newsError) return <CustomBackdrop />;
+    else {
         return (
             <div className=" flex flex-col gap-3 w-3/4 custom-shadow p-4 my-5 m-auto bg-[#00717172] rounded-md text-white">
                 <div className="flex flex-col gap-2">
@@ -38,21 +45,19 @@ function NewsDetails() {
                     >
                         Back
                     </Button>
-                    <div className=" text-2xl font-semibold">
-                        {news[0].title}
-                    </div>
+                    <div className=" text-2xl font-semibold">{news.title}</div>
                 </div>
 
                 <img
-                    src={news[0].fullsizePic}
+                    src={news.fullsizePic}
                     alt="newsPic"
                     className=" max-w-lg self-center"
                 />
-                <div className=" text-lg font-normal">{news[0].content}</div>
-                <div className="text-sm font-thin">{news[0].createdAt}</div>
+                <div className=" text-lg font-normal">{news.content}</div>
+                <div className="text-sm font-thin">{news.createdAt}</div>
                 {admin && (
                     <div className="flex flex-row">
-                        <EditNewsModal id={id} news={news[0]} />
+                        <EditNewsModal id={id} news={news} />
                         <DeleteModal
                             hidden={admin ? false : true}
                             onDelete={handleDeleteItem}
@@ -61,8 +66,6 @@ function NewsDetails() {
                 )}
             </div>
         );
-    } else {
-        return <CustomBackdrop />;
     }
 }
 

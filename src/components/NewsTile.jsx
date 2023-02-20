@@ -8,13 +8,22 @@ import {useCallback} from 'react';
 import EditNewsModal from './EditNewsModal';
 import DeleteModal from './DeleteModal';
 
-export default function NewsCard({news, admin, onDelete, onShowNews}) {
+export default function NewsCard({
+    news,
+    admin,
+    onDelete,
+    onShowNews,
+    onEditCheck,
+}) {
     const handleShowNews = useCallback(() => {
         onShowNews(news.id);
     }, [news.id, onShowNews]);
     const handleDelete = useCallback(() => {
         onDelete(news.id);
     }, [news.id, onDelete]);
+    const handleEditCheck = useCallback(() => {
+        onEditCheck();
+    }, [onEditCheck]);
     return (
         <Card sx={{maxWidth: 345, backgroundColor: '#18c9c972'}}>
             <CardActionArea onClick={handleShowNews}>
@@ -36,7 +45,11 @@ export default function NewsCard({news, admin, onDelete, onShowNews}) {
             </CardActionArea>
             {admin && (
                 <CardActions>
-                    <EditNewsModal id={news.id} news={news} />
+                    <EditNewsModal
+                        id={news.id}
+                        news={news}
+                        onEditCheck={handleEditCheck}
+                    />
                     <DeleteModal
                         onDelete={handleDelete}
                         classname={admin ? 'visible' : 'invisible'}

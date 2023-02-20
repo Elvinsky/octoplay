@@ -34,8 +34,6 @@ export const fetchRecentNews = () => async (dispatch) => {
     try {
         const news = await getRecentNews();
         dispatch({type: 'NEWS/FETCH/SUCCESS', payload: news});
-
-        //КОСТЫЛЬ ОГРОМНЫЙ!!
     } catch (e) {
         console.error(e);
         dispatch({type: 'NEWS/FETCH/ERROR', payload: e});
@@ -65,7 +63,7 @@ export const patchNewsItem = (news, id) => async (dispatch) => {
     dispatch({type: 'NEWS/PATCH/START'});
     try {
         await patchNews(news, id);
-        dispatch({type: 'NEWS/PATCH/SUCCESS', payload: {news, id}});
+        dispatch({type: 'NEWS/PATCH/SUCCESS', payload: news});
     } catch (e) {
         console.error(e);
         dispatch({type: 'NEWS/PATCH/ERROR', payload: e});

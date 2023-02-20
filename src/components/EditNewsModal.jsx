@@ -9,12 +9,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import {useState} from 'react';
 import {Grid} from '@mui/material';
 import {useDispatch} from 'react-redux';
-import {useLocation, useNavigate} from 'react-router-dom';
 import {useCallback} from 'react';
 import {patchNewsItem} from '../redux/news/newsActions';
 import CustomBackdrop from '../components/Backdrop';
 
-export default function EditNewsModal({id, news}) {
+export default function EditNewsModal({id, news, onEditCheck}) {
     const [open, setOpen] = useState(false);
     const [title, setTitle] = useState(news.title);
     const [content, setContent] = useState(news.content);
@@ -23,8 +22,6 @@ export default function EditNewsModal({id, news}) {
     const [valid, setValid] = useState(true);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const location = useLocation();
 
     const handleClickOpen = useCallback(() => {
         setOpen(true);
@@ -33,7 +30,6 @@ export default function EditNewsModal({id, news}) {
     const handleClose = useCallback((status) => {
         setOpen(false);
     }, []);
-
     const handleSubmit = useCallback(() => {
         if (
             title.length === 0 ||
@@ -55,16 +51,16 @@ export default function EditNewsModal({id, news}) {
                 createdAt: new Date().toLocaleDateString(),
             };
             dispatch(patchNewsItem(UPDnews, id));
-            navigate(location.pathname);
+            onEditCheck();
             setOpen(false);
         }
     }, [
         content,
         dispatch,
         id,
-        location.pathname,
-        navigate,
-        news,
+        news.liked,
+        news.watched,
+        onEditCheck,
         thUrl,
         title,
         url,
