@@ -81,13 +81,10 @@ export const discussionsReducer = (state = DEFAULT_STATE, {type, payload}) => {
             };
         }
         case 'DISC/PATCH/SUCCESS': {
-            const disc = payload;
             return {
                 ...state,
                 loading: false,
-                discussions: state.discussions.map((n) =>
-                    n.id === disc.id ? disc.disc : n
-                ),
+                discussions: payload,
             };
         }
         case 'DISC/PATCH/ERROR': {

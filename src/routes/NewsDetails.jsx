@@ -12,16 +12,14 @@ import {selectNews} from '../redux/news/newsSelectors';
 
 function NewsDetails() {
     const {id} = useParams();
-
     useFetch(fetchNewsById(id));
     const news = useSelector(selectNews);
-
+    console.log(news);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [, admin] = useAdminCheck();
     const handleDeleteItem = useCallback(() => {
         dispatch(deleteNewsItem(id));
-        window.location.reload();
     }, [dispatch, id]);
 
     const handleGoBack = useCallback(() => {
@@ -54,7 +52,7 @@ function NewsDetails() {
                 <div className="text-sm font-thin">{news[0].createdAt}</div>
                 {admin && (
                     <div className="flex flex-row">
-                        <EditNewsModal id={id} />
+                        <EditNewsModal id={id} news={news[0]} />
                         <DeleteModal
                             hidden={admin ? false : true}
                             onDelete={handleDeleteItem}

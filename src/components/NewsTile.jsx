@@ -15,7 +15,6 @@ export default function NewsCard({news, admin, onDelete, onShowNews}) {
     const handleDelete = useCallback(() => {
         onDelete(news.id);
     }, [news.id, onDelete]);
-
     return (
         <Card sx={{maxWidth: 345, backgroundColor: '#18c9c972'}}>
             <CardActionArea onClick={handleShowNews}>
@@ -37,7 +36,7 @@ export default function NewsCard({news, admin, onDelete, onShowNews}) {
             </CardActionArea>
             {admin && (
                 <CardActions>
-                    <EditNewsModal id={news.id} hidden={admin ? false : true} />
+                    <EditNewsModal id={news.id} news={news} />
                     <DeleteModal
                         onDelete={handleDelete}
                         classname={admin ? 'visible' : 'invisible'}

@@ -61,7 +61,7 @@ function Discussion() {
     const handleDelete = useCallback(() => {
         dispatch(deleteDiscItem(disc.id));
         navigate('/newspage');
-    }, [disc.id, dispatch, navigate]);
+    }, [disc, dispatch, navigate]);
     const formatText = (format) => {
         const selectedText = text.substring(selectedStart, selectedEnd);
         const beforeSelection = text.substring(0, selectedStart);

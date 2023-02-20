@@ -84,7 +84,7 @@ export const patchDiscItem = (disc, id) => async (dispatch) => {
     dispatch({type: 'DISC/PATCH/START'});
     try {
         await patchDisc(disc, id);
-        dispatch({type: 'DISC/PATCH/SUCCESS', payload: {id, disc}});
+        dispatch({type: 'DISC/PATCH/SUCCESS', payload: disc});
     } catch (e) {
         console.error(e);
         dispatch({type: 'DISC/PATCH/ERROR', payload: e});

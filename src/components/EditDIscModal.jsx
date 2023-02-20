@@ -9,9 +9,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import {useState} from 'react';
 import {Grid} from '@mui/material';
 import {useDispatch} from 'react-redux';
-import {useNavigate} from 'react-router-dom';
 import {useCallback} from 'react';
-import {patchDisc} from '../utils/api';
+import {patchDiscItem} from '../redux/discussions/discussionsActions';
 
 export default function EditDiscModal({hidden, discussion}) {
     const [open, setOpen] = useState(false);
@@ -21,13 +20,12 @@ export default function EditDiscModal({hidden, discussion}) {
     const [valid, setValid] = useState(true);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const handleClickOpen = useCallback(() => {
         setOpen(true);
     }, []);
 
-    const handleClose = useCallback((status) => {
+    const handleClose = useCallback(() => {
         setOpen(false);
     }, []);
 
@@ -45,8 +43,8 @@ export default function EditDiscModal({hidden, discussion}) {
                 thumbnailPic: thUrl,
                 createdAt: new Date().toLocaleDateString(),
             };
-            dispatch(patchDisc(UPDdisc, discussion.id));
-            navigate(`/discussions/${discussion.id}`);
+            const id = discussion.id;
+            dispatch(patchDiscItem(UPDdisc, id));
             setOpen(false);
         }
     }, [
@@ -55,7 +53,6 @@ export default function EditDiscModal({hidden, discussion}) {
         discussion.liked,
         discussion.watched,
         dispatch,
-        navigate,
         thUrl,
         title,
     ]);
@@ -89,7 +86,7 @@ export default function EditDiscModal({hidden, discussion}) {
                     <Grid container spacing={1}>
                         <Grid item xs={12}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="title"
@@ -103,7 +100,7 @@ export default function EditDiscModal({hidden, discussion}) {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="content"
@@ -118,7 +115,7 @@ export default function EditDiscModal({hidden, discussion}) {
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="thumbUrl"

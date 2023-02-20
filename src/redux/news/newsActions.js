@@ -61,11 +61,11 @@ export const deleteNewsItem = (id) => async (dispatch) => {
         dispatch({type: 'NEWS/DELETE/ERROR', payload: e});
     }
 };
-export const patchNewsItem = (id, news) => async (dispatch) => {
+export const patchNewsItem = (news, id) => async (dispatch) => {
     dispatch({type: 'NEWS/PATCH/START'});
     try {
         await patchNews(news, id);
-        dispatch({type: 'NEWS/PATCH/SUCCESS', payload: {id, news}});
+        dispatch({type: 'NEWS/PATCH/SUCCESS', payload: {news, id}});
     } catch (e) {
         console.error(e);
         dispatch({type: 'NEWS/PATCH/ERROR', payload: e});

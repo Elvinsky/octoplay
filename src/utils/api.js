@@ -42,7 +42,6 @@ export const patchNews = (news, newsID) => {
         body: JSON.stringify(news),
     })
         .then((response) => response.json())
-        .then((news) => console.log('Success:', news))
         .catch((error) => console.error('Error:', error));
 };
 //-----------------------USERS API-----------------------------
@@ -87,6 +86,5 @@ export const patchDisc = (disc, id) => {
         body: JSON.stringify(disc),
     })
         .then((response) => response.json())
-        .then((news) => console.log('Success:', news))
         .catch((error) => console.error('Error:', error));
 };

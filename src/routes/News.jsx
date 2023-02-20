@@ -24,7 +24,7 @@ function News() {
     const disc = useSelector(selectDisc);
     const newsLoading = useSelector(selectNewsLoading);
     const discLoading = useSelector(selectDiscLoading);
-    const [user, admin] = useAdminCheck();
+    const [, admin] = useAdminCheck();
     const dispatch = useDispatch();
     const handleShowNews = useCallback(() => {
         navigate('/newspage/allnews');

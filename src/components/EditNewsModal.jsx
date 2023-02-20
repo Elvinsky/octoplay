@@ -8,22 +8,18 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import {useState} from 'react';
 import {Grid} from '@mui/material';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {useCallback} from 'react';
-import {fetchNews, patchNewsItem} from '../redux/news/newsActions';
-import useFetch from '../hooks/useFetch';
-import {selectNewsViaID} from '../redux/news/newsSelectors';
+import {patchNewsItem} from '../redux/news/newsActions';
+import CustomBackdrop from '../components/Backdrop';
 
-export default function EditNewsModal({id, hidden}) {
-    useFetch(fetchNews);
-    const news = useSelector((store) => selectNewsViaID(store, id));
-
+export default function EditNewsModal({id, news}) {
     const [open, setOpen] = useState(false);
-    const [title, setTitle] = useState(news[0].title);
-    const [content, setContent] = useState(news[0].content);
-    const [url, setUrl] = useState(news[0].fullsizePic);
-    const [thUrl, setThUrl] = useState(news[0].thumbnailPic);
+    const [title, setTitle] = useState(news.title);
+    const [content, setContent] = useState(news.content);
+    const [url, setUrl] = useState(news.fullsizePic);
+    const [thUrl, setThUrl] = useState(news.thumbnailPic);
     const [valid, setValid] = useState(true);
 
     const dispatch = useDispatch();
@@ -52,13 +48,13 @@ export default function EditNewsModal({id, hidden}) {
                 id: Date.now().toString(),
                 title: title,
                 content: content,
-                liked: news[0].liked,
-                watched: news[0].watched,
+                liked: news.liked,
+                watched: news.watched,
                 thumbnailPic: thUrl,
                 fullsizePic: url,
                 createdAt: new Date().toLocaleDateString(),
             };
-            dispatch(patchNewsItem(id, UPDnews));
+            dispatch(patchNewsItem(UPDnews, id));
             navigate(location.pathname);
             setOpen(false);
         }
@@ -85,6 +81,7 @@ export default function EditNewsModal({id, hidden}) {
     const handleSetThumbUrl = useCallback((e) => {
         setThUrl(e.target.value);
     }, []);
+    if (!news) return <CustomBackdrop />;
     return (
         <div>
             <Button size="small" color="primary" onClick={handleClickOpen}>
@@ -99,7 +96,7 @@ export default function EditNewsModal({id, hidden}) {
                     <Grid container spacing={1}>
                         <Grid item xs={12}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="title"
@@ -113,7 +110,7 @@ export default function EditNewsModal({id, hidden}) {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="content"
@@ -128,7 +125,7 @@ export default function EditNewsModal({id, hidden}) {
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="url"
@@ -141,7 +138,7 @@ export default function EditNewsModal({id, hidden}) {
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="thumbUrl"
