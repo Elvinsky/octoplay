@@ -1,4 +1,4 @@
-import {useCallback} from 'react';
+import {useCallback, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import AddNewsModal from '../components/AddNewsModal';
@@ -14,8 +14,10 @@ import {
 } from '../redux/news/newsSelectors';
 
 function AllNews() {
-    useFetch(fetchNews());
+    const [wasEdited, setWasEdited] = useState(false);
+    useFetch(fetchNews(), [wasEdited]);
     const news = useSelector(selectNews);
+
     const newsLoading = useSelector(selectNewsLoading);
     const newsError = useSelector(selectNewsError);
     const dispatch = useDispatch();
@@ -27,9 +29,9 @@ function AllNews() {
     const handleDeleteItem = useCallback(
         (id) => {
             dispatch(deleteNewsItem(id));
-            navigate('/newspage');
+            setWasEdited(!wasEdited);
         },
-        [dispatch, navigate]
+        [dispatch, wasEdited]
     );
     const handleShowNewsDetails = useCallback(
         (id) => {
@@ -37,7 +39,11 @@ function AllNews() {
         },
         [navigate]
     );
+    const handleEditCheck = useCallback(() => {
+        setWasEdited(!wasEdited);
+    }, [wasEdited]);
     if (!newsError && newsLoading) return <CustomBackdrop />;
+    else if (!news.map) return <CustomBackdrop />;
     else {
         return (
             <div className="flex flex-col gap-7 w-3/4 m-auto mt-8 bg-[#00717172] p-3 rounded-md custom-shadow text-white">
@@ -59,6 +65,7 @@ function AllNews() {
                                 admin={admin}
                                 key={item.id}
                                 curPath={'/newspage/allnews'}
+                                onEditCheck={handleEditCheck}
                                 onDelete={handleDeleteItem}
                                 onShowNews={handleShowNewsDetails}
                             />

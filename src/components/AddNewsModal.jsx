@@ -71,7 +71,11 @@ export default function AddNewsModal() {
     }, []);
     return (
         <div>
-            <Button variant="contained" onClick={handleClickOpen}>
+            <Button
+                variant="contained"
+                onClick={handleClickOpen}
+                sx={{backgroundColor: '#11990c', padding: '0.7em'}}
+            >
                 Add News
             </Button>
             <Dialog open={open} onClose={handleClose}>

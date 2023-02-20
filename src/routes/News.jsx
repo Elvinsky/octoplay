@@ -36,9 +36,9 @@ function News() {
     const handleDeleteItem = useCallback(
         (id) => {
             dispatch(deleteNewsItem(id));
-            navigate('/newspage');
+            setWasEdited(!wasEdited);
         },
-        [dispatch, navigate]
+        [dispatch, wasEdited]
     );
     const handleShowNewsDetails = useCallback(
         (id) => {
@@ -79,8 +79,12 @@ function News() {
                         variant="contained"
                         color="primary"
                         onClick={handleShowNews}
+                        sx={{
+                            backgroundColor: '#09b3b3',
+                            border: '0',
+                        }}
                     >
-                        Show News
+                        Show More
                     </Button>
                 </Grid>
             </div>
@@ -97,8 +101,12 @@ function News() {
                     variant="contained"
                     color="primary"
                     onClick={handleShowDiscussions}
+                    sx={{
+                        backgroundColor: '#09b3b3',
+                        border: '0',
+                    }}
                 >
-                    Show Discussions
+                    Show More
                 </Button>
             </Grid>
         </div>

@@ -80,7 +80,13 @@ export default function EditNewsModal({id, news, onEditCheck}) {
     if (!news) return <CustomBackdrop />;
     return (
         <div>
-            <Button size="small" color="primary" onClick={handleClickOpen}>
+            <Button
+                onClick={handleClickOpen}
+                variant="contained"
+                sx={{
+                    backgroundColor: '#11990c',
+                }}
+            >
                 Edit
             </Button>
             <Dialog open={open} onClose={handleClose}>

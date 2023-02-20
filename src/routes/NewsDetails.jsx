@@ -40,7 +40,7 @@ function NewsDetails() {
                     <Button
                         variant="contained"
                         size="small"
-                        sx={{maxWidth: 100}}
+                        sx={{maxWidth: 100, backgroundColor: '#11990c'}}
                         onClick={handleGoBack}
                     >
                         Back

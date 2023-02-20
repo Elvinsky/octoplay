@@ -72,7 +72,11 @@ export default function EditDiscModal({hidden, discussion}) {
                 color="error"
                 variant="contained"
                 hidden={hidden}
-                sx={{maxWidth: 'fit-content', marginLeft: '2em'}}
+                sx={{
+                    maxWidth: 'fit-content',
+                    marginLeft: '2em',
+                    backgroundColor: '#11990c',
+                }}
                 onClick={handleClickOpen}
             >
                 Edit
