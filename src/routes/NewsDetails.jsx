@@ -9,7 +9,6 @@ import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
 import {deleteNewsItem, fetchNewsById} from '../redux/news/newsActions';
 import {selectNews} from '../redux/news/newsSelectors';
-import {fetchUsers} from '../redux/users/userActions';
 
 function NewsDetails() {
     const {id} = useParams();
@@ -20,8 +19,6 @@ function NewsDetails() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [, admin] = useAdminCheck();
-    useFetch(() => dispatch(fetchUsers()));
-
     const handleDeleteItem = useCallback(() => {
         dispatch(deleteNewsItem(id));
         window.location.reload();

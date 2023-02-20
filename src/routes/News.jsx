@@ -14,7 +14,6 @@ import {
 } from '../redux/discussions/discussionSelector';
 import {deleteNewsItem, fetchRecentNews} from '../redux/news/newsActions';
 import {selectNews, selectNewsLoading} from '../redux/news/newsSelectors';
-import {fetchUsers} from '../redux/users/userActions';
 
 function News() {
     const navigate = useNavigate();
@@ -25,9 +24,8 @@ function News() {
     const disc = useSelector(selectDisc);
     const newsLoading = useSelector(selectNewsLoading);
     const discLoading = useSelector(selectDiscLoading);
-    const [, admin] = useAdminCheck();
+    const [user, admin] = useAdminCheck();
     const dispatch = useDispatch();
-    useFetch(() => dispatch(fetchUsers()));
     const handleShowNews = useCallback(() => {
         navigate('/newspage/allnews');
     }, [navigate]);

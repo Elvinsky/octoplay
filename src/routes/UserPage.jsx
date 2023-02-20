@@ -1,12 +1,8 @@
 import {useCallback} from 'react';
-import {useSelector} from 'react-redux';
-import useFetch from '../hooks/useFetch';
-import {fetchUsers} from '../redux/users/userActions';
-import {selectActiveUser} from '../redux/users/userSelectors';
+import useAdminCheck from '../hooks/useAdminCheck';
 
 function UserPage() {
-    useFetch(fetchUsers());
-    const user = useSelector(selectActiveUser);
+    const [user, admin] = useAdminCheck();
     const handleLogOut = useCallback(() => {
         localStorage.removeItem('user');
         window.location.reload();

@@ -1,11 +1,9 @@
-import {useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom';
-import useFetch from '../hooks/useFetch';
-import {fetchUsers} from '../redux/users/userActions';
-import {selectActiveUser} from '../redux/users/userSelectors';
+import useAdminCheck from '../hooks/useAdminCheck';
+import CustomBackdrop from './Backdrop';
 function Header() {
-    useFetch(fetchUsers());
-    const user = useSelector(selectActiveUser);
+    const [user] = useAdminCheck();
+    if (!user) return <CustomBackdrop />;
     return (
         <header className="flex  m-auto items-center justify-center custom-shadow p-3 bg-[#00717172] text-white">
             <div className="font-black text-2xl flex items-center gap-2 mr-auto">
@@ -85,7 +83,7 @@ function Header() {
                             : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer'
                     }
                 >
-                    {user[0].name}
+                    {user.name}
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

@@ -20,7 +20,6 @@ import {
     selectDiscLoading,
     selectDiscError,
 } from '../redux/discussions/discussionSelector';
-import {fetchUsers} from '../redux/users/userActions';
 import {dateCompare} from '../utils/utilities';
 
 function Discussion() {
@@ -34,10 +33,8 @@ function Discussion() {
     const [symbolCount, setSymbolCount] = useState(0);
     const [available, setAvailable] = useState(true);
     const [user, admin] = useAdminCheck();
-
     useFetch(fetchDiscById(id));
     useFetch(fetchComments(id));
-    useFetch(fetchUsers());
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -86,16 +83,16 @@ function Discussion() {
     };
     const handlePublish = useCallback(() => {
         const comment = {
-            discussionID: id.toString(),
             id: Date.now().toString(),
+            discussionID: id.toString(),
             content: text,
             liked: 0,
             createdAt: new Date().toLocaleDateString(),
             author: user.name,
         };
         dispatch(addComment(id, comment));
-        // navigate(`/discussion/${id}`);
         setText('');
+        setOpenReduct(false);
     }, [dispatch, id, text, user]);
 
     useMemo(() => {
@@ -225,7 +222,6 @@ function Discussion() {
                                         backgroundColor: 'white',
                                         borderRadius: '4px',
                                     }}
-                                    // className="resize-none w-[100%] border border-black rounded-md p-2 text-white"
                                     onChange={handleChangeText}
                                     onSelect={handleSelection}
                                 />
@@ -274,7 +270,7 @@ function Discussion() {
                                 content={item.content}
                                 author={item.author}
                                 createdAt={item.createdAt}
-                                key={Date.now().toString()}
+                                key={item.id}
                             />
                         ))}
                     </div>
