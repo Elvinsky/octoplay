@@ -1,5 +1,6 @@
 const DEFAULT_STATE = {
     news: [],
+    amount: 0,
     loading: false,
     error: null,
 };
@@ -9,6 +10,27 @@ export const newsReducer = (state = DEFAULT_STATE, {type, payload}) => {
             return {
                 ...state,
                 news: payload,
+            };
+        }
+        case 'NEWS/AMOUNT/SET/START': {
+            return {
+                ...state,
+                loading: true,
+            };
+        }
+        case 'NEWS/AMOUNT/SET/SUCCESS': {
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                amount: payload,
+            };
+        }
+        case 'NEWS/AMOUNT/SET/ERROR': {
+            return {
+                ...state,
+                loading: false,
+                error: payload,
             };
         }
         case 'NEWS/FETCH/START': {

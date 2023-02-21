@@ -1,13 +1,21 @@
 import {useCallback} from 'react';
+import {useSelector} from 'react-redux';
 import CustomBackdrop from '../components/Backdrop';
 import useAdminCheck from '../hooks/useAdminCheck';
+import useFetch from '../hooks/useFetch';
+import {fetchPaginatedNews} from '../redux/news/newsActions';
+import {selectNews, selectNewsAmount} from '../redux/news/newsSelectors';
 
 function UserPage() {
-    const [user, admin] = useAdminCheck();
+    const [user] = useAdminCheck();
     const handleLogOut = useCallback(() => {
         localStorage.removeItem('user');
         window.location.reload();
     }, []);
+    useFetch(fetchPaginatedNews(0, 10));
+    const amount = useSelector(selectNewsAmount);
+    const news = useSelector(selectNews);
+    console.log(amount, news);
     if (!user) return <CustomBackdrop />;
     return (
         <div className="flex flex-row gap-8 custom-shadow w-fit m-auto overflow-auto mt-5 p-5">

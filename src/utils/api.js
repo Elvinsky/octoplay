@@ -17,15 +17,15 @@ const fetchData = async (url, options = {}) => {
     }
 };
 
+// const amount = parseInt(response.headers.get('X-Total-Count'));
+// localStorage.setItem('newsAmount', amount.toString());
+
 //-----------------------NEWS API-----------------------------
 export const deleteNews = (newsId) =>
     fetchData(`${BASE_URL}news/${newsId}`, {
         method: 'DELETE',
     });
-
 export const getNews = () => fetchData(`${BASE_URL}news`);
-export const getPaginatedNews = (startOffset, endOffset) =>
-    fetchData(`${BASE_URL}news?_start=${startOffset}&_end=${endOffset}`);
 export const getRecentNews = () => fetchData(`${BASE_URL}news?_limit=6`);
 export const getNewsById = (newsId) => fetchData(`${BASE_URL}news/${newsId}`);
 export const postNews = (news) =>
@@ -44,6 +44,15 @@ export const patchNews = (news, newsID) => {
     })
         .then((response) => response.json())
         .catch((error) => console.error('Error:', error));
+};
+export const getPaginatedNews = async (start, end) => {
+    const news = await fetch(
+        `${BASE_URL}news?_start=${start}&_end=${end}`
+    ).then((r) => r.json());
+    const amount = await fetch(
+        `${BASE_URL}news?_start=${start}&_end=${end}`
+    ).then((r) => parseInt(r.headers.get('X-Total-Count')));
+    return [news, amount];
 };
 //-----------------------USERS API-----------------------------
 export const getUsers = () => fetchData(`${BASE_URL}users`);

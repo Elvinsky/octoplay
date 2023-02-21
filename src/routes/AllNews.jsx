@@ -17,7 +17,6 @@ function AllNews() {
     const [wasEdited, setWasEdited] = useState(false);
     useFetch(fetchNews(), [wasEdited]);
     const news = useSelector(selectNews);
-
     const newsLoading = useSelector(selectNewsLoading);
     const newsError = useSelector(selectNewsError);
     const dispatch = useDispatch();
@@ -26,6 +25,7 @@ function AllNews() {
     const handleGoBack = useCallback(() => {
         navigate('/newspage');
     }, [navigate]);
+
     const handleDeleteItem = useCallback(
         (id) => {
             dispatch(deleteNewsItem(id));

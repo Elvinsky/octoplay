@@ -21,11 +21,14 @@ export const fetchNews = () => async (dispatch) => {
 export const fetchPaginatedNews =
     (startOffset, endOffset) => async (dispatch) => {
         dispatch({type: 'NEWS/FETCH/START'});
+        dispatch({type: 'NEWS/AMOUNT/SET/START'});
         try {
             const news = await getPaginatedNews(startOffset, endOffset);
-            dispatch({type: 'NEWS/FETCH/SUCCESS', payload: news});
+            dispatch({type: 'NEWS/FETCH/SUCCESS', payload: news[0]});
+            dispatch({type: 'NEWS/AMOUNT/SET/SUCCESS', payload: news[1]});
         } catch (e) {
             console.error(e);
+            dispatch({type: 'NEWS/AMOUNT/SET/ERROR', payload: e});
             dispatch({type: 'NEWS/FETCH/ERROR', payload: e});
         }
     };
