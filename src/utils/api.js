@@ -24,6 +24,8 @@ export const deleteNews = (newsId) =>
     });
 
 export const getNews = () => fetchData(`${BASE_URL}news`);
+export const getPaginatedNews = (startOffset, endOffset) =>
+    fetchData(`${BASE_URL}news?_start=${startOffset}&_end=${endOffset}`);
 export const getRecentNews = () => fetchData(`${BASE_URL}news?_limit=6`);
 export const getNewsById = (newsId) => fetchData(`${BASE_URL}news/${newsId}`);
 export const postNews = (news) =>

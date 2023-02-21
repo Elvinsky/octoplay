@@ -10,7 +10,7 @@ export default function StickyFooter() {
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                minHeight: '20vh',
+                minHeight: '40vh',
             }}
         >
             <CssBaseline />
@@ -24,9 +24,7 @@ export default function StickyFooter() {
                 }}
             >
                 <Container maxWidth="sm">
-                    <Typography variant="body1">
-                        My sticky footer can be found here.
-                    </Typography>
+                    <Typography variant="body1"></Typography>
                     <Copyright />
                 </Container>
             </Box>
