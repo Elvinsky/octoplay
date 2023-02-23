@@ -5,7 +5,7 @@ function Header() {
     const [user] = useAdminCheck();
     if (!user) return <CustomBackdrop />;
     return (
-        <header className="flex  m-auto items-center justify-center custom-shadow p-3 bg-[#00717172] text-white">
+        <header className="flex  m-auto items-center justify-center p-3 bg-[#00ff11bb] text-black">
             <div className="font-black text-2xl flex items-center gap-2 mr-auto">
                 OCTO PLAY
                 <img
@@ -20,8 +20,8 @@ function Header() {
                     end="true"
                     className={({isActive}) =>
                         isActive
-                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer border-b-[3px] border-white'
-                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer'
+                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer border-b-[3px] border-black'
+                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer'
                     }
                 >
                     Home
@@ -31,8 +31,8 @@ function Header() {
                     end="true"
                     className={({isActive}) =>
                         isActive
-                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer border-b-[3px] border-white'
-                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer'
+                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer border-b-[3px] border-black'
+                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer'
                     }
                 >
                     [WIP]
@@ -42,8 +42,8 @@ function Header() {
                     end="true"
                     className={({isActive}) =>
                         isActive
-                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer border-b-[3px] border-white'
-                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer'
+                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer border-b-[3px] border-black'
+                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer'
                     }
                 >
                     News
@@ -55,8 +55,8 @@ function Header() {
                     //  duration-300 hover:text-emerald-600 hover:scale-110 hover:cursor-pointer"
                     className={({isActive}) =>
                         isActive
-                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer border-b-[3px] border-white'
-                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer'
+                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer border-b-[3px] border-black'
+                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer'
                     }
                 >
                     Top
@@ -66,8 +66,8 @@ function Header() {
                     end="true"
                     className={({isActive}) =>
                         isActive
-                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer border-b-[3px] border-white'
-                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer'
+                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer border-b-[3px] border-black'
+                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer'
                     }
                 >
                     Streams
@@ -79,8 +79,8 @@ function Header() {
                     end="true"
                     className={({isActive}) =>
                         isActive
-                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer border-b-[3px] border-white'
-                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-white hover:cursor-pointer'
+                            ? 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer border-b-[3px] border-black'
+                            : 'font-medium text-xl p-1 flex items-center transition-all duration-300  hover:scale-110 hover:border-b-[3px] hover:border-black hover:cursor-pointer'
                     }
                 >
                     {user.name}

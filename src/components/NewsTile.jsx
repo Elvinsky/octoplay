@@ -25,7 +25,7 @@ export default function NewsCard({
         onEditCheck();
     }, [onEditCheck]);
     return (
-        <Card sx={{maxWidth: 345, backgroundColor: '#18c9c972'}}>
+        <Card sx={{maxWidth: 345, backgroundColor: 'rgba(0, 255, 10, 0.1)'}}>
             <CardActionArea onClick={handleShowNews}>
                 <CardMedia
                     component="img"

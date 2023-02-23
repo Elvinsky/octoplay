@@ -35,7 +35,7 @@ function NewsDetails() {
     if (newsLoading && !newsError) return <CustomBackdrop />;
     else {
         return (
-            <div className=" flex flex-col gap-3 w-3/4 custom-shadow p-4 my-5 m-auto bg-[#00717172] rounded-md text-white">
+            <div className=" flex flex-col gap-3 w-3/4 shadow-lg p-4 my-5 m-auto rounded-md border border-[#0001]">
                 <div className="flex flex-col gap-2">
                     <Button
                         variant="contained"
@@ -56,7 +56,7 @@ function NewsDetails() {
                 <div className=" text-lg font-normal">{news.content}</div>
                 <div className="text-sm font-thin">{news.createdAt}</div>
                 {admin && (
-                    <div className="flex flex-row">
+                    <div className="flex flex-row gap-3">
                         <EditNewsModal id={id} news={news} />
                         <DeleteModal
                             hidden={admin ? false : true}

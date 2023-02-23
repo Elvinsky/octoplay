@@ -69,42 +69,16 @@ function AllNews() {
     else if (!news.map) return <CustomBackdrop />;
     else {
         return (
-            <div className="flex flex-col gap-7 w-3/4 m-auto mt-8 bg-[#00717172] p-3 rounded-md custom-shadow text-white">
-                <div className="custom-shadow flex flex-col p-5 m-auto gap-2 bg-[#11929272] rounded-[10px] mx-1">
-                    <div className="flex flex-row gap-5 items-center">
-                        <img
-                            src="https://cdn-icons-png.flaticon.com/512/507/507257.png"
-                            className="h-4 w-4"
-                            alt="back"
-                            onClick={handleGoBack}
-                        />
-                        <h1 className="text-3xl font-semibold">All News</h1>
-                        {admin && <AddNewsModal />}{' '}
-                        <TablePagination
-                            component="div"
-                            count={count}
-                            page={page}
-                            onPageChange={handleChangePage}
-                            onRowsPerPageChange={handleChangeRowsPerPage}
-                            rowsPerPage={rowsPerPage}
-                            rowsPerPageOptions={[9, 18, 27, 30, 33]}
-                            sx={{marginLeft: 'auto'}}
-                        />
-                    </div>
-
-                    <div className="flex flex-row gap-4 flex-wrap items-center mb-4 justify-center">
-                        {news.map((item) => (
-                            <NewsCard
-                                news={item}
-                                admin={admin}
-                                key={item.id}
-                                curPath={'/newspage/allnews'}
-                                onEditCheck={handleEditCheck}
-                                onDelete={handleDeleteItem}
-                                onShowNews={handleShowNewsDetails}
-                            />
-                        ))}
-                    </div>
+            <div className="flex flex-col gap-7 w-3/4 m-auto mt-8 p-3 rounded-md shadow-lg border border-[#0001]">
+                <div className="flex flex-row gap-5 items-center">
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/507/507257.png"
+                        className="h-4 w-4"
+                        alt="back"
+                        onClick={handleGoBack}
+                    />
+                    <h1 className="text-3xl font-semibold">All News</h1>
+                    {admin && <AddNewsModal />}{' '}
                     <TablePagination
                         component="div"
                         count={count}
@@ -113,8 +87,32 @@ function AllNews() {
                         onRowsPerPageChange={handleChangeRowsPerPage}
                         rowsPerPage={rowsPerPage}
                         rowsPerPageOptions={[9, 18, 27, 30, 33]}
+                        sx={{marginLeft: 'auto'}}
                     />
                 </div>
+
+                <div className="flex flex-row gap-4 flex-wrap items-center mb-4 justify-center">
+                    {news.map((item) => (
+                        <NewsCard
+                            news={item}
+                            admin={admin}
+                            key={item.id}
+                            curPath={'/newspage/allnews'}
+                            onEditCheck={handleEditCheck}
+                            onDelete={handleDeleteItem}
+                            onShowNews={handleShowNewsDetails}
+                        />
+                    ))}
+                </div>
+                <TablePagination
+                    component="div"
+                    count={count}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                    rowsPerPage={rowsPerPage}
+                    rowsPerPageOptions={[9, 18, 27, 30, 33]}
+                />
             </div>
         );
     }

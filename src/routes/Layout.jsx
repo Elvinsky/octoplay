@@ -7,7 +7,7 @@ function Layout() {
     const location = useLocation();
     useConditionalNav(location.pathname);
     return (
-        <div className="m-auto bg-gradient-to-b from-[#323232] to-[#141414]">
+        <div className="m-auto bg-[white]">
             <Header />
             <main>
                 <Outlet />

@@ -22,7 +22,7 @@ function News() {
     useFetch(fetchRecentDisc());
 
     const news = useSelector(selectNews);
-    const disc = useSelector(selectDisc);
+    const discussions = useSelector(selectDisc);
     const newsLoading = useSelector(selectNewsLoading);
     const discLoading = useSelector(selectDiscLoading);
     const [, admin] = useAdminCheck();
@@ -50,49 +50,48 @@ function News() {
         setWasEdited(!wasEdited);
     }, [wasEdited]);
     if (newsLoading || discLoading) return <CustomBackdrop />;
-    else if (news.length === 0 || disc.length === 0) return <CustomBackdrop />;
-    else if (!disc.map) return <CustomBackdrop />;
+    else if (news.length === 0 || discussions.length === 0)
+        return <CustomBackdrop />;
+    else if (!discussions.map) return <CustomBackdrop />;
     else if (!news.map) return <CustomBackdrop />;
     return (
-        <div className="flex flex-col gap-7 w-3/4 m-auto mt-8 bg-[#00717172] p-3 rounded-md custom-shadow text-white">
+        <div className="flex flex-col gap-7 w-3/4 m-auto mt-8 p-3 rounded-md shadow-lg border border-[#0001]">
             <div className="flex flex-row gap-5">
                 <h1 className="text-3xl font-semibold"> Recent news\</h1>
             </div>
-            <div className="custom-shadow flex flex-col p-5 m-auto gap-2 bg-[#11929272] rounded-[10px] mx-1">
-                <div className="flex flex-row gap-4 flex-wrap items-center mb-4 justify-center">
-                    {news.map((item) => (
-                        <div className="flex flex-col gap-2 items-center justify-center">
-                            <NewsCard
-                                news={item}
-                                admin={admin}
-                                key={item.id}
-                                onEditCheck={handleEditCheck}
-                                onDelete={handleDeleteItem}
-                                onShowNews={handleShowNewsDetails}
-                            />
-                        </div>
-                    ))}
-                </div>
-                <Grid container justifyContent="center">
-                    <Button
-                        size="large"
-                        variant="contained"
-                        color="primary"
-                        onClick={handleShowNews}
-                        sx={{
-                            backgroundColor: '#09b3b3',
-                            border: '0',
-                        }}
-                    >
-                        Show More
-                    </Button>
-                </Grid>
+            <div className="flex flex-row gap-4 flex-wrap items-center mb-4 justify-center">
+                {news.map((item) => (
+                    <div className="flex flex-col gap-2 items-center justify-center">
+                        <NewsCard
+                            news={item}
+                            admin={admin}
+                            key={item.id}
+                            onEditCheck={handleEditCheck}
+                            onDelete={handleDeleteItem}
+                            onShowNews={handleShowNewsDetails}
+                        />
+                    </div>
+                ))}
             </div>
+            <Grid container justifyContent="center">
+                <Button
+                    size="large"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleShowNews}
+                    sx={{
+                        backgroundColor: '#09b3b3',
+                        border: '0',
+                    }}
+                >
+                    Show More
+                </Button>
+            </Grid>
 
             <div className="flex flex-row gap-5">
                 <h1 className="text-3xl font-semibold"> Latest discussions\</h1>
             </div>
-            {disc.map((item) => (
+            {discussions.map((item) => (
                 <DiscussionTile admin={admin} key={item.id} disc={item} />
             ))}
             <Grid container justifyContent="center">
