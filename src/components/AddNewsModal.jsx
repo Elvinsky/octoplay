@@ -87,7 +87,7 @@ export default function AddNewsModal() {
                     <Grid container spacing={1}>
                         <Grid item xs={12}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="title"
@@ -101,7 +101,7 @@ export default function AddNewsModal() {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="content"
@@ -116,7 +116,7 @@ export default function AddNewsModal() {
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="url"
@@ -129,7 +129,7 @@ export default function AddNewsModal() {
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
-                                error={valid ? 0 : 1}
+                                error={valid ? false : true}
                                 autoFocus
                                 margin="dense"
                                 id="thumbUrl"

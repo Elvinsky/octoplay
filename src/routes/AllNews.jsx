@@ -1,3 +1,4 @@
+import {TablePagination} from '@mui/material';
 import {useCallback, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
@@ -6,22 +7,43 @@ import CustomBackdrop from '../components/Backdrop';
 import NewsCard from '../components/NewsTile';
 import useAdminCheck from '../hooks/useAdminCheck';
 import useFetch from '../hooks/useFetch';
-import {deleteNewsItem, fetchNews} from '../redux/news/newsActions';
+import {deleteNewsItem, fetchPaginatedNews} from '../redux/news/newsActions';
 import {
     selectNews,
+    selectNewsAmount,
     selectNewsError,
     selectNewsLoading,
 } from '../redux/news/newsSelectors';
 
 function AllNews() {
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(18);
     const [wasEdited, setWasEdited] = useState(false);
-    useFetch(fetchNews(), [wasEdited]);
+    const [, admin] = useAdminCheck();
+
+    useFetch(
+        fetchPaginatedNews(
+            rowsPerPage * page,
+            rowsPerPage * page + rowsPerPage
+        ),
+        [wasEdited, page, rowsPerPage]
+    );
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleChangePage = useCallback((event, page) => {
+        setPage(page);
+    }, []);
+    const handleChangeRowsPerPage = useCallback((event) => {
+        setRowsPerPage(event.target.value);
+    }, []);
+
+    const count = useSelector(selectNewsAmount);
     const news = useSelector(selectNews);
     const newsLoading = useSelector(selectNewsLoading);
     const newsError = useSelector(selectNewsError);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const [, admin] = useAdminCheck();
+
     const handleGoBack = useCallback(() => {
         navigate('/newspage');
     }, [navigate]);
@@ -42,6 +64,7 @@ function AllNews() {
     const handleEditCheck = useCallback(() => {
         setWasEdited(!wasEdited);
     }, [wasEdited]);
+
     if (!newsError && newsLoading) return <CustomBackdrop />;
     else if (!news.map) return <CustomBackdrop />;
     else {
@@ -56,8 +79,19 @@ function AllNews() {
                             onClick={handleGoBack}
                         />
                         <h1 className="text-3xl font-semibold">All News</h1>
-                        {admin && <AddNewsModal />}
+                        {admin && <AddNewsModal />}{' '}
+                        <TablePagination
+                            component="div"
+                            count={count}
+                            page={page}
+                            onPageChange={handleChangePage}
+                            onRowsPerPageChange={handleChangeRowsPerPage}
+                            rowsPerPage={rowsPerPage}
+                            rowsPerPageOptions={[9, 18, 27, 30, 33]}
+                            sx={{marginLeft: 'auto'}}
+                        />
                     </div>
+
                     <div className="flex flex-row gap-4 flex-wrap items-center mb-4 justify-center">
                         {news.map((item) => (
                             <NewsCard
@@ -71,6 +105,15 @@ function AllNews() {
                             />
                         ))}
                     </div>
+                    <TablePagination
+                        component="div"
+                        count={count}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage}
+                        rowsPerPage={rowsPerPage}
+                        rowsPerPageOptions={[9, 18, 27, 30, 33]}
+                    />
                 </div>
             </div>
         );
