@@ -17,9 +17,6 @@ const fetchData = async (url, options = {}) => {
     }
 };
 
-// const amount = parseInt(response.headers.get('X-Total-Count'));
-// localStorage.setItem('newsAmount', amount.toString());
-
 //-----------------------NEWS API-----------------------------
 export const deleteNews = (newsId) =>
     fetchData(`${BASE_URL}news/${newsId}`, {
@@ -65,6 +62,15 @@ export const postUser = (user) =>
 
 //-----------------------DISCUSSION API-----------------------------
 export const getDisc = () => fetchData(`${BASE_URL}discussions`);
+export const getPaginatedDiscussions = async (start, end) => {
+    const discussions = await fetch(
+        `${BASE_URL}discussions?_start=${start}&_end=${end}`
+    ).then((r) => r.json());
+    const amount = await fetch(
+        `${BASE_URL}discussions?_start=${start}&_end=${end}`
+    ).then((r) => parseInt(r.headers.get('X-Total-Count')));
+    return [discussions, amount];
+};
 export const getRecentDisc = () => fetchData(`${BASE_URL}discussions?_limit=5`);
 export const getDiscById = (id) => fetchData(`${BASE_URL}discussions/${id}`);
 export const getComments = (id) =>

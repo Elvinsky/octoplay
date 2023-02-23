@@ -3,6 +3,7 @@ import {
     getComments,
     getDisc,
     getDiscById,
+    getPaginatedDiscussions,
     getRecentDisc,
     patchDisc,
     postComment,
@@ -10,43 +11,60 @@ import {
 } from '../../utils/api';
 
 export const fetchDisc = () => async (dispatch) => {
-    dispatch({type: 'DISC/FETCH/START'});
+    dispatch({type: 'DISCUSSIONS/FETCH/START'});
     try {
         const disc = await getDisc();
-        dispatch({type: 'DISC/FETCH/SUCCESS', payload: disc});
+        dispatch({type: 'DISCUSSIONS/FETCH/SUCCESS', payload: disc});
     } catch (e) {
         console.error(e);
-        dispatch({type: 'DISC/FETCH/ERROR', payload: e});
+        dispatch({type: 'DISCUSSIONS/FETCH/ERROR', payload: e});
     }
 };
+export const fetchPaginatedDiscussions =
+    (startOffset, endOffset) => async (dispatch) => {
+        dispatch({type: 'DISCUSSIONS/FETCH/START'});
+        dispatch({type: 'DISCUSSIONS/AMOUNT/SET/START'});
+        try {
+            const news = await getPaginatedDiscussions(startOffset, endOffset);
+            dispatch({type: 'DISCUSSIONS/FETCH/SUCCESS', payload: news[0]});
+            dispatch({
+                type: 'DISCUSSIONS/AMOUNT/SET/SUCCESS',
+                payload: news[1],
+            });
+        } catch (e) {
+            console.error(e);
+            dispatch({type: 'DISCUSSIONS/AMOUNT/SET/ERROR', payload: e});
+            dispatch({type: 'DISCUSSIONS/FETCH/ERROR', payload: e});
+        }
+    };
 export const fetchRecentDisc = () => async (dispatch) => {
-    dispatch({type: 'DISC/FETCH/START'});
+    dispatch({type: 'DISCUSSIONS/FETCH/START'});
     try {
         const disc = await getRecentDisc();
-        dispatch({type: 'DISC/FETCH/SUCCESS', payload: disc});
+        dispatch({type: 'DISCUSSIONS/FETCH/SUCCESS', payload: disc});
     } catch (e) {
         console.error(e);
-        dispatch({type: 'DISC/FETCH/ERROR', payload: e});
+        dispatch({type: 'DISCUSSIONS/FETCH/ERROR', payload: e});
     }
 };
 export const fetchDiscById = (id) => async (dispatch) => {
-    dispatch({type: 'DISC/FETCH/START'});
+    dispatch({type: 'DISCUSSIONS/FETCH/START'});
     try {
         const disc = await getDiscById(id);
-        dispatch({type: 'DISC/FETCH/SUCCESS', payload: disc});
+        dispatch({type: 'DISCUSSIONS/FETCH/SUCCESS', payload: disc});
     } catch (e) {
         console.error(e);
-        dispatch({type: 'DISC/FETCH/ERROR', payload: e});
+        dispatch({type: 'DISCUSSIONS/FETCH/ERROR', payload: e});
     }
 };
 export const addDisc = (disc) => async (dispatch) => {
-    dispatch({type: 'DISC/ADD/START'});
+    dispatch({type: 'DISCUSSIONS/ADD/START'});
     await postDisc(disc);
     try {
-        dispatch({type: 'DISC/ADD/SUCCESS', payload: disc});
+        dispatch({type: 'DISCUSSIONS/ADD/SUCCESS', payload: disc});
     } catch (e) {
         console.error(e);
-        dispatch({type: 'DISC/ADD/ERROR', payload: e});
+        dispatch({type: 'DISCUSSIONS/ADD/ERROR', payload: e});
     }
 };
 
@@ -71,22 +89,22 @@ export const fetchComments = (id) => async (dispatch) => {
     }
 };
 export const deleteDiscItem = (id) => async (dispatch) => {
-    dispatch({type: 'DISC/DELETE/START'});
+    dispatch({type: 'DISCUSSIONS/DELETE/START'});
     try {
         await deleteDisc(id);
-        dispatch({type: 'DISC/DELETE/SUCCESS', payload: id});
+        dispatch({type: 'DISCUSSIONS/DELETE/SUCCESS', payload: id});
     } catch (e) {
         console.error(e);
-        dispatch({type: 'DISC/DELETE/ERROR', payload: e});
+        dispatch({type: 'DISCUSSIONS/DELETE/ERROR', payload: e});
     }
 };
 export const patchDiscItem = (disc, id) => async (dispatch) => {
-    dispatch({type: 'DISC/PATCH/START'});
+    dispatch({type: 'DISCUSSIONS/PATCH/START'});
     try {
         await patchDisc(disc, id);
-        dispatch({type: 'DISC/PATCH/SUCCESS', payload: disc});
+        dispatch({type: 'DISCUSSIONS/PATCH/SUCCESS', payload: disc});
     } catch (e) {
         console.error(e);
-        dispatch({type: 'DISC/PATCH/ERROR', payload: e});
+        dispatch({type: 'DISCUSSIONS/PATCH/ERROR', payload: e});
     }
 };

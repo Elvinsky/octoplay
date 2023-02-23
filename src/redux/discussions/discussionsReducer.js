@@ -1,44 +1,65 @@
 const DEFAULT_STATE = {
     discussions: [],
+    amount: 0,
     comments: [],
     loading: false,
     error: null,
 };
 export const discussionsReducer = (state = DEFAULT_STATE, {type, payload}) => {
     switch (type) {
-        case 'DISC/SET': {
+        case 'DISCUSSIONS/SET': {
             return {
                 ...state,
                 discussions: payload,
             };
         }
-
-        case 'DISC/FETCH/START': {
+        case 'DISCUSSIONS/AMOUNT/SET/START': {
             return {
                 ...state,
                 loading: true,
             };
         }
-        case 'DISC/FETCH/ERROR':
+        case 'DISCUSSIONS/AMOUNT/SET/SUCCESS': {
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                amount: payload,
+            };
+        }
+        case 'DISCUSSIONS/AMOUNT/SET/ERROR': {
             return {
                 ...state,
                 loading: false,
                 error: payload,
             };
-        case 'DISC/FETCH/SUCCESS':
+        }
+        case 'DISCUSSIONS/FETCH/START': {
+            return {
+                ...state,
+                loading: true,
+            };
+        }
+        case 'DISCUSSIONS/FETCH/ERROR':
+            return {
+                ...state,
+                loading: false,
+                error: payload,
+            };
+        case 'DISCUSSIONS/FETCH/SUCCESS':
             return {
                 ...state,
                 loading: false,
                 error: null,
                 discussions: payload,
             };
-        case 'DISC/ADD/START': {
+        case 'DISCUSSIONS/ADD/START': {
             return {
                 ...state,
                 loading: true,
             };
         }
-        case 'DISC/ADD/SUCCESS': {
+        case 'DISCUSSIONS/ADD/SUCCESS': {
             const disc = payload;
             return {
                 ...state,
@@ -46,20 +67,20 @@ export const discussionsReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 discussions: [...state.discussions, disc],
             };
         }
-        case 'DISC/ADD/ERROR': {
+        case 'DISCUSSIONS/ADD/ERROR': {
             return {
                 ...state,
                 loading: false,
                 error: payload,
             };
         }
-        case 'DISC/DELETE/START': {
+        case 'DISCUSSIONS/DELETE/START': {
             return {
                 ...state,
                 loading: true,
             };
         }
-        case 'DISC/DELETE/SUCCESS': {
+        case 'DISCUSSIONS/DELETE/SUCCESS': {
             const disc = payload;
             return {
                 ...state,
@@ -67,27 +88,27 @@ export const discussionsReducer = (state = DEFAULT_STATE, {type, payload}) => {
                 discussions: state.discussions.filter((n) => n.id !== disc.id),
             };
         }
-        case 'DISC/DELETE/ERROR': {
+        case 'DISCUSSIONS/DELETE/ERROR': {
             return {
                 ...state,
                 loading: false,
                 error: payload,
             };
         }
-        case 'DISC/PATCH/START': {
+        case 'DISCUSSIONS/PATCH/START': {
             return {
                 ...state,
                 loading: true,
             };
         }
-        case 'DISC/PATCH/SUCCESS': {
+        case 'DISCUSSIONS/PATCH/SUCCESS': {
             return {
                 ...state,
                 loading: false,
                 discussions: payload,
             };
         }
-        case 'DISC/PATCH/ERROR': {
+        case 'DISCUSSIONS/PATCH/ERROR': {
             return {
                 ...state,
                 loading: false,

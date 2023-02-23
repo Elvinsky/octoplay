@@ -1740,6 +1740,16 @@
       "thumbnailPic": "https://via.placeholder.com/390x200",
       "fullsizePic": "https://via.placeholder.com/500",
       "createdAt": "2/20/2023"
+    },
+    {
+      "id": "1677133462034",
+      "title": "123",
+      "content": "123123123123",
+      "liked": 0,
+      "watched": 0,
+      "thumbnailPic": "https://via.placeholder.com/390x200",
+      "fullsizePic": "https://via.placeholder.com/500",
+      "createdAt": "2/23/2023"
     }
   ],
   "discussions": [
@@ -1841,17 +1851,6 @@
       "fullsizePic": "",
       "createdAt": "Sun Jun 18 1978 06:38:39 GMT+0300 (Москва, стандартное время)",
       "author": "Boyer"
-    },
-    {
-      "id": "0b280eb6-2b21-44a2-9a15-01b62f73cb73",
-      "title": "reprehenderit esse",
-      "content": "Nulla non anim sint velit irure sint do dolor nulla magna est velit. Lorem cupidatat anim irure labore qui ex magna minim fugiat. Dolor mollit minim qui elit ea aliqua amet.\r\nAute dolore eu cupidatat incididunt sint incididunt sit veniam do non fugiat incididunt adipisicing. Enim tempor excepteur aute elit non Lorem. Et sunt consectetur duis voluptate occaecat aute nisi minim esse cillum et proident. Anim enim eu amet adipisicing pariatur anim ullamco dolore elit. Sunt ea veniam do et mollit commodo magna eiusmod fugiat consectetur aute. Duis voluptate esse commodo adipisicing consectetur pariatur cillum. Reprehenderit in irure deserunt consectetur dolor commodo labore ex aute voluptate.\r\nConsectetur culpa sunt ipsum incididunt elit Lorem fugiat aliqua in. Sint laboris voluptate fugiat adipisicing aliquip labore aute esse laboris dolore consequat aliqua. Ullamco sit aliqua culpa fugiat cillum exercitation quis eiusmod excepteur non consectetur.\r\n",
-      "liked": 3059,
-      "watched": 4096,
-      "thumbnailPic": "https://via.placeholder.com/130x130?text=Discussion+Placeholder",
-      "fullsizePic": "",
-      "createdAt": "Sat Dec 11 1999 14:38:53 GMT+0200 (Москва, стандартное время)",
-      "author": "Holmes"
     },
     {
       "id": "f9f1e08c-de90-4257-b948-d4bd1aaa56de",
