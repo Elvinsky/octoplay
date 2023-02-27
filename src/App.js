@@ -11,6 +11,7 @@ import Registration from './routes/Registration';
 import NewsDetails from './routes/NewsDetails';
 import Discussion from './routes/DIscussion';
 import AllDiscussions from './routes/AllDiscussions';
+import Error from './routes/Error';
 function App() {
     const router = createBrowserRouter([
         {
@@ -45,6 +46,7 @@ function App() {
                     path: '/discussions/alldiscussions',
                     element: <AllDiscussions />,
                 },
+
                 {
                     path: '/streams',
                     element: <Streams />,
@@ -52,6 +54,10 @@ function App() {
                 {
                     path: '/home',
                     element: <Home />,
+                },
+                {
+                    path: '*',
+                    element: <Error />,
                 },
             ],
         },

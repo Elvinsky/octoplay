@@ -808,29 +808,18 @@
       "nickname": "123",
       "createdAt": "20.02.2023",
       "status": "user"
+    },
+    {
+      "id": "1677184231117",
+      "email": "huesos@gmail.com",
+      "password": "123",
+      "name": "Даниил",
+      "nickname": "zzzind",
+      "createdAt": "2/23/2023",
+      "status": "user"
     }
   ],
   "news": [
-    {
-      "id": "8b42be35-326e-46c8-9f9f-3ad1c9561401",
-      "title": "nisi dolore",
-      "content": "Elit duis amet cupidatat voluptate ex consectetur et cupidatat nisi in id sunt pariatur dolor. Cillum commodo aliqua occaecat duis exercitation aliqua pariatur laborum. Officia magna aliquip do tempor id reprehenderit minim mollit.\r\nLaboris ad officia tempor eiusmod nisi do. Sunt minim et proident sunt ex. Consectetur ipsum aliqua cillum tempor nostrud mollit pariatur sint excepteur cupidatat ad do cillum ex.\r\nNon labore officia eu ad consequat esse esse velit nisi incididunt pariatur aliquip pariatur. Non qui sit mollit incididunt. Mollit sunt laborum aute elit sunt deserunt anim. Aliquip tempor in aliquip deserunt. Magna ex dolor Lorem consectetur fugiat veniam ipsum cillum aute labore consequat. Irure excepteur sint laboris laboris labore ipsum tempor ex incididunt occaecat. Amet consequat aute ipsum magna aute reprehenderit minim qui ut ipsum ullamco sunt mollit.\r\n",
-      "liked": 604,
-      "watched": 4047,
-      "thumbnailPic": "https://via.placeholder.com/390x200",
-      "fullsizePic": "https://via.placeholder.com/500",
-      "createdAt": "Mon Jan 03 2000 17:10:34 GMT+0200 (Москва, стандартное время)"
-    },
-    {
-      "id": "6a59cc37-8b9c-4b54-9412-340166829a2d",
-      "title": "sit qui",
-      "content": "Elit in ad et excepteur consectetur excepteur. Laboris in labore sunt cupidatat consectetur aute ex labore dolore duis. Ipsum commodo cupidatat non aute. Non ipsum nulla duis occaecat eu anim irure proident ullamco dolor. Non aliquip sit culpa voluptate consectetur reprehenderit aliqua minim eu. Est adipisicing qui minim quis enim commodo quis eiusmod nulla id fugiat mollit incididunt.\r\nOccaecat magna do aliquip est esse dolore. Tempor mollit aute ex proident Lorem Lorem proident amet labore aute aute ipsum culpa. Tempor aliqua cillum cillum cillum minim enim sint ad aute.\r\nPariatur cillum ad magna nulla sint eu adipisicing tempor quis amet quis aliqua aliqua sunt. Tempor sint esse sunt sit proident magna cupidatat est tempor fugiat nostrud. Incididunt id irure laborum mollit et in aliqua do laboris dolore culpa eu. Dolor nisi occaecat Lorem labore et id non adipisicing ipsum do in officia et. Esse nulla occaecat in nisi non fugiat pariatur ex ut.\r\n",
-      "liked": 2585,
-      "watched": 3590,
-      "thumbnailPic": "https://via.placeholder.com/390x200",
-      "fullsizePic": "https://via.placeholder.com/500",
-      "createdAt": "Sun Aug 07 2016 23:46:07 GMT+0300 (Москва, стандартное время)"
-    },
     {
       "id": "80c9d885-1ad1-479f-93c4-35e3f9d3e498",
       "title": "Lorem ullamco",
@@ -1743,8 +1732,8 @@
     },
     {
       "id": "1677133462034",
-      "title": "123",
-      "content": "123123123123",
+      "title": "123mmkmokmokmok",
+      "content": "Даник хуесос",
       "liked": 0,
       "watched": 0,
       "thumbnailPic": "https://via.placeholder.com/390x200",
@@ -1755,13 +1744,13 @@
   "discussions": [
     {
       "id": "0f82bf63-1442-473e-b0cc-feb65f10b93c",
-      "title": "ad ullamco",
+      "title": "ad ullamcoдлдлд",
       "content": "Sit aute nulla magna exercitation velit enim eiusmod qui quis nisi do non excepteur. Laboris velit dolor ut dolor nostrud. Ex qui esse mollit laboris. Culpa proident sint elit ad magna ad sint minim exercitation deserunt exercitation non aute id. Magna labore est excepteur duis cillum est nostrud adipisicing nostrud do duis labore. Cillum ipsum nulla commodo quis enim incididunt occaecat tempor consectetur nulla officia dolor ut.\r\nEu elit enim velit consectetur Lorem enim veniam occaecat incididunt non excepteur adipisicing. Voluptate excepteur est laborum eu ut ex deserunt aliqua cupidatat in in excepteur. Adipisicing duis ipsum ea et. Veniam est adipisicing irure Lorem mollit labore incididunt aliqua et anim cillum fugiat et est. Tempor reprehenderit occaecat elit excepteur est commodo aliqua et deserunt do. Aliquip ea deserunt laborum veniam.\r\nAliqua consequat consequat nulla amet do. Exercitation elit mollit culpa qui reprehenderit dolore ipsum ea. Id amet velit sit consectetur dolore consectetur elit et laboris ullamco eu do magna. Elit commodo incididunt minim aute aute nostrud.\r\n",
       "liked": 1986,
       "watched": 6739,
       "thumbnailPic": "https://via.placeholder.com/130x130?text=Discussion+Placeholder",
       "fullsizePic": "",
-      "createdAt": "Thu Oct 22 2015 05:41:24 GMT+0300 (Москва, стандартное время)",
+      "createdAt": "2/23/2023",
       "author": "Neva"
     },
     {
@@ -2906,6 +2895,33 @@
       "createdAt": "2/20/2023",
       "author": "Nick",
       "discussionId": "ee9ae619-d8fc-44fa-b3e1-5a5732af0e7e"
+    },
+    {
+      "id": "1677184107186",
+      "discussionID": "0f82bf63-1442-473e-b0cc-feb65f10b93c",
+      "content": "зддбыпзцуьпзйуц",
+      "liked": 0,
+      "createdAt": "2/23/2023",
+      "author": "Nick",
+      "discussionId": "0f82bf63-1442-473e-b0cc-feb65f10b93c"
+    },
+    {
+      "id": "1677184113528",
+      "discussionID": "0f82bf63-1442-473e-b0cc-feb65f10b93c",
+      "content": "фдбцвдбфцв",
+      "liked": 0,
+      "createdAt": "2/23/2023",
+      "author": "Nick",
+      "discussionId": "0f82bf63-1442-473e-b0cc-feb65f10b93c"
+    },
+    {
+      "id": "1677184251408",
+      "discussionID": "14c5566a-4fb7-4b07-9d3a-c75f349ca51a",
+      "content": ",mdobkpodhger",
+      "liked": 0,
+      "createdAt": "2/23/2023",
+      "author": "Даниил",
+      "discussionId": "14c5566a-4fb7-4b07-9d3a-c75f349ca51a"
     }
   ]
 }

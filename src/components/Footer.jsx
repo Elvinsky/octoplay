@@ -13,7 +13,7 @@ export default function StickyFooter() {
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                minHeight: '20vh',
+                minHeight: '30vh',
             }}
         >
             <CssBaseline />
@@ -22,7 +22,7 @@ export default function StickyFooter() {
                 sx={{
                     p: '1em',
                     mt: 'auto',
-                    backgroundColor: '#00ff11bb',
+                    backgroundColor: '#00f0109a',
                 }}
             >
                 <div className="flex flex-row m-auto items-center">
