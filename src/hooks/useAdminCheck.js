@@ -1,19 +1,16 @@
-import {useMemo, useState} from 'react';
+import {useMemo} from 'react';
+import {USER_TYPE} from '../constants/user-type';
 
-export default function useAdminCheck(deps = []) {
-    const [admin, setAdmin] = useState(false);
-    const [user, setUser] = useState();
-    useMemo(() => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        user ? setUser(user[0]) : setUser(undefined);
-    }, []);
-    useMemo(() => {
-        const curUser = user;
-        if (curUser) {
-            curUser.status === 'admin' ? setAdmin(true) : setAdmin(false);
-        } else {
-            setAdmin(false);
-        }
-    }, [user]);
-    return [user, admin];
+export default function useAdminCheck() {
+    const user = useMemo(
+        () => JSON.parse(localStorage.getItem('user'))?.[0],
+        []
+    );
+    // ! better to just return the USER_TYPE here
+    // and check the status in place, or define a function, like isAdmin(user)
+    const isAdmin = useMemo(
+        () => user?.status === USER_TYPE.ADMIN,
+        [user?.status]
+    );
+    return [user, isAdmin];
 }
